@@ -16,7 +16,8 @@ maintenant en Next.js sur agri-market-frontend.
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
+from django.views.static import serve as media_serve
 
 from drf_spectacular.views import (
     SpectacularAPIView,
@@ -112,3 +113,13 @@ urlpatterns = [
     ),
     path("api/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Sert /media/ meme en production (staging) : les images produits sont
+# versionnees dans le repo. Pour du durable -> stockage objet (S3/R2).
+urlpatterns += [
+    re_path(
+        r"^media/(?P<path>.*)$",
+        media_serve,
+        {"document_root": settings.MEDIA_ROOT},
+    ),
+]
