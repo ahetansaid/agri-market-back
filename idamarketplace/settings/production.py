@@ -5,10 +5,16 @@ from .base import *  # noqa: F401, F403, F405
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
-ALLOWED_HOSTS = os.getenv(
-    "ALLOWED_HOSTS",
-    "nourdignagrimarket.com,www.nourdignagrimarket.com",
-).split(",")
+ALLOWED_HOSTS = [
+    h.strip()
+    for h in os.getenv(
+        "ALLOWED_HOSTS", "nourdignagrimarket.com,www.nourdignagrimarket.com"
+    ).split(",")
+    if h.strip()
+]
+# Render : l'URL du service peut avoir un suffixe aleatoire (ex. -1egz),
+# on autorise donc tous les sous-domaines *.onrender.com.
+ALLOWED_HOSTS += [".onrender.com"]
 
 DATABASES = {
     "default": {
