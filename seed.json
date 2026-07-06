@@ -638,600 +638,15 @@
       "ville": "Lome",
       "code_postal": "228",
       "adresse": "Lome",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": null,
       "last_name": null,
       "individual_category": null,
       "created_at": "2025-06-18T19:31:51Z",
       "updated_at": "2026-03-20T22:27:57.415Z",
-      "groups": [
-        [
-          "announcement_first_validators"
-        ]
-      ],
-      "user_permissions": [
-        [
-          "add_blockedip",
-          "accounts",
-          "blockedip"
-        ],
-        [
-          "change_blockedip",
-          "accounts",
-          "blockedip"
-        ],
-        [
-          "delete_blockedip",
-          "accounts",
-          "blockedip"
-        ],
-        [
-          "view_blockedip",
-          "accounts",
-          "blockedip"
-        ],
-        [
-          "add_societe",
-          "accounts",
-          "societe"
-        ],
-        [
-          "change_societe",
-          "accounts",
-          "societe"
-        ],
-        [
-          "delete_societe",
-          "accounts",
-          "societe"
-        ],
-        [
-          "view_societe",
-          "accounts",
-          "societe"
-        ],
-        [
-          "add_utilisateur",
-          "accounts",
-          "utilisateur"
-        ],
-        [
-          "change_utilisateur",
-          "accounts",
-          "utilisateur"
-        ],
-        [
-          "delete_utilisateur",
-          "accounts",
-          "utilisateur"
-        ],
-        [
-          "view_utilisateur",
-          "accounts",
-          "utilisateur"
-        ],
-        [
-          "add_logentry",
-          "admin",
-          "logentry"
-        ],
-        [
-          "change_logentry",
-          "admin",
-          "logentry"
-        ],
-        [
-          "delete_logentry",
-          "admin",
-          "logentry"
-        ],
-        [
-          "view_logentry",
-          "admin",
-          "logentry"
-        ],
-        [
-          "add_group",
-          "auth",
-          "group"
-        ],
-        [
-          "change_group",
-          "auth",
-          "group"
-        ],
-        [
-          "delete_group",
-          "auth",
-          "group"
-        ],
-        [
-          "view_group",
-          "auth",
-          "group"
-        ],
-        [
-          "add_permission",
-          "auth",
-          "permission"
-        ],
-        [
-          "change_permission",
-          "auth",
-          "permission"
-        ],
-        [
-          "delete_permission",
-          "auth",
-          "permission"
-        ],
-        [
-          "view_permission",
-          "auth",
-          "permission"
-        ],
-        [
-          "add_about",
-          "blog",
-          "about"
-        ],
-        [
-          "change_about",
-          "blog",
-          "about"
-        ],
-        [
-          "delete_about",
-          "blog",
-          "about"
-        ],
-        [
-          "view_about",
-          "blog",
-          "about"
-        ],
-        [
-          "add_conversation",
-          "blog",
-          "conversation"
-        ],
-        [
-          "change_conversation",
-          "blog",
-          "conversation"
-        ],
-        [
-          "delete_conversation",
-          "blog",
-          "conversation"
-        ],
-        [
-          "view_conversation",
-          "blog",
-          "conversation"
-        ],
-        [
-          "add_message",
-          "blog",
-          "message"
-        ],
-        [
-          "change_message",
-          "blog",
-          "message"
-        ],
-        [
-          "delete_message",
-          "blog",
-          "message"
-        ],
-        [
-          "view_message",
-          "blog",
-          "message"
-        ],
-        [
-          "add_partenaire",
-          "blog",
-          "partenaire"
-        ],
-        [
-          "change_partenaire",
-          "blog",
-          "partenaire"
-        ],
-        [
-          "delete_partenaire",
-          "blog",
-          "partenaire"
-        ],
-        [
-          "view_partenaire",
-          "blog",
-          "partenaire"
-        ],
-        [
-          "add_sponsor",
-          "blog",
-          "sponsor"
-        ],
-        [
-          "change_sponsor",
-          "blog",
-          "sponsor"
-        ],
-        [
-          "delete_sponsor",
-          "blog",
-          "sponsor"
-        ],
-        [
-          "view_sponsor",
-          "blog",
-          "sponsor"
-        ],
-        [
-          "add_contenttype",
-          "contenttypes",
-          "contenttype"
-        ],
-        [
-          "change_contenttype",
-          "contenttypes",
-          "contenttype"
-        ],
-        [
-          "delete_contenttype",
-          "contenttypes",
-          "contenttype"
-        ],
-        [
-          "view_contenttype",
-          "contenttypes",
-          "contenttype"
-        ],
-        [
-          "add_evenement",
-          "evenements",
-          "evenement"
-        ],
-        [
-          "change_evenement",
-          "evenements",
-          "evenement"
-        ],
-        [
-          "delete_evenement",
-          "evenements",
-          "evenement"
-        ],
-        [
-          "view_evenement",
-          "evenements",
-          "evenement"
-        ],
-        [
-          "add_interetevenement",
-          "evenements",
-          "interetevenement"
-        ],
-        [
-          "change_interetevenement",
-          "evenements",
-          "interetevenement"
-        ],
-        [
-          "delete_interetevenement",
-          "evenements",
-          "interetevenement"
-        ],
-        [
-          "view_interetevenement",
-          "evenements",
-          "interetevenement"
-        ],
-        [
-          "add_question",
-          "evenements",
-          "question"
-        ],
-        [
-          "change_question",
-          "evenements",
-          "question"
-        ],
-        [
-          "delete_question",
-          "evenements",
-          "question"
-        ],
-        [
-          "view_question",
-          "evenements",
-          "question"
-        ],
-        [
-          "add_questionnaire",
-          "evenements",
-          "questionnaire"
-        ],
-        [
-          "change_questionnaire",
-          "evenements",
-          "questionnaire"
-        ],
-        [
-          "delete_questionnaire",
-          "evenements",
-          "questionnaire"
-        ],
-        [
-          "view_questionnaire",
-          "evenements",
-          "questionnaire"
-        ],
-        [
-          "add_reponsequestion",
-          "evenements",
-          "reponsequestion"
-        ],
-        [
-          "change_reponsequestion",
-          "evenements",
-          "reponsequestion"
-        ],
-        [
-          "delete_reponsequestion",
-          "evenements",
-          "reponsequestion"
-        ],
-        [
-          "view_reponsequestion",
-          "evenements",
-          "reponsequestion"
-        ],
-        [
-          "add_sectionquestion",
-          "evenements",
-          "sectionquestion"
-        ],
-        [
-          "change_sectionquestion",
-          "evenements",
-          "sectionquestion"
-        ],
-        [
-          "delete_sectionquestion",
-          "evenements",
-          "sectionquestion"
-        ],
-        [
-          "view_sectionquestion",
-          "evenements",
-          "sectionquestion"
-        ],
-        [
-          "add_sectionquestionnaire",
-          "evenements",
-          "sectionquestionnaire"
-        ],
-        [
-          "change_sectionquestionnaire",
-          "evenements",
-          "sectionquestionnaire"
-        ],
-        [
-          "delete_sectionquestionnaire",
-          "evenements",
-          "sectionquestionnaire"
-        ],
-        [
-          "view_sectionquestionnaire",
-          "evenements",
-          "sectionquestionnaire"
-        ],
-        [
-          "add_flagstate",
-          "flags",
-          "flagstate"
-        ],
-        [
-          "change_flagstate",
-          "flags",
-          "flagstate"
-        ],
-        [
-          "delete_flagstate",
-          "flags",
-          "flagstate"
-        ],
-        [
-          "view_flagstate",
-          "flags",
-          "flagstate"
-        ],
-        [
-          "add_announcement",
-          "marketplace",
-          "announcement"
-        ],
-        [
-          "change_announcement",
-          "marketplace",
-          "announcement"
-        ],
-        [
-          "delete_announcement",
-          "marketplace",
-          "announcement"
-        ],
-        [
-          "view_announcement",
-          "marketplace",
-          "announcement"
-        ],
-        [
-          "add_announcementview",
-          "marketplace",
-          "announcementview"
-        ],
-        [
-          "change_announcementview",
-          "marketplace",
-          "announcementview"
-        ],
-        [
-          "delete_announcementview",
-          "marketplace",
-          "announcementview"
-        ],
-        [
-          "view_announcementview",
-          "marketplace",
-          "announcementview"
-        ],
-        [
-          "add_category",
-          "marketplace",
-          "category"
-        ],
-        [
-          "change_category",
-          "marketplace",
-          "category"
-        ],
-        [
-          "delete_category",
-          "marketplace",
-          "category"
-        ],
-        [
-          "view_category",
-          "marketplace",
-          "category"
-        ],
-        [
-          "add_crontask",
-          "marketplace",
-          "crontask"
-        ],
-        [
-          "change_crontask",
-          "marketplace",
-          "crontask"
-        ],
-        [
-          "delete_crontask",
-          "marketplace",
-          "crontask"
-        ],
-        [
-          "view_crontask",
-          "marketplace",
-          "crontask"
-        ],
-        [
-          "add_subcategory",
-          "marketplace",
-          "subcategory"
-        ],
-        [
-          "change_subcategory",
-          "marketplace",
-          "subcategory"
-        ],
-        [
-          "delete_subcategory",
-          "marketplace",
-          "subcategory"
-        ],
-        [
-          "view_subcategory",
-          "marketplace",
-          "subcategory"
-        ],
-        [
-          "add_session",
-          "sessions",
-          "session"
-        ],
-        [
-          "change_session",
-          "sessions",
-          "session"
-        ],
-        [
-          "delete_session",
-          "sessions",
-          "session"
-        ],
-        [
-          "view_session",
-          "sessions",
-          "session"
-        ],
-        [
-          "add_site",
-          "sites",
-          "site"
-        ],
-        [
-          "change_site",
-          "sites",
-          "site"
-        ],
-        [
-          "delete_site",
-          "sites",
-          "site"
-        ],
-        [
-          "view_site",
-          "sites",
-          "site"
-        ],
-        [
-          "add_tag",
-          "taggit",
-          "tag"
-        ],
-        [
-          "change_tag",
-          "taggit",
-          "tag"
-        ],
-        [
-          "delete_tag",
-          "taggit",
-          "tag"
-        ],
-        [
-          "view_tag",
-          "taggit",
-          "tag"
-        ],
-        [
-          "add_taggeditem",
-          "taggit",
-          "taggeditem"
-        ],
-        [
-          "change_taggeditem",
-          "taggit",
-          "taggeditem"
-        ],
-        [
-          "delete_taggeditem",
-          "taggit",
-          "taggeditem"
-        ],
-        [
-          "view_taggeditem",
-          "taggit",
-          "taggeditem"
-        ]
-      ]
+      "groups": [],
+      "user_permissions": []
     }
   },
   {
@@ -1250,7 +665,7 @@
       "ville": "Niamey",
       "code_postal": "00227",
       "adresse": "Banifoundou2",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Barhamou",
       "last_name": "ISSAKA HAMA",
@@ -1277,7 +692,7 @@
       "ville": "Abomey Calavi",
       "code_postal": null,
       "adresse": "Arconville , ABOMEY-CALAVI",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Karsen",
       "last_name": "M.",
@@ -1385,7 +800,7 @@
       "ville": "Niamey",
       "code_postal": "00",
       "adresse": "boulouaboukarm.k@gmail.com",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Boulou Aboukar",
       "last_name": "Malam Kiari",
@@ -1412,7 +827,7 @@
       "ville": "Yaoundé",
       "code_postal": "B.P 332",
       "adresse": "Avenue Marc-Vivien Foé",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Charles",
       "last_name": "DJON EVINA",
@@ -1466,7 +881,7 @@
       "ville": "Dakar",
       "code_postal": "1959",
       "adresse": "46 rue fleurus x Abdou karim bourgi",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Baye Dame",
       "last_name": "Faye",
@@ -1493,7 +908,7 @@
       "ville": "Dakar",
       "code_postal": "15000",
       "adresse": "Guédiawaye",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Assane",
       "last_name": "Wade",
@@ -1547,7 +962,7 @@
       "ville": "Dakar",
       "code_postal": "009997",
       "adresse": "Pikine",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Abdou karim",
       "last_name": "Cissokho",
@@ -1574,7 +989,7 @@
       "ville": "Niamey",
       "code_postal": "",
       "adresse": "Aéroport S/c Cité ASECNA",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Maman",
       "last_name": "ILLA",
@@ -1601,7 +1016,7 @@
       "ville": "Abidjan",
       "code_postal": "00225",
       "adresse": "Abidjan",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -1655,7 +1070,7 @@
       "ville": "BUJUMBURA",
       "code_postal": "7148",
       "adresse": "BUJUMBURA-BURUNDI",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "LEONARD",
       "last_name": "NSAVYIMANA",
@@ -1709,7 +1124,7 @@
       "ville": "Kedougou",
       "code_postal": "90210",
       "adresse": "Quartier Ndiormi",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Cheikh Ahmadou Bamba",
       "last_name": "Fall",
@@ -1790,7 +1205,7 @@
       "ville": "Ouagadougou",
       "code_postal": "8335",
       "adresse": "11bp 8335 ouaga 11",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "WENDKOGUEDE HAMADO",
       "last_name": "Ouedraogo",
@@ -1817,7 +1232,7 @@
       "ville": "Ouagadougou",
       "code_postal": "11 BP 8335",
       "adresse": "11 BP 8335",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Abdoulaye",
       "last_name": "Ouedraogo",
@@ -1844,7 +1259,7 @@
       "ville": "Kaolack",
       "code_postal": "",
       "adresse": "Médina baye",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "El Hadji",
       "last_name": "Ndiaye",
@@ -1871,7 +1286,7 @@
       "ville": "Torino",
       "code_postal": "10100",
       "adresse": "via Tripoli 48",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Susanna",
       "last_name": "Alluto",
@@ -1879,588 +1294,7 @@
       "created_at": "2026-03-20T22:16:10.139Z",
       "updated_at": "2026-03-20T23:05:48.083Z",
       "groups": [],
-      "user_permissions": [
-        [
-          "add_blockedip",
-          "accounts",
-          "blockedip"
-        ],
-        [
-          "change_blockedip",
-          "accounts",
-          "blockedip"
-        ],
-        [
-          "delete_blockedip",
-          "accounts",
-          "blockedip"
-        ],
-        [
-          "view_blockedip",
-          "accounts",
-          "blockedip"
-        ],
-        [
-          "add_societe",
-          "accounts",
-          "societe"
-        ],
-        [
-          "change_societe",
-          "accounts",
-          "societe"
-        ],
-        [
-          "delete_societe",
-          "accounts",
-          "societe"
-        ],
-        [
-          "view_societe",
-          "accounts",
-          "societe"
-        ],
-        [
-          "add_utilisateur",
-          "accounts",
-          "utilisateur"
-        ],
-        [
-          "change_utilisateur",
-          "accounts",
-          "utilisateur"
-        ],
-        [
-          "delete_utilisateur",
-          "accounts",
-          "utilisateur"
-        ],
-        [
-          "view_utilisateur",
-          "accounts",
-          "utilisateur"
-        ],
-        [
-          "add_logentry",
-          "admin",
-          "logentry"
-        ],
-        [
-          "change_logentry",
-          "admin",
-          "logentry"
-        ],
-        [
-          "delete_logentry",
-          "admin",
-          "logentry"
-        ],
-        [
-          "view_logentry",
-          "admin",
-          "logentry"
-        ],
-        [
-          "add_group",
-          "auth",
-          "group"
-        ],
-        [
-          "change_group",
-          "auth",
-          "group"
-        ],
-        [
-          "delete_group",
-          "auth",
-          "group"
-        ],
-        [
-          "view_group",
-          "auth",
-          "group"
-        ],
-        [
-          "add_permission",
-          "auth",
-          "permission"
-        ],
-        [
-          "change_permission",
-          "auth",
-          "permission"
-        ],
-        [
-          "delete_permission",
-          "auth",
-          "permission"
-        ],
-        [
-          "view_permission",
-          "auth",
-          "permission"
-        ],
-        [
-          "add_about",
-          "blog",
-          "about"
-        ],
-        [
-          "change_about",
-          "blog",
-          "about"
-        ],
-        [
-          "delete_about",
-          "blog",
-          "about"
-        ],
-        [
-          "view_about",
-          "blog",
-          "about"
-        ],
-        [
-          "add_conversation",
-          "blog",
-          "conversation"
-        ],
-        [
-          "change_conversation",
-          "blog",
-          "conversation"
-        ],
-        [
-          "delete_conversation",
-          "blog",
-          "conversation"
-        ],
-        [
-          "view_conversation",
-          "blog",
-          "conversation"
-        ],
-        [
-          "add_message",
-          "blog",
-          "message"
-        ],
-        [
-          "change_message",
-          "blog",
-          "message"
-        ],
-        [
-          "delete_message",
-          "blog",
-          "message"
-        ],
-        [
-          "view_message",
-          "blog",
-          "message"
-        ],
-        [
-          "add_partenaire",
-          "blog",
-          "partenaire"
-        ],
-        [
-          "change_partenaire",
-          "blog",
-          "partenaire"
-        ],
-        [
-          "delete_partenaire",
-          "blog",
-          "partenaire"
-        ],
-        [
-          "view_partenaire",
-          "blog",
-          "partenaire"
-        ],
-        [
-          "add_sponsor",
-          "blog",
-          "sponsor"
-        ],
-        [
-          "change_sponsor",
-          "blog",
-          "sponsor"
-        ],
-        [
-          "delete_sponsor",
-          "blog",
-          "sponsor"
-        ],
-        [
-          "view_sponsor",
-          "blog",
-          "sponsor"
-        ],
-        [
-          "add_contenttype",
-          "contenttypes",
-          "contenttype"
-        ],
-        [
-          "change_contenttype",
-          "contenttypes",
-          "contenttype"
-        ],
-        [
-          "delete_contenttype",
-          "contenttypes",
-          "contenttype"
-        ],
-        [
-          "view_contenttype",
-          "contenttypes",
-          "contenttype"
-        ],
-        [
-          "add_evenement",
-          "evenements",
-          "evenement"
-        ],
-        [
-          "change_evenement",
-          "evenements",
-          "evenement"
-        ],
-        [
-          "delete_evenement",
-          "evenements",
-          "evenement"
-        ],
-        [
-          "view_evenement",
-          "evenements",
-          "evenement"
-        ],
-        [
-          "add_interetevenement",
-          "evenements",
-          "interetevenement"
-        ],
-        [
-          "change_interetevenement",
-          "evenements",
-          "interetevenement"
-        ],
-        [
-          "delete_interetevenement",
-          "evenements",
-          "interetevenement"
-        ],
-        [
-          "view_interetevenement",
-          "evenements",
-          "interetevenement"
-        ],
-        [
-          "add_question",
-          "evenements",
-          "question"
-        ],
-        [
-          "change_question",
-          "evenements",
-          "question"
-        ],
-        [
-          "delete_question",
-          "evenements",
-          "question"
-        ],
-        [
-          "view_question",
-          "evenements",
-          "question"
-        ],
-        [
-          "add_questionnaire",
-          "evenements",
-          "questionnaire"
-        ],
-        [
-          "change_questionnaire",
-          "evenements",
-          "questionnaire"
-        ],
-        [
-          "delete_questionnaire",
-          "evenements",
-          "questionnaire"
-        ],
-        [
-          "view_questionnaire",
-          "evenements",
-          "questionnaire"
-        ],
-        [
-          "add_reponsequestion",
-          "evenements",
-          "reponsequestion"
-        ],
-        [
-          "change_reponsequestion",
-          "evenements",
-          "reponsequestion"
-        ],
-        [
-          "delete_reponsequestion",
-          "evenements",
-          "reponsequestion"
-        ],
-        [
-          "view_reponsequestion",
-          "evenements",
-          "reponsequestion"
-        ],
-        [
-          "add_sectionquestion",
-          "evenements",
-          "sectionquestion"
-        ],
-        [
-          "change_sectionquestion",
-          "evenements",
-          "sectionquestion"
-        ],
-        [
-          "delete_sectionquestion",
-          "evenements",
-          "sectionquestion"
-        ],
-        [
-          "view_sectionquestion",
-          "evenements",
-          "sectionquestion"
-        ],
-        [
-          "add_sectionquestionnaire",
-          "evenements",
-          "sectionquestionnaire"
-        ],
-        [
-          "change_sectionquestionnaire",
-          "evenements",
-          "sectionquestionnaire"
-        ],
-        [
-          "delete_sectionquestionnaire",
-          "evenements",
-          "sectionquestionnaire"
-        ],
-        [
-          "view_sectionquestionnaire",
-          "evenements",
-          "sectionquestionnaire"
-        ],
-        [
-          "add_flagstate",
-          "flags",
-          "flagstate"
-        ],
-        [
-          "change_flagstate",
-          "flags",
-          "flagstate"
-        ],
-        [
-          "delete_flagstate",
-          "flags",
-          "flagstate"
-        ],
-        [
-          "view_flagstate",
-          "flags",
-          "flagstate"
-        ],
-        [
-          "add_announcement",
-          "marketplace",
-          "announcement"
-        ],
-        [
-          "change_announcement",
-          "marketplace",
-          "announcement"
-        ],
-        [
-          "delete_announcement",
-          "marketplace",
-          "announcement"
-        ],
-        [
-          "view_announcement",
-          "marketplace",
-          "announcement"
-        ],
-        [
-          "add_announcementview",
-          "marketplace",
-          "announcementview"
-        ],
-        [
-          "change_announcementview",
-          "marketplace",
-          "announcementview"
-        ],
-        [
-          "delete_announcementview",
-          "marketplace",
-          "announcementview"
-        ],
-        [
-          "view_announcementview",
-          "marketplace",
-          "announcementview"
-        ],
-        [
-          "add_category",
-          "marketplace",
-          "category"
-        ],
-        [
-          "change_category",
-          "marketplace",
-          "category"
-        ],
-        [
-          "delete_category",
-          "marketplace",
-          "category"
-        ],
-        [
-          "view_category",
-          "marketplace",
-          "category"
-        ],
-        [
-          "add_crontask",
-          "marketplace",
-          "crontask"
-        ],
-        [
-          "change_crontask",
-          "marketplace",
-          "crontask"
-        ],
-        [
-          "delete_crontask",
-          "marketplace",
-          "crontask"
-        ],
-        [
-          "view_crontask",
-          "marketplace",
-          "crontask"
-        ],
-        [
-          "add_subcategory",
-          "marketplace",
-          "subcategory"
-        ],
-        [
-          "change_subcategory",
-          "marketplace",
-          "subcategory"
-        ],
-        [
-          "delete_subcategory",
-          "marketplace",
-          "subcategory"
-        ],
-        [
-          "view_subcategory",
-          "marketplace",
-          "subcategory"
-        ],
-        [
-          "add_session",
-          "sessions",
-          "session"
-        ],
-        [
-          "change_session",
-          "sessions",
-          "session"
-        ],
-        [
-          "delete_session",
-          "sessions",
-          "session"
-        ],
-        [
-          "view_session",
-          "sessions",
-          "session"
-        ],
-        [
-          "add_site",
-          "sites",
-          "site"
-        ],
-        [
-          "change_site",
-          "sites",
-          "site"
-        ],
-        [
-          "delete_site",
-          "sites",
-          "site"
-        ],
-        [
-          "view_site",
-          "sites",
-          "site"
-        ],
-        [
-          "add_tag",
-          "taggit",
-          "tag"
-        ],
-        [
-          "change_tag",
-          "taggit",
-          "tag"
-        ],
-        [
-          "delete_tag",
-          "taggit",
-          "tag"
-        ],
-        [
-          "view_tag",
-          "taggit",
-          "tag"
-        ],
-        [
-          "add_taggeditem",
-          "taggit",
-          "taggeditem"
-        ],
-        [
-          "change_taggeditem",
-          "taggit",
-          "taggeditem"
-        ],
-        [
-          "delete_taggeditem",
-          "taggit",
-          "taggeditem"
-        ],
-        [
-          "view_taggeditem",
-          "taggit",
-          "taggeditem"
-        ]
-      ]
+      "user_permissions": []
     }
   },
   {
@@ -2479,7 +1313,7 @@
       "ville": "Abidjan",
       "code_postal": "Abidjan",
       "adresse": "00225",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Niget Laetitia Pauline",
       "last_name": "Tanoh",
@@ -2506,7 +1340,7 @@
       "ville": "ABIDJAN",
       "code_postal": "225",
       "adresse": "09 BP 2459 ABIDJAN 09",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "NAHAOUA",
       "last_name": "SYLLA",
@@ -2533,7 +1367,7 @@
       "ville": "dakar",
       "code_postal": "95002",
       "adresse": "1266 liberte 1",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "KHADIDIATOU",
       "last_name": "SENE",
@@ -2560,7 +1394,7 @@
       "ville": "Tiassale",
       "code_postal": "",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -2614,7 +1448,7 @@
       "ville": "Abidjan",
       "code_postal": null,
       "adresse": "01 BP 10373",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Adama",
       "last_name": "KONE",
@@ -2749,7 +1583,7 @@
       "ville": "NIAMEY",
       "code_postal": "12281",
       "adresse": "RUE KK-37 CN1 PORTE529",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "ABDOU",
       "last_name": "BOUBA",
@@ -2776,7 +1610,7 @@
       "ville": "Niamey",
       "code_postal": "12281",
       "adresse": "RUE KK-37 CN2 Porte 529 Kouara Kano",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -2830,7 +1664,7 @@
       "ville": "Dakar",
       "code_postal": "",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Aliou",
       "last_name": "Ndiaye",
@@ -2884,7 +1718,7 @@
       "ville": "LORIA",
       "code_postal": "31037",
       "adresse": "VIALE GIOVANNI FALCONE 16 - Loc. Castione",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -2911,7 +1745,7 @@
       "ville": "LORIA",
       "code_postal": "31037",
       "adresse": "Viale Giovanni Falcone 16 - Loc. Castione",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -2938,7 +1772,7 @@
       "ville": "Villafranca di Verona",
       "code_postal": "37069",
       "adresse": "Viale del lavoro, 12/A",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -2992,7 +1826,7 @@
       "ville": "Dakar",
       "code_postal": "221",
       "adresse": "Hlm patte d'oie Dakar",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Aminata",
       "last_name": "Thiao",
@@ -3127,7 +1961,7 @@
       "ville": "DAKAR",
       "code_postal": "18524",
       "adresse": "RUE ALPHA HACHAMIYOU TALL",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Alessandro",
       "last_name": "Gerbino",
@@ -3208,7 +2042,7 @@
       "ville": "Dakar",
       "code_postal": "00221",
       "adresse": "Ouakam Cité El Hadj Malick Sy",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Khadidiatou",
       "last_name": "Ndoye",
@@ -3262,7 +2096,7 @@
       "ville": "Port Harcourt",
       "code_postal": "",
       "adresse": "No. 125 Stadium Road, Ndigo Mall, Port Harcourt, Rivers State",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -3316,7 +2150,7 @@
       "ville": "CREMONA",
       "code_postal": "26100",
       "adresse": "ferrazzifrancesco",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -3343,7 +2177,7 @@
       "ville": "Ouagadougou",
       "code_postal": "01",
       "adresse": "824, rue 8-50, BP 4872",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "SERGE",
       "last_name": "MEDA",
@@ -3478,7 +2312,7 @@
       "ville": "P,O. Box 197, Tamale",
       "code_postal": "0233",
       "adresse": "P.o.Box 197, Tamale",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Mohammed",
       "last_name": "Munkaila",
@@ -3505,7 +2339,7 @@
       "ville": "Italy",
       "code_postal": "00010",
       "adresse": "Via Paola 41 – 00186 – Roma Italy",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Fortunato",
       "last_name": "Dino",
@@ -3532,7 +2366,7 @@
       "ville": "Tamale",
       "code_postal": "0233",
       "adresse": "P.o.Box 816. Tamale",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Siaw  Yahnathan",
       "last_name": "Frank",
@@ -3559,7 +2393,7 @@
       "ville": "Tamale-Northern region",
       "code_postal": "+233-037420",
       "adresse": "P.o.Box 1235, Tamale",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Saeed",
       "last_name": "Abdul-mumin",
@@ -3586,7 +2420,7 @@
       "ville": "Tamale. Northern region",
       "code_postal": "03720",
       "adresse": "P.o.Box 197, Tamale",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Issahak",
       "last_name": "Ayuba",
@@ -3613,7 +2447,7 @@
       "ville": "Tamale- Northern region",
       "code_postal": "03720",
       "adresse": "P.o.Box 197, Tamale",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Salifu",
       "last_name": "Shirazu",
@@ -3640,7 +2474,7 @@
       "ville": "Northern region, Tamale",
       "code_postal": "03720",
       "adresse": "P.o.Box 1235, Tamale",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Tawiah Giffy",
       "last_name": "Adwoa",
@@ -3667,7 +2501,7 @@
       "ville": "Accra ,Greater Accra region",
       "code_postal": "+233",
       "adresse": "Box 1235",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Tawiah  Gifty",
       "last_name": "Adwoa",
@@ -3694,7 +2528,7 @@
       "ville": "Northern region",
       "code_postal": "0233",
       "adresse": "P.o.Box 2676,  Northern region, Tamale",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Kyei",
       "last_name": "Joyce",
@@ -3721,7 +2555,7 @@
       "ville": "Tamale, Northern region",
       "code_postal": "+23303720",
       "adresse": "P.o.Box 197, Tamale",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Abdulai",
       "last_name": "Danaah",
@@ -3748,7 +2582,7 @@
       "ville": "Accra ,Greater Accra region",
       "code_postal": "+233",
       "adresse": "Box 816 , Tamale",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Frimpong",
       "last_name": "Manso",
@@ -3775,7 +2609,7 @@
       "ville": "Lomé",
       "code_postal": "",
       "adresse": "cacaveli CEET",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -3883,7 +2717,7 @@
       "ville": "Conakry",
       "code_postal": "5486",
       "adresse": "Quartier Belle Vue à Côté de la villa Syli auprès de la moquée Immeuble DIALLO 2ème Etages Commune de Dixinn",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "N’FANLY",
       "last_name": "CAMARA",
@@ -3910,7 +2744,7 @@
       "ville": "Lome",
       "code_postal": "228",
       "adresse": "Lome",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "brice",
       "last_name": "Yakpa",
@@ -3937,7 +2771,7 @@
       "ville": "Kampala",
       "code_postal": "",
       "adresse": "Bujuuko mytiana Road",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Kiuka",
       "last_name": "Mbayo",
@@ -4018,7 +2852,7 @@
       "ville": "ge",
       "code_postal": "16128",
       "adresse": "corso andrea podesta 1",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Davide",
       "last_name": "Brumana",
@@ -4072,7 +2906,7 @@
       "ville": "Accra",
       "code_postal": "",
       "adresse": "1 New Road Adenta Commandos",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Richard",
       "last_name": "Tackie",
@@ -4126,7 +2960,7 @@
       "ville": "Ndjamena",
       "code_postal": "228",
       "adresse": "Avenue tombabaye 24",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Defallah",
       "last_name": "Adoum Defallah",
@@ -4153,7 +2987,7 @@
       "ville": "Abidjan",
       "code_postal": "",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Wilfried Evrard",
       "last_name": "KOYO",
@@ -4180,7 +3014,7 @@
       "ville": "Kampala",
       "code_postal": "",
       "adresse": "Plot 8, Kajoba Rd, Kigungu ,DIvision B Entebbe",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Still Waters Uganda",
       "last_name": "Mwesigwa",
@@ -4234,7 +3068,7 @@
       "ville": "Dakar",
       "code_postal": "12000",
       "adresse": "Ouest Foire",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Abdoulaye",
       "last_name": "loum",
@@ -4261,7 +3095,7 @@
       "ville": "dakar",
       "code_postal": "11000",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Mamadou galaye",
       "last_name": "Fall",
@@ -4288,7 +3122,7 @@
       "ville": "Schio",
       "code_postal": "36015",
       "adresse": "Via Lago di Bolsena, 28",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -4342,7 +3176,7 @@
       "ville": "Monttpellier",
       "code_postal": "34000",
       "adresse": "73, Allée Kléber",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -4450,7 +3284,7 @@
       "ville": "Dakar",
       "code_postal": "11000",
       "adresse": "Thiaroye",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Fatou",
       "last_name": "Ndiaye",
@@ -4477,7 +3311,7 @@
       "ville": "Thiaroye",
       "code_postal": "11000",
       "adresse": "Dalifort",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Marie",
       "last_name": "Ndong",
@@ -4531,7 +3365,7 @@
       "ville": "",
       "code_postal": "",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Mamour",
       "last_name": "Ndiaye",
@@ -4558,7 +3392,7 @@
       "ville": "Torino",
       "code_postal": "10100",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "xxxxx",
       "last_name": "yyyyy",
@@ -4639,7 +3473,7 @@
       "ville": "",
       "code_postal": "",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "BONAVENTURE",
       "last_name": "FORGIVE",
@@ -4720,7 +3554,7 @@
       "ville": "RUFISQUE",
       "code_postal": "",
       "adresse": "KEUR NDIAYE LO",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -4747,7 +3581,7 @@
       "ville": "rufisque",
       "code_postal": "",
       "adresse": "KEUR NDIAYE LO",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "YOUSSOU",
       "last_name": "NDIAYE",
@@ -4774,7 +3608,7 @@
       "ville": "",
       "code_postal": "",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -4801,7 +3635,7 @@
       "ville": "Divo",
       "code_postal": "",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -4828,7 +3662,7 @@
       "ville": "RUFISQUE",
       "code_postal": "",
       "adresse": "KEUR NDIAYE LO",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -4855,7 +3689,7 @@
       "ville": "Kinshasa",
       "code_postal": "00",
       "adresse": "Avenue des Eléphants 911 Comune de Limete",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Lilonga Sarah",
       "last_name": "Maritule",
@@ -4882,7 +3716,7 @@
       "ville": "Agliè",
       "code_postal": "10011",
       "adresse": "CNE MALESINA 1",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Simona",
       "last_name": "Appino",
@@ -4909,7 +3743,7 @@
       "ville": "ABIDJAN",
       "code_postal": "00225",
       "adresse": "COCODY RIVIERA GOLF",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "ARTHUR GAUTIER",
       "last_name": "BOHOU",
@@ -4936,7 +3770,7 @@
       "ville": "Abidjan",
       "code_postal": "00225",
       "adresse": "Cocody Riviera Attoban",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -4963,7 +3797,7 @@
       "ville": "Padova",
       "code_postal": "35129",
       "adresse": "Via Luigi Einaudi 10",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Benard",
       "last_name": "Maswach",
@@ -5017,7 +3851,7 @@
       "ville": "Kinshasa",
       "code_postal": "",
       "adresse": "Haut-Congo34 commune de la Gombe",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Renedie",
       "last_name": "MPEMBELE",
@@ -5044,7 +3878,7 @@
       "ville": "Kinshasa",
       "code_postal": "00243",
       "adresse": "christianmikienie@gmail.com",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Christian",
       "last_name": "Mikieni",
@@ -5152,7 +3986,7 @@
       "ville": "Piacenza",
       "code_postal": "29122",
       "adresse": "Via muratori n8",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Abraham Kebede",
       "last_name": "Assefa",
@@ -5179,7 +4013,7 @@
       "ville": "YAOUNDE",
       "code_postal": "35030",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Vincent",
       "last_name": "ONANA BINYEGUI",
@@ -5233,7 +4067,7 @@
       "ville": "Kedougou",
       "code_postal": "",
       "adresse": "KEDOUGOU",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Essous",
       "last_name": "Marie Adelaide",
@@ -5287,7 +4121,7 @@
       "ville": "Saint louis",
       "code_postal": "32200",
       "adresse": "Ross bethio",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -5314,7 +4148,7 @@
       "ville": "Yaounde",
       "code_postal": "00",
       "adresse": "Nouvelle route bastos",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "AZAEL",
       "last_name": "WOUBIWOU BIMIGO",
@@ -5530,7 +4364,7 @@
       "ville": "Abidjan",
       "code_postal": "",
       "adresse": "Abidjan",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Kouassi Léonard",
       "last_name": "KOFFI",
@@ -5692,7 +4526,7 @@
       "ville": "Dakar",
       "code_postal": "",
       "adresse": "Mermoz,résidence la pointe lot n°72",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -5746,7 +4580,7 @@
       "ville": "thies",
       "code_postal": "21021",
       "adresse": "THIONAKH PEULH ZONE NORD",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "oumy",
       "last_name": "bal",
@@ -5854,7 +4688,7 @@
       "ville": "Dakar",
       "code_postal": "10000",
       "adresse": "VDN-MERMOZ Villa 7287, Dakar",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Zoubida",
       "last_name": "Bengeloune",
@@ -5908,7 +4742,7 @@
       "ville": "Roma",
       "code_postal": "00165",
       "adresse": "via della Stazione di San Pietro 22b",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Filippo",
       "last_name": "Scammacca del Murgo",
@@ -5962,7 +4796,7 @@
       "ville": "Roma",
       "code_postal": "00165",
       "adresse": "via della stazione di San Pietro 22B 00165 Roma",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Filippo",
       "last_name": "Scammacca",
@@ -6043,7 +4877,7 @@
       "ville": "Dakar",
       "code_postal": "11700",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "entreprise",
       "first_name": "",
       "last_name": "",
@@ -6070,7 +4904,7 @@
       "ville": "Dakar",
       "code_postal": "",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Tabara",
       "last_name": "Gueye",
@@ -6124,7 +4958,7 @@
       "ville": "Bamako",
       "code_postal": "00000",
       "adresse": "Faladie sema",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Sidiki",
       "last_name": "Sow",
@@ -6151,7 +4985,7 @@
       "ville": "Bamako",
       "code_postal": "R3C2A2",
       "adresse": "Faladie",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "James",
       "last_name": "Sow",
@@ -6178,7 +5012,7 @@
       "ville": "Bamako",
       "code_postal": "000000",
       "adresse": "",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Malik",
       "last_name": "Sow",
@@ -6205,25 +5039,15 @@
       "ville": "Lome",
       "code_postal": "228",
       "adresse": "Lome",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "brice",
       "last_name": "Yakpa",
       "individual_category": "agriculteur",
       "created_at": "2026-03-20T23:28:17.815Z",
       "updated_at": "2026-05-07T10:39:23.447Z",
-      "groups": [
-        [
-          "announcement_first_validators"
-        ]
-      ],
-      "user_permissions": [
-        [
-          "view_announcement",
-          "marketplace",
-          "announcement"
-        ]
-      ]
+      "groups": [],
+      "user_permissions": []
     }
   },
   {
@@ -6242,7 +5066,7 @@
       "ville": "Benin",
       "code_postal": null,
       "adresse": "BP130",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Géralde",
       "last_name": "A.",
@@ -6269,7 +5093,7 @@
       "ville": "Douala",
       "code_postal": null,
       "adresse": null,
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Yannick Fabrice",
       "last_name": "BOUM",
@@ -6296,7 +5120,7 @@
       "ville": "Cotonou",
       "code_postal": "1232",
       "adresse": null,
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "SAID",
       "last_name": "AHETAN",
@@ -6323,7 +5147,7 @@
       "ville": null,
       "code_postal": null,
       "adresse": null,
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": null,
       "last_name": null,
@@ -6350,7 +5174,7 @@
       "ville": null,
       "code_postal": null,
       "adresse": null,
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": null,
       "last_name": null,
@@ -6377,7 +5201,7 @@
       "ville": null,
       "code_postal": null,
       "adresse": null,
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": null,
       "last_name": null,
@@ -6404,7 +5228,7 @@
       "ville": "Cotonou",
       "code_postal": "00229",
       "adresse": "Cotonou",
-      "picture": "",
+      "picture": null,
       "user_type": "individu",
       "first_name": "Mohamed",
       "last_name": "AHETAN",
