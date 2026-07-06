@@ -1,0 +1,57 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "2FA activée" %} — Admin Agri Market Africa</title>
+    <link rel="icon" href="{% static 'images/logo/logo.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/design-tokens.css' %}">
+    <link rel="stylesheet" href="{% static 'css/auth-modern.css' %}">
+</head>
+<body>
+
+<main class="auth-page">
+
+    <aside class="auth-visual" data-bg="field">
+        <a href="{% url 'marketplace:index' %}" class="auth-brand">
+            <img src="{% static 'images/logo/logo.png' %}" alt="">
+            <span>Agri <span class="accent">Market</span> Africa</span>
+        </a>
+    </aside>
+
+    <section class="auth-form-wrap">
+        <div class="auth-form">
+            <div class="auth-status">
+                <div class="auth-status-icon success">
+                    <i class="ti ti-shield-check"></i>
+                </div>
+                <header class="auth-form-head" style="text-align: center;">
+                    <h1>{% trans "2FA activée avec succès" %}</h1>
+                    <p>{% trans "Votre compte est désormais protégé par l'authentification à deux facteurs. À chaque connexion admin, vous devrez saisir un code à 6 chiffres généré par votre application." %}</p>
+                </header>
+
+                <div class="auth-alert alert-warning" style="text-align: left; margin-top: var(--space-5);">
+                    <i class="ti ti-alert-triangle"></i>
+                    <div>
+                        <strong>{% trans "Important : codes de secours" %}</strong>
+                        <div style="margin-top: 4px;">{% trans "Pensez à générer des codes de secours et à les sauvegarder en lieu sûr. Sans accès à votre téléphone, ce sont les seuls moyens de vous reconnecter." %}</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-4);">
+                    <a href="{% url 'two_factor:backup_tokens' %}" class="auth-submit" style="text-decoration: none;">
+                        <i class="ti ti-key"></i>{% trans "Générer des codes de secours" %}
+                    </a>
+                    <a href="/admin/" class="auth-submit auth-submit-ghost" style="text-decoration: none;">
+                        <i class="ti ti-arrow-right"></i>{% trans "Accéder à l'administration" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>

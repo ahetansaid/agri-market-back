@@ -1,0 +1,79 @@
+[
+  {
+    "model": "marketplace.category",
+    "pk": 1,
+    "fields": {
+      "name": "PRODUITS VÉGÉTAUX",
+      "subcategories": [1, 2, 3, 4, 5, 6, 7, 8],
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 2,
+    "fields": {
+      "name": "PRODUITS ANIMAUX",
+      "subcategories": [9, 10, 11, 12, 13, 14, 15],
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 3,
+    "fields": {
+      "name": "MACHINES ET MATÉRIEL AGRICOLE",
+      "subcategories": [16, 17, 18, 19, 20, 21],
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 4,
+    "fields": {
+      "name": "SEMENCES & PLANTS",
+      "subcategories": [22, 23, 24, 25],
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 5,
+    "fields": {
+      "name": "ENGRAIS & AMENDEMENTS",
+      "subcategories": [26, 27, 28, 29],
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 6,
+    "fields": {
+      "name": "PRODUITS PHYTOSANITAIRES",
+      "subcategories": [30, 31, 32, 33],
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.category",
+    "pk": 7,
+    "fields": {
+      "name": "SERVICES & INNOVATION AGRICOLE",
+      "subcategories": [34, 35, 36, 37],
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  }
+]

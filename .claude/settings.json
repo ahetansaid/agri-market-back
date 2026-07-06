@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python manage.py migrate accounts)",
+      "Bash(grep -vE \"^\\(admin-login|design-tokens\\)\\\\.css$\")",
+      "Bash(xargs rm -f)"
+    ]
+  }
+}

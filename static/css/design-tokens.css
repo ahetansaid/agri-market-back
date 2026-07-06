@@ -1,0 +1,209 @@
+/* =========================================================================
+   IDA Marketplace — Design Tokens (Phase 2)
+   -------------------------------------------------------------------------
+   Source unique de la charte graphique. A charger APRES main.css pour que
+   les variables existantes (--primary, --green, --orange, etc.) prennent
+   les nouvelles valeurs sans recompiler le SCSS.
+   ========================================================================= */
+
+:root {
+    /* ---------- COULEURS — Palette principale ---------- */
+    /* Vert agricole moderne (primary) */
+    --color-primary-50:  #E8F5EC;
+    --color-primary-100: #C5E6CE;
+    --color-primary-200: #9FD6AE;
+    --color-primary-300: #76C58D;
+    --color-primary-400: #4CAF7F;
+    --color-primary-500: #1B7A3F;
+    --color-primary-600: #166734;
+    --color-primary-700: #105528;
+    --color-primary-800: #0D4620;
+    --color-primary-900: #082F15;
+
+    /* Orange logo Agri Market Africa (secondary) - hue du cercle/Africa map */
+    --color-secondary-50:  #FEF1EA;
+    --color-secondary-100: #FBD5C0;
+    --color-secondary-200: #F8B492;
+    --color-secondary-300: #F4936A;
+    --color-secondary-400: #EF7A45;
+    --color-secondary-500: #E85D1F;
+    --color-secondary-600: #C84A12;
+    --color-secondary-700: #A03A0E;
+    --color-secondary-800: #732A0B;
+    --color-secondary-900: #471A07;
+
+    /* Bleu tech/trust (accent) */
+    --color-accent-50:  #E3F2FD;
+    --color-accent-100: #BBDEFB;
+    --color-accent-200: #90CAF9;
+    --color-accent-300: #64B5F6;
+    --color-accent-400: #42A5F5;
+    --color-accent-500: #2196F3;
+    --color-accent-600: #1E88E5;
+    --color-accent-700: #1976D2;
+    --color-accent-800: #1565C0;
+    --color-accent-900: #0D47A1;
+
+    /* Neutres gris-chauds (stone-inspired) */
+    --color-neutral-0:   #FFFFFF;
+    --color-neutral-50:  #FAFAF9;
+    --color-neutral-100: #F5F5F4;
+    --color-neutral-200: #E7E5E4;
+    --color-neutral-300: #D6D3D1;
+    --color-neutral-400: #A8A29E;
+    --color-neutral-500: #78716F;
+    --color-neutral-600: #57534E;
+    --color-neutral-700: #3F3935;
+    --color-neutral-800: #292520;
+    --color-neutral-900: #1C1917;
+
+    /* Couleurs sémantiques */
+    --color-success: #4CAF50;
+    --color-warning: #FF9800;
+    --color-error:   #F44336;
+    --color-info:    #03A9F4;
+
+    /* Couleurs typées d'annonces (vente / achat / autre) */
+    --color-listing-sell:  var(--color-primary-500);
+    --color-listing-buy:   var(--color-secondary-500);
+    --color-listing-other: var(--color-accent-500);
+
+    /* ---------- OVERRIDES retro-compat des variables existantes ---------- */
+    /* Les anciens SCSS consomment ces noms ; on les pointe sur la nouvelle palette */
+    --primary: var(--color-primary-500);
+    --green: var(--color-primary-500);
+    --green-dark: var(--color-primary-800);
+    --green-chalk: var(--color-primary-50);
+    --orange: var(--color-secondary-500);
+    --yellow: var(--color-secondary-400);
+    --red: var(--color-error);
+    --blue: var(--color-accent-500);
+    --purple: #B12FAD;
+    --white: var(--color-neutral-0);
+    --body: var(--color-neutral-50);
+    --chalk: var(--color-neutral-100);
+    --gray-chalk: var(--color-neutral-300);
+    --gray: var(--color-neutral-500);
+    --text: var(--color-neutral-700);
+    --sub-heading: var(--color-neutral-600);
+    --heading: var(--color-neutral-800);
+    --border: var(--color-neutral-200);
+    --intro-bg: var(--color-primary-50);
+
+    /* ---------- TYPOGRAPHIE — Échelle modulaire ratio 1.25 ---------- */
+    --font-family-base: 'Rubik', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-family-display: 'Rubik', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    --text-xs:   12px;
+    --text-sm:   14px;
+    --text-base: 16px;
+    --text-lg:   20px;
+    --text-xl:   24px;
+    --text-2xl:  30px;
+    --text-3xl:  38px;
+    --text-4xl:  48px;
+    --text-5xl:  60px;
+    --text-6xl:  75px;
+
+    --leading-tight: 1.2;
+    --leading-snug:  1.35;
+    --leading-base:  1.6;
+    --leading-loose: 1.8;
+
+    --tracking-tight:  -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide:   0.05em;
+
+    --font-weight-light:     300;
+    --font-weight-regular:   400;
+    --font-weight-medium:    500;
+    --font-weight-semibold:  600;
+    --font-weight-bold:      700;
+    --font-weight-extrabold: 800;
+
+    /* Overrides legacy --h1size etc. */
+    --h1size: var(--text-5xl);
+    --h2size: var(--text-4xl);
+    --h3size: var(--text-3xl);
+    --h4size: var(--text-2xl);
+    --h5size: var(--text-xl);
+    --h6size: var(--text-lg);
+    --bodysize: var(--text-base);
+    --h1height: 1.15;
+    --h2height: 1.2;
+    --h3height: 1.25;
+    --h4height: 1.3;
+    --h5height: 1.4;
+    --h6height: 1.5;
+    --bodyheight: 1.6;
+    --pfamily: var(--font-family-base);
+
+    /* ---------- ESPACEMENT — Échelle 4px ---------- */
+    --space-0:  0;
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-5:  24px;
+    --space-6:  32px;
+    --space-7:  48px;
+    --space-8:  64px;
+    --space-9:  96px;
+
+    /* ---------- RAYONS ---------- */
+    --radius-xs:   2px;
+    --radius-sm:   4px;
+    --radius-base: 8px;
+    --radius-lg:   12px;
+    --radius-xl:   16px;
+    --radius-2xl:  24px;
+    --radius-full: 9999px;
+
+    /* ---------- OMBRES ---------- */
+    --shadow-xs:  0 1px 2px 0 rgba(28, 25, 23, 0.04);
+    --shadow-sm:  0 1px 3px 0 rgba(28, 25, 23, 0.08), 0 1px 2px -1px rgba(28, 25, 23, 0.06);
+    --shadow-md:  0 4px 6px -1px rgba(28, 25, 23, 0.08), 0 2px 4px -2px rgba(28, 25, 23, 0.05);
+    --shadow-lg:  0 10px 15px -3px rgba(28, 25, 23, 0.08), 0 4px 6px -4px rgba(28, 25, 23, 0.05);
+    --shadow-xl:  0 20px 25px -5px rgba(28, 25, 23, 0.1),  0 8px 10px -6px rgba(28, 25, 23, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(28, 25, 23, 0.18);
+    --shadow-inner: inset 0 2px 4px 0 rgba(28, 25, 23, 0.05);
+    /* Retro-compat */
+    --primary-bshadow: var(--shadow-lg);
+    --primary-tshadow: 1px 2px 4px rgba(28, 25, 23, 0.08);
+
+    /* ---------- ANIMATIONS ---------- */
+    --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --duration-fast:    150ms;
+    --duration-base:    250ms;
+    --duration-slow:    400ms;
+    --duration-slower:  650ms;
+
+    /* ---------- Z-INDEX ---------- */
+    --z-dropdown:   100;
+    --z-sticky:     200;
+    --z-fixed:      300;
+    --z-overlay:    400;
+    --z-modal:      500;
+    --z-toast:      600;
+    --z-tooltip:    700;
+
+    /* ---------- LAYOUT ---------- */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1536px;
+}
+
+/* Accessibilite : utilisateurs ayant reduit les animations */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

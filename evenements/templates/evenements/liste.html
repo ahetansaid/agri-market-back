@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load i18n %}
+{% load humanize %}
+
+{% block title %} {% trans "Liste des evénements" %} {% endblock %}
+
+{% block content %}
+<section class="section event-list-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading text-center">
+                    <h2>{% trans "Nos événements" %}</h2>
+                    <p class="subtitle">{% trans "Découvrez tous nos événements à venir" %}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for event in evenements %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="event-card card h-100">
+                    <div class="event-media">
+                        <a href="{% url 'evenements:detail' event.slug %}">
+                            {% if LANGUAGE_CODE == 'fr' %}
+                            <img src="{{ event.image_fr.url }}" class="card-img-top" alt="{{ event.titre }}">
+                            {% elif LANGUAGE_CODE == 'en' %}
+                            <img src="{{ event.image_en.url }}" class="card-img-top" alt="{{ event.titre }}">
+                             {% else %}
+                                <img src="{{ event.image_it.url }}" class="card-img-top" alt="{{ event.titre }}">
+
+                             {% endif %}
+                        </a>
+                        <div class="event-badge">
+                            <span class="badge bg-primary">
+                                <i class="fas fa-users"></i> {{ event.interetevenement_set.count }} {% trans "intéressés" %}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="event-date text-muted mb-2">
+                            <i class="far fa-calendar-alt"></i>
+                            {% trans "Du 14 au 16 Avril 2026" %}
+
+                        </div>
+                        <h3 class="card-title">
+                            <a href="{% url 'evenements:detail' event.slug %}">{{ event.titre }}</a>
+                        </h3>
+                        <p class="card-text">{{ event.description|truncatechars:150 }}</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="{% url 'evenements:detail' event.slug %}" class="btn btn-outline-primary btn-sm">
+                           {% trans "En savoir plus" %}
+                        </a>
+                        <a href="{% url 'evenements:interet' event.slug %}" class="btn btn-primary btn-sm float-end">
+                            <i class="fas fa-user-plus"></i> {% trans "S'inscrire" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    {% trans "Aucun événement à venir pour le moment." %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .event-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 8px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .event-media {
+        position: relative;
+        overflow: hidden;
+        height: 200px;
+    }
+    .event-media img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease;
+    }
+    .event-card:hover .event-media img {
+        transform: scale(1.05);
+    }
+    .event-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    /* --- Styles boutons --- */
+    .event-card .btn-sm {
+        padding: 0.25rem 0.5rem;   /* plus petit */
+        font-size: 0.8rem;        /* taille police réduite */
+        border-radius: 4px;
+    }
+
+    .event-card .card-title a {
+        display: inline-block;
+        background: linear-gradient(90deg, #F6572D, #2D8A4A);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* Responsive mobile */
+    @media (max-width: 576px) {
+        .event-card .btn-sm {
+            width: 48%;              /* boutons prennent presque la moitié */
+            font-size: 0.75rem;      /* encore un peu réduit */
+        }
+        .event-card .card-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+        }
+    }
+</style>
+{% endblock %}

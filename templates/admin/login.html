@@ -1,0 +1,138 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/admin-login.css' %}?v=2">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.7.0/dist/tabler-icons.min.css">
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} login al-page{% endblock %}
+
+{% block usertools %}{% endblock %}
+{% block nav-global %}{% endblock %}
+{% block branding %}{% endblock %}
+{% block nav-breadcrumbs %}{% endblock %}
+{% block breadcrumbs %}{% endblock %}
+
+{% block content_title %}{% endblock %}
+{% block content_subtitle %}{% endblock %}
+{% block nav-sidebar %}{% endblock %}
+
+{% block content %}
+<div class="al-shell">
+
+    {# ---------- LEFT : brand panel ---------- #}
+    <aside class="al-side">
+        <div class="al-side-top">
+            <div class="al-logo">
+                <img src="{% static 'images/logo/logo.png' %}" alt="Agri Market Africa">
+            </div>
+            <div>
+                <div class="al-brand-name">Agri Market Africa</div>
+                <div class="al-brand-tag">{% trans "Back-office" %}</div>
+            </div>
+        </div>
+
+        <div class="al-side-mid">
+            <span class="al-eyebrow">
+                <i class="ti ti-shield-lock"></i>{% trans "Accès restreint" %}
+            </span>
+            <h1>{% trans "Espace" %} <span class="accent">{% trans "administration" %}</span>.</h1>
+            <p class="al-side-lead">
+                {% trans "Console réservée aux membres autorisés de l'équipe IDA International. Toutes les actions sont tracées et auditées." %}
+            </p>
+
+            <ul class="al-bullets">
+                <li class="al-bullet">
+                    <span class="al-bullet-icon"><i class="ti ti-check"></i></span>
+                    <span>{% trans "Authentification à deux facteurs obligatoire en production" %}</span>
+                </li>
+                <li class="al-bullet">
+                    <span class="al-bullet-icon"><i class="ti ti-check"></i></span>
+                    <span>{% trans "Verrouillage automatique après 5 tentatives échouées" %}</span>
+                </li>
+                <li class="al-bullet">
+                    <span class="al-bullet-icon"><i class="ti ti-check"></i></span>
+                    <span>{% trans "Connexions chiffrées et journalisées" %}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="al-side-bottom">
+            &copy; {% now "Y" %} IDA International — {% trans "Tous droits réservés" %}.
+        </div>
+    </aside>
+
+    {# ---------- RIGHT : login form ---------- #}
+    <main class="al-main">
+        <div class="al-card">
+            <div class="al-card-head">
+                <h2 class="al-card-title">{% trans "Connexion administrateur" %}</h2>
+                <p class="al-card-subtitle">{% trans "Identifiez-vous pour accéder à la console." %}</p>
+            </div>
+
+            {% if form.errors and not form.non_field_errors %}
+            <div class="errornote">
+                {% if form.errors.items|length == 1 %}
+                    {% trans "Veuillez corriger l'erreur ci-dessous." %}
+                {% else %}
+                    {% trans "Veuillez corriger les erreurs ci-dessous." %}
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <div class="al-alert al-alert-danger">
+                <i class="ti ti-alert-circle"></i>
+                <span>{{ error }}</span>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            <div class="al-alert al-alert-warn">
+                <i class="ti ti-info-circle"></i>
+                <span>
+                    {% blocktrans trimmed with username=user.get_username %}Vous êtes authentifié en tant que {{ username }}, mais vous n'êtes pas autorisé à accéder à cette page. Connectez-vous avec un compte ayant les permissions nécessaires.{% endblocktrans %}
+                </span>
+            </div>
+            {% endif %}
+
+            <form action="{{ app_path }}" method="post" id="login-form" novalidate>
+                {% csrf_token %}
+
+                <div class="form-row">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                    {% if form.username.errors %}{{ form.username.errors }}{% endif %}
+                </div>
+
+                <div class="form-row">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                    <input type="hidden" name="next" value="{{ next }}">
+                    {% if form.password.errors %}{{ form.password.errors }}{% endif %}
+                </div>
+
+                <div class="submit-row">
+                    <button type="submit" class="al-submit">
+                        <i class="ti ti-login-2" style="margin-right: 6px;"></i>{% trans "Se connecter" %}
+                    </button>
+                </div>
+            </form>
+
+            <div class="al-card-foot">
+                <i class="ti ti-shield-check" style="margin-right: 4px;"></i>
+                {% trans "Session sécurisée — toutes les activités sont enregistrées." %}
+                <div>
+                    <a href="/" class="al-back-link">
+                        <i class="ti ti-arrow-left"></i>{% trans "Retour au site public" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+# Render Blueprint — backend Django + base Postgres (Agri Market Africa)
+# Tout est sur Render : la base est provisionnée ET câblée automatiquement.
+# Docs : https://render.com/docs/blueprint-spec
+databases:
+  - name: agri-market-db
+    plan: free
+    region: frankfurt
+
+services:
+  - type: web
+    name: agri-market-backend
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: >-
+      pip install -r requirements.txt &&
+      python manage.py collectstatic --noinput &&
+      python manage.py migrate --noinput
+    startCommand: gunicorn idamarketplace.wsgi:application --bind 0.0.0.0:$PORT
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: idamarketplace.settings.production
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: SECRET_KEY
+        generateValue: true            # Render génère une clé sûre
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        sync: false                    # ex: agri-market-backend.onrender.com
+      # --- Base Postgres Render (câblée automatiquement) ---
+      - key: DB_ENGINE
+        value: django.db.backends.postgresql
+      - key: DB_NAME
+        fromDatabase:
+          name: agri-market-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: agri-market-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: agri-market-db
+          property: password
+      - key: DB_HOST
+        fromDatabase:
+          name: agri-market-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: agri-market-db
+          property: port
+      - key: DB_SSLMODE
+        value: require
+      # --- Origines du front Vercel ---
+      - key: CORS_EXTRA_ORIGINS
+        sync: false                    # ex: https://agri-market.vercel.app
+      - key: CSRF_TRUSTED_ORIGINS
+        sync: false                    # ex: https://agri-market.vercel.app,https://agri-market-backend.onrender.com

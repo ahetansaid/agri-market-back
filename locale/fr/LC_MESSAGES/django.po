@@ -1,0 +1,1182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-06 14:13+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: accounts/forms.py:12
+msgid "Je suis une entreprise"
+msgstr ""
+
+#: accounts/forms.py:74 accounts/forms.py:78 accounts/forms.py:83
+#: accounts/models.py:136
+msgid "Ce champ est obligatoire pour les individus"
+msgstr ""
+
+#: accounts/forms.py:105 accounts/models.py:178
+msgid "Nom de la société"
+msgstr ""
+
+#: accounts/forms.py:118
+msgid "Précisez le type si \"Autre\""
+msgstr ""
+
+#: accounts/forms.py:125
+msgid "Code du commercial référent"
+msgstr ""
+
+#: accounts/forms.py:149 accounts/models.py:210
+msgid "Veuillez préciser le type d'entreprise"
+msgstr ""
+
+#: accounts/forms.py:157 evenements/forms.py:20 evenements/models.py:167
+msgid "Email"
+msgstr ""
+
+#: accounts/forms.py:169
+msgid "Entrez votre e-mail  "
+msgstr ""
+
+#: accounts/forms.py:207
+msgid "Enter your e-mail address"
+msgstr ""
+
+#: accounts/forms.py:211
+msgid "Choose a user name"
+msgstr ""
+
+#: accounts/forms.py:218
+msgid "Enter your picture"
+msgstr ""
+
+#: accounts/models.py:73
+msgid "Individu"
+msgstr ""
+
+#: accounts/models.py:74
+msgid "Entreprise"
+msgstr ""
+
+#: accounts/models.py:77
+msgid "email address"
+msgstr ""
+
+#: accounts/models.py:78 evenements/forms.py:25 evenements/models.py:168
+msgid "Téléphone"
+msgstr ""
+
+#: accounts/models.py:79 marketplace/models.py:152
+msgid "Pays"
+msgstr ""
+
+#: accounts/models.py:80
+msgid "Ville"
+msgstr ""
+
+#: accounts/models.py:82
+msgid "Code Postal"
+msgstr ""
+
+#: accounts/models.py:84
+msgid "Adresse"
+msgstr ""
+
+#: accounts/models.py:86
+msgid "Image de profil"
+msgstr ""
+
+#: accounts/models.py:90
+msgid "Type d'utilisateur"
+msgstr ""
+
+#: accounts/models.py:97
+msgid "Prénom"
+msgstr ""
+
+#: accounts/models.py:98 marketplace/models.py:33 marketplace/models.py:45
+msgid "Nom"
+msgstr ""
+
+#: accounts/models.py:101
+msgid "Agriculteur"
+msgstr ""
+
+#: accounts/models.py:102
+msgid "Investisseur"
+msgstr ""
+
+#: accounts/models.py:103
+msgid "Chercheur d'opportunités"
+msgstr ""
+
+#: accounts/models.py:104
+msgid "Fournisseur de services"
+msgstr ""
+
+#: accounts/models.py:107
+msgid "Catégorie d'individu"
+msgstr ""
+
+#: accounts/models.py:118 marketplace/models.py:111
+msgid "Utilisateur"
+msgstr ""
+
+#: accounts/models.py:119
+msgid "Utilisateurs"
+msgstr ""
+
+#: accounts/models.py:147
+msgid "Ce champ ne doit pas être renseigné pour les entreprises"
+msgstr ""
+
+#: accounts/models.py:170
+msgid "Producteur"
+msgstr ""
+
+#: accounts/models.py:171
+msgid "Distributeur"
+msgstr ""
+
+#: accounts/models.py:172
+msgid "Revendeur"
+msgstr ""
+
+#: accounts/models.py:173 marketplace/models.py:65
+msgid "Autre"
+msgstr ""
+
+#: accounts/models.py:180
+msgid "Type d'entreprise"
+msgstr ""
+
+#: accounts/models.py:183
+msgid "Précisez le type"
+msgstr ""
+
+#: accounts/models.py:186
+msgid "Code du commercial"
+msgstr ""
+
+#: accounts/models.py:192
+msgid "Produits vendus"
+msgstr ""
+
+#: accounts/models.py:198
+msgid "Produits recherchés"
+msgstr ""
+
+#: accounts/models.py:203
+msgid "Société"
+msgstr ""
+
+#: accounts/models.py:204
+msgid "Sociétés"
+msgstr ""
+
+#: blog/models.py:8 evenements/models.py:87 marketplace/forms.py:158
+#: marketplace/models.py:97 templates/marketplace/validator_dashboard.html:19
+msgid "Titre"
+msgstr ""
+
+#: blog/models.py:9 evenements/models.py:46 evenements/models.py:88
+#: marketplace/forms.py:160 marketplace/models.py:98
+#: templates/marketplace/announcement_detail.html:93
+msgid "Description"
+msgstr ""
+
+#: blog/models.py:11
+msgid "picture"
+msgstr ""
+
+#: blog/models.py:13
+msgid "archive "
+msgstr ""
+
+#: blog/models.py:18
+msgid "À Propos"
+msgstr ""
+
+#: blog/models.py:19
+msgid "À Propos de nous"
+msgstr ""
+
+#: evenements/admin.py:28
+msgid "Nombre de questions"
+msgstr ""
+
+#: evenements/admin.py:45
+msgid "Options (aperçu)"
+msgstr ""
+
+#: evenements/admin.py:65 evenements/models.py:89 marketplace/models.py:100
+msgid "Image"
+msgstr ""
+
+#: evenements/admin.py:71
+msgid "Nombre de sections"
+msgstr ""
+
+#: evenements/forms.py:14 evenements/models.py:166
+msgid "Nom complet"
+msgstr ""
+
+#: evenements/forms.py:31 evenements/models.py:169
+msgid "Je souhaite participer"
+msgstr ""
+
+#: evenements/forms.py:37
+msgid "J'accepte de recevoir des newsletters"
+msgstr ""
+
+#: evenements/models.py:8
+msgid "Réponse courte"
+msgstr ""
+
+#: evenements/models.py:9
+msgid "Paragraphe"
+msgstr ""
+
+#: evenements/models.py:10
+msgid "Choix unique"
+msgstr ""
+
+#: evenements/models.py:11
+msgid "Choix multiples"
+msgstr ""
+
+#: evenements/models.py:12
+msgid "Liste déroulante"
+msgstr ""
+
+#: evenements/models.py:13 templates/marketplace/validator_dashboard.html:22
+msgid "Date"
+msgstr ""
+
+#: evenements/models.py:14
+msgid "Fichier"
+msgstr ""
+
+#: evenements/models.py:15
+msgid "Oui/Non"
+msgstr ""
+
+#: evenements/models.py:19
+msgid "Libellé de la question"
+msgstr ""
+
+#: evenements/models.py:21
+msgid "Type de question"
+msgstr ""
+
+#: evenements/models.py:24
+msgid "Options pour les choix"
+msgstr ""
+
+#: evenements/models.py:26
+msgid "Séparer les options par des points-virgules (;)"
+msgstr ""
+
+#: evenements/models.py:28
+msgid "Obligatoire"
+msgstr ""
+
+#: evenements/models.py:29 evenements/models.py:47
+msgid "Ordre d'affichage"
+msgstr ""
+
+#: evenements/models.py:30
+msgid "Texte d'aide"
+msgstr ""
+
+#: evenements/models.py:45
+msgid "Nom de la section"
+msgstr ""
+
+#: evenements/models.py:52
+msgid "Section du questionnaire"
+msgstr ""
+
+#: evenements/models.py:53
+msgid "Sections du questionnaire"
+msgstr ""
+
+#: evenements/models.py:62
+msgid "Ordre dans la section"
+msgstr ""
+
+#: evenements/models.py:70
+msgid "Nom du questionnaire"
+msgstr ""
+
+#: evenements/models.py:72 evenements/models.py:92
+msgid "Actif"
+msgstr ""
+
+#: evenements/models.py:73 templates/marketplace/validate_announcement.html:21
+msgid "Date de création"
+msgstr ""
+
+#: evenements/models.py:75
+msgid "Image d'en-tête"
+msgstr ""
+
+#: evenements/models.py:79
+msgid "Image optionnelle à afficher dans le formulaire"
+msgstr ""
+
+#: evenements/models.py:90
+msgid "Date de début"
+msgstr ""
+
+#: evenements/models.py:91
+msgid "Date de fin"
+msgstr ""
+
+#: evenements/models.py:99
+msgid "Questionnaire d'inscription"
+msgstr ""
+
+#: evenements/models.py:133
+msgid "À venir"
+msgstr ""
+
+#: evenements/models.py:135
+msgid "En cours"
+msgstr ""
+
+#: evenements/models.py:137
+msgid "Terminé"
+msgstr ""
+
+#: evenements/models.py:145
+msgid "Réponse"
+msgstr ""
+
+#: evenements/models.py:147
+msgid "Fichier uploadé"
+msgstr ""
+
+#: evenements/models.py:151
+msgid "Réponse à une question"
+msgstr ""
+
+#: evenements/models.py:152
+msgid "Réponses aux questions"
+msgstr ""
+
+#: evenements/models.py:171
+msgid "J'accepte de recevoir des informations sur les futurs événements"
+msgstr ""
+
+#: evenements/models.py:178
+msgid "Inscription à l'événement"
+msgstr ""
+
+#: evenements/models.py:179
+msgid "Inscriptions aux événements"
+msgstr ""
+
+#: evenements/templates/evenements/interet.html:24
+msgid "Inscription à"
+msgstr ""
+
+#: evenements/templates/evenements/interet.html:29
+msgid "Vous êtes déjà inscrit. Vous pouvez modifier vos informations."
+msgstr ""
+
+#: evenements/templates/evenements/interet.html:30
+msgid "Fermer"
+msgstr ""
+
+#: evenements/templates/evenements/interet.html:44
+msgid "Profil Participant"
+msgstr ""
+
+#: evenements/templates/evenements/interet.html:171
+msgid "Glissez-déposez votre fichier ici"
+msgstr ""
+
+#: evenements/templates/evenements/interet.html:172
+msgid "ou cliquez pour sélectionner"
+msgstr ""
+
+#: evenements/templates/evenements/interet.html:182
+#: templates/marketplace/create_announcement.html:217
+#: templates/marketplace/user_announcements.html:73
+#: templates/marketplace/user_announcements.html:420
+msgid "Supprimer"
+msgstr ""
+
+#: evenements/templates/evenements/interet.html:234
+msgid "Mettre à jour"
+msgstr ""
+
+#: evenements/templates/evenements/interet.html:237
+msgid "S'inscrire"
+msgstr ""
+
+#: evenements/templates/evenements/interet.html:241
+msgid "Les champs marqués d'un * sont obligatoires"
+msgstr ""
+
+#: evenements/views.py:31
+msgid "Confirmation d'inscription à l'événement {}"
+msgstr ""
+
+#: evenements/views.py:34
+#, python-brace-format
+msgid ""
+"\n"
+"    Bonjour {nom},\n"
+"\n"
+"    Merci pour votre inscription à l'événement \"{evenement}\".\n"
+"\n"
+"    Détails :\n"
+"    - Date : {date_debut} au {date_fin}\n"
+"    - Lieu : Voir les détails sur notre plateforme {detail_url}\n"
+"\n"
+"    Cordialement,\n"
+"    L'équipe organisatrice\n"
+"    "
+msgstr ""
+
+#: evenements/views.py:118
+msgid ""
+"Votre inscription a bien été enregistrée. Un email de confirmation vous a "
+"été envoyé."
+msgstr ""
+
+#: evenements/views.py:124
+msgid "Une erreur est survenue lors de l'inscription"
+msgstr ""
+
+#: idamarketplace/settings.py:229
+msgid "Français"
+msgstr ""
+
+#: idamarketplace/settings.py:230
+msgid "English"
+msgstr ""
+
+#: idamarketplace/settings.py:231
+msgid "Italiano"
+msgstr ""
+
+#: marketplace/admin.py:15
+msgid "Nb annonces"
+msgstr ""
+
+#: marketplace/admin.py:28
+msgid "Nb sous-catégories"
+msgstr ""
+
+#: marketplace/admin.py:85
+msgid "Contenu"
+msgstr ""
+
+#: marketplace/admin.py:98 templates/marketplace/announcement_detail.html:53
+msgid "Détails"
+msgstr ""
+
+#: marketplace/admin.py:110
+msgid "Localisation & Logistique"
+msgstr ""
+
+#: marketplace/admin.py:122 marketplace/models.py:138
+#: templates/marketplace/announcement_detail.html:72
+msgid "Quantité"
+msgstr ""
+
+#: marketplace/admin.py:128
+msgid "Aperçu image"
+msgstr ""
+
+#: marketplace/admin.py:134
+msgid "Aucune image"
+msgstr ""
+
+#: marketplace/admin.py:136
+msgid "Marquer comme approuvé"
+msgstr ""
+
+#: marketplace/admin.py:140
+msgid "Marquer comme rejeté"
+msgstr ""
+
+#: marketplace/admin.py:144
+msgid "Archiver les annonces sélectionnées"
+msgstr ""
+
+#: marketplace/admin.py:148
+msgid "Désarchiver les annonces sélectionnées"
+msgstr ""
+
+#: marketplace/forms.py:19
+msgid "Description détaillée"
+msgstr ""
+
+#: marketplace/forms.py:58
+msgid "Image illustrative (max 500KB, 800x600px)"
+msgstr ""
+
+#: marketplace/forms.py:106
+msgid "ex: agricole, bio, local"
+msgstr ""
+
+#: marketplace/forms.py:120 marketplace/forms.py:124 marketplace/forms.py:127
+msgid "Ce champ est requis pour ce type d'annonce"
+msgstr ""
+
+#: marketplace/forms.py:135
+msgid "L'image ne doit pas dépasser 500KB"
+msgstr ""
+
+#: marketplace/forms.py:138
+msgid "Seuls les formats JPG/PNG sont acceptés"
+msgstr ""
+
+#: marketplace/forms.py:159 marketplace/models.py:84
+#: templates/marketplace/validate_announcement.html:17
+#: templates/marketplace/validator_dashboard.html:18
+msgid "Référence"
+msgstr ""
+
+#: marketplace/forms.py:172
+msgid "Rechercher..."
+msgstr ""
+
+#: marketplace/forms.py:189
+msgid "Tous les pays"
+msgstr ""
+
+#: marketplace/forms.py:196
+msgid "Tous types"
+msgstr ""
+
+#: marketplace/forms.py:216
+msgid "Référence, titre ou description..."
+msgstr ""
+
+#: marketplace/models.py:36 marketplace/models.py:124
+msgid "Sous-catégorie"
+msgstr ""
+
+#: marketplace/models.py:37 marketplace/models.py:47
+msgid "Sous-catégories"
+msgstr ""
+
+#: marketplace/models.py:51 marketplace/models.py:118
+#: templates/marketplace/validate_announcement.html:18
+#: templates/marketplace/validator_dashboard.html:20
+msgid "Catégorie"
+msgstr ""
+
+#: marketplace/models.py:52
+msgid "Catégories"
+msgstr ""
+
+#: marketplace/models.py:60
+msgid "Vente de produit"
+msgstr ""
+
+#: marketplace/models.py:61
+msgid "Achat de produit"
+msgstr ""
+
+#: marketplace/models.py:62
+msgid "Service agricole"
+msgstr ""
+
+#: marketplace/models.py:63
+msgid "Matériel agricole"
+msgstr ""
+
+#: marketplace/models.py:64
+msgid "Offre d'emploi"
+msgstr ""
+
+#: marketplace/models.py:74
+msgid "Brouillon"
+msgstr ""
+
+#: marketplace/models.py:75
+msgid "En attente première validation"
+msgstr ""
+
+#: marketplace/models.py:76
+msgid "En attente seconde validation"
+msgstr ""
+
+#: marketplace/models.py:77
+msgid "Approuvé"
+msgstr ""
+
+#: marketplace/models.py:78
+msgid "Rejeté"
+msgstr ""
+
+#: marketplace/models.py:79
+msgid "Expiré"
+msgstr ""
+
+#: marketplace/models.py:91 templates/marketplace/announcement_detail.html:57
+msgid "Nom du produit"
+msgstr ""
+
+#: marketplace/models.py:95
+msgid "Nom complet du produit (requis pour vente/achat)"
+msgstr ""
+
+#: marketplace/models.py:104
+msgid "Image illustrative (optionnelle)"
+msgstr ""
+
+#: marketplace/models.py:132
+msgid "Type d'annonce"
+msgstr ""
+
+#: marketplace/models.py:135 templates/marketplace/announcement_detail.html:62
+msgid "Marque"
+msgstr ""
+
+#: marketplace/models.py:136 templates/marketplace/announcement_detail.html:67
+msgid "Variété"
+msgstr ""
+
+#: marketplace/models.py:141
+msgid "Quantité disponible ou requise"
+msgstr ""
+
+#: marketplace/models.py:144
+msgid "Unité de mesure"
+msgstr ""
+
+#: marketplace/models.py:147
+msgid "kg, litre, pièce, etc."
+msgstr ""
+
+#: marketplace/models.py:149
+msgid "Agriculture biologique"
+msgstr ""
+
+#: marketplace/models.py:152
+msgid "Pays concerné par l'annonce"
+msgstr ""
+
+#: marketplace/models.py:156
+msgid "Conditions d'expédition"
+msgstr ""
+
+#: marketplace/models.py:160
+msgid "Détails de transaction"
+msgstr ""
+
+#: marketplace/models.py:163
+msgid "Restrictions"
+msgstr ""
+
+#: marketplace/models.py:166 templates/marketplace/announcement_detail.html:102
+msgid "Mots-clés"
+msgstr ""
+
+#: marketplace/models.py:166
+msgid "Mots-clés séparés par des virgules"
+msgstr ""
+
+#: marketplace/models.py:170
+msgid "Date de publication"
+msgstr ""
+
+#: marketplace/models.py:174
+msgid "Statut"
+msgstr ""
+
+#: marketplace/models.py:183
+msgid "Premier validateur"
+msgstr ""
+
+#: marketplace/models.py:186
+msgid "Date de première validation"
+msgstr ""
+
+#: marketplace/models.py:194
+msgid "Second validateur"
+msgstr ""
+
+#: marketplace/models.py:197
+msgid "Date de seconde validation"
+msgstr ""
+
+#: marketplace/models.py:199
+msgid "Raison du rejet"
+msgstr ""
+
+#: marketplace/models.py:202
+msgid "Annonce"
+msgstr ""
+
+#: marketplace/models.py:203 templates/includes/navigation.html:28
+msgid "Annonces"
+msgstr ""
+
+#: marketplace/models.py:227
+msgid "Le nom du produit est requis pour ce type d'annonce"
+msgstr ""
+
+#: marketplace/models.py:233
+msgid "La quantité est requise pour ce type d'annonce"
+msgstr ""
+
+#: marketplace/models.py:237
+msgid "L'unité de mesure est requise pour ce type d'annonce"
+msgstr ""
+
+#: marketplace/models.py:243
+msgid "La quantité doit être positive si renseignée"
+msgstr ""
+
+#: marketplace/models.py:308
+msgid "Votre annonce a été approuvée"
+msgstr ""
+
+#: marketplace/models.py:321
+msgid "Votre annonce a été rejetée"
+msgstr ""
+
+#: marketplace/models.py:332
+#, python-brace-format
+msgid "Annonce en attente de {stage}ème validation"
+msgstr ""
+
+#: marketplace/models.py:350
+msgid "Statut de votre annonce"
+msgstr ""
+
+#: marketplace/models.py:383
+msgid "Vue d'annonce"
+msgstr ""
+
+#: marketplace/models.py:384
+msgid "Vues d'annonces"
+msgstr ""
+
+#: marketplace/views.py:280
+msgid "Votre annonce a été soumise pour validation. Référence: {}"
+msgstr ""
+
+#: marketplace/views.py:287
+msgid "Une erreur est survenue : {}"
+msgstr ""
+
+#: marketplace/views.py:440
+msgid "Validation effectuée avec succès."
+msgstr ""
+
+#: marketplace/views.py:458
+msgid "Annonce rejetée avec succès."
+msgstr ""
+
+#: marketplace/views.py:539
+msgid "Seules les annonces en brouillon peuvent être soumises"
+msgstr ""
+
+#: marketplace/views.py:547
+msgid "Annonce soumise avec succès pour validation"
+msgstr ""
+
+#: marketplace/views.py:550
+msgid "Erreur lors de la soumission: {}"
+msgstr ""
+
+#: marketplace/views.py:562
+msgid "Seules les annonces rejetées peuvent être resoumises"
+msgstr ""
+
+#: marketplace/views.py:572
+msgid "Annonce resoumise avec succès pour validation"
+msgstr ""
+
+#: marketplace/views.py:576
+msgid "Erreur lors de la resoumission: {}"
+msgstr ""
+
+#: templates/includes/form_errors.html:3
+msgid "Erreurs dans le formulaire:"
+msgstr ""
+
+#: templates/includes/header.html:325
+msgid "Toute l'agriculture africaine en un seul lieu."
+msgstr "Toute l'agriculture africaine en un seul lieu."
+
+#: templates/includes/header.html:330 templates/includes/header.html:332
+msgid "A"
+msgstr ""
+
+#: templates/includes/header.html:330
+msgid "gri"
+msgstr ""
+
+#: templates/includes/header.html:331
+msgid "M"
+msgstr ""
+
+#: templates/includes/header.html:331
+msgid "arket"
+msgstr ""
+
+#: templates/includes/header.html:332
+msgid "frica"
+msgstr ""
+
+#: templates/includes/navigation.html:9
+msgid "Acceuil"
+msgstr ""
+
+#: templates/includes/navigation.html:15
+msgid "Mon compte"
+msgstr ""
+
+#: templates/includes/navigation.html:22
+msgid "Se déconnecter"
+msgstr ""
+
+#: templates/includes/navigation.html:32
+msgid "Mes annonces"
+msgstr ""
+
+#: templates/includes/navigation.html:45
+msgid "Méssages"
+msgstr ""
+
+#: templates/includes/navigation.html:47
+msgid "Receptions"
+msgstr ""
+
+#: templates/includes/navigation.html:48
+msgid "Envoiyé"
+msgstr ""
+
+#: templates/includes/navigation.html:49
+msgid "Corbeille"
+msgstr ""
+
+#: templates/includes/navigation.html:54
+msgid "Validation d'annonces"
+msgstr ""
+
+#: templates/includes/navigation.html:62
+msgid "Validation"
+msgstr ""
+
+#: templates/includes/navigation.html:74
+msgid "À propos"
+msgstr ""
+
+#: templates/marketplace/announcement_detail.html:13
+#: templates/marketplace/create_announcement.html:13
+msgid "Accueil"
+msgstr ""
+
+#: templates/marketplace/announcement_detail.html:38
+msgid "vues"
+msgstr ""
+
+#: templates/marketplace/announcement_detail.html:77
+msgid "Certification"
+msgstr ""
+
+#: templates/marketplace/announcement_detail.html:77
+msgid "Biologique"
+msgstr ""
+
+#: templates/marketplace/announcement_detail.html:82
+msgid "Localisation"
+msgstr ""
+
+#: templates/marketplace/announcement_detail.html:137
+#: templates/marketplace/user_announcements.html:258
+msgid "Contacter"
+msgstr ""
+
+#: templates/marketplace/announcement_detail.html:141
+#: templates/marketplace/user_announcements.html:69
+#: templates/marketplace/user_announcements.html:352
+msgid "Modifier"
+msgstr ""
+
+#: templates/marketplace/announcement_detail.html:153
+msgid "Annonces similaires"
+msgstr ""
+
+#: templates/marketplace/announcement_detail.html:188
+msgid "Retour à la liste"
+msgstr ""
+
+#: templates/marketplace/create_announcement.html:5
+#: templates/marketplace/create_announcement.html:11
+msgid "Créer une annonce"
+msgstr ""
+
+#: templates/marketplace/create_announcement.html:20
+msgid "Créer annonce"
+msgstr ""
+
+#: templates/marketplace/create_announcement.html:108
+msgid "Image illustrative"
+msgstr ""
+
+#: templates/marketplace/create_announcement.html:108
+msgid "optionnelle, max 500KB"
+msgstr ""
+
+#: templates/marketplace/create_announcement.html:119
+msgid "Formats acceptés : JPG, PNG - Taille max : 500KB"
+msgstr ""
+
+#: templates/marketplace/create_announcement.html:129
+msgid "Détails supplémentaires"
+msgstr ""
+
+#: templates/marketplace/create_announcement.html:143
+msgid "Publier l'annonce"
+msgstr ""
+
+#: templates/marketplace/create_announcement.html:146
+#: templates/marketplace/create_product.html:77
+#: templates/marketplace/user_announcements.html:417
+msgid "Annuler"
+msgstr ""
+
+#: templates/marketplace/create_product.html:4
+msgid "Créer un produit"
+msgstr ""
+
+#: templates/marketplace/create_product.html:12
+msgid "Créer un nouveau produit"
+msgstr ""
+
+#: templates/marketplace/create_product.html:31
+msgid "Informations de base"
+msgstr ""
+
+#: templates/marketplace/create_product.html:51
+msgid "Image principale"
+msgstr ""
+
+#: templates/marketplace/create_product.html:63
+msgid "L'image principale sera utilisée comme vignette pour votre produit"
+msgstr ""
+
+#: templates/marketplace/create_product.html:70
+msgid "Définir comme image principale"
+msgstr ""
+
+#: templates/marketplace/create_product.html:80
+msgid "Enregistrer"
+msgstr ""
+
+#: templates/marketplace/emails/announcement_status_notification.txt:2
+#, python-format
+msgid "Bonjour %(user)s,"
+msgstr ""
+
+#: templates/marketplace/emails/announcement_status_notification.txt:6
+msgid "Détails de votre annonce:"
+msgstr ""
+
+#: templates/marketplace/emails/announcement_status_notification.txt:7
+msgid "Référence:"
+msgstr ""
+
+#: templates/marketplace/emails/announcement_status_notification.txt:8
+msgid "Titre:"
+msgstr ""
+
+#: templates/marketplace/emails/announcement_status_notification.txt:9
+msgid "Statut:"
+msgstr ""
+
+#: templates/marketplace/emails/announcement_status_notification.txt:12
+msgid "Raison du rejet:"
+msgstr ""
+
+#: templates/marketplace/emails/announcement_status_notification.txt:15
+msgid "Vous pouvez consulter votre annonce en cliquant sur le lien suivant:"
+msgstr ""
+
+#: templates/marketplace/emails/announcement_status_notification.txt:18
+#: templates/marketplace/emails/validation_notification.txt:15
+msgid "Cordialement,"
+msgstr ""
+
+#: templates/marketplace/emails/announcement_status_notification.txt:19
+#: templates/marketplace/emails/validation_notification.txt:16
+msgid "L'équipe de la plateforme"
+msgstr ""
+
+#: templates/marketplace/emails/validation_notification.txt:2
+#, python-format
+msgid "Bonjour %(validator)s,"
+msgstr ""
+
+#: templates/marketplace/emails/validation_notification.txt:4
+#, python-format
+msgid ""
+"Une nouvelle annonce nécessite votre validation :\n"
+"\n"
+"Référence: %(reference)s\n"
+"Titre: %(title)s\n"
+"Catégorie: %(announcement.category.name)s > "
+"%(announcement.subcategory.name)s\n"
+"Type: %(announcement.get_type_display)s\n"
+msgstr ""
+
+#: templates/marketplace/emails/validation_notification.txt:12
+msgid ""
+"Vous pouvez valider ou rejeter cette annonce en cliquant sur le lien suivant:"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:8
+msgid "Mes Annonces"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:10
+msgid "Publier une nouvelle annonce"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:20
+msgid "Brouillons"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:23
+msgid "En attente"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:26
+msgid "Approuvées"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:29
+msgid "Rejetées"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:118
+msgid "Aucune annonce en brouillon."
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:136
+msgid "1ère validation"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:138
+msgid "2ème validation"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:160
+#: templates/marketplace/user_announcements.html:254
+#: templates/marketplace/validate_announcement.html:48
+#: templates/marketplace/validator_dashboard.html:37
+msgid "Voir détails"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:205
+msgid "Aucune annonce en attente."
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:220
+msgid "Bio"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:229
+msgid "Approuvée"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:304
+msgid "Aucune annonce approuvée."
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:320
+msgid "Rejetée"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:331
+msgid "Motif du rejet:"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:348
+msgid "Resoumettre"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:397
+msgid "Aucune annonce rejetée."
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:410
+msgid "Confirmer la suppression"
+msgstr ""
+
+#: templates/marketplace/user_announcements.html:414
+msgid "Êtes-vous sûr de vouloir supprimer l'annonce"
+msgstr ""
+
+#: templates/marketplace/validate_announcement.html:9
+msgid "Première validation d'annonce"
+msgstr ""
+
+#: templates/marketplace/validate_announcement.html:11
+msgid "Seconde validation d'annonce"
+msgstr ""
+
+#: templates/marketplace/validate_announcement.html:19
+#: templates/marketplace/validator_dashboard.html:21
+msgid "Type"
+msgstr ""
+
+#: templates/marketplace/validate_announcement.html:20
+msgid "Créée par"
+msgstr ""
+
+#: templates/marketplace/validate_announcement.html:42
+#: templates/marketplace/validator_dashboard.html:42
+msgid "Approuver"
+msgstr ""
+
+#: templates/marketplace/validate_announcement.html:53
+#: templates/marketplace/validate_announcement.html:58
+#: templates/marketplace/validator_dashboard.html:47
+msgid "Rejeter"
+msgstr ""
+
+#: templates/marketplace/validate_announcement.html:63
+msgid "Retour"
+msgstr ""
+
+#: templates/marketplace/validator_dashboard.html:6
+msgid "Tableau de bord des validateurs"
+msgstr ""
+
+#: templates/marketplace/validator_dashboard.html:10
+msgid "Annonces en attente de validation"
+msgstr ""
+
+#: templates/marketplace/validator_dashboard.html:23
+msgid "Actions"
+msgstr ""
+
+#: templates/marketplace/validator_dashboard.html:58
+msgid "Aucune annonce en attente de validation pour le moment."
+msgstr ""

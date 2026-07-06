@@ -1,0 +1,59 @@
+# Fichiers Python
+*.py[cod]
+*$py.class
+__pycache__/
+
+# Environnements virtuels
+.venv/
+venv/
+env/
+/env/
+
+# Django
+*.log
+*.pot
+*.sqlite3
+*.sqlite3*
+/media/
+/staticfiles/
+db.sqlite3
+
+# Fichiers sensibles (secrets)
+.env
+.env.*
+!.env.example
+*.secret
+secrets.json
+config.json
+# Anciens fichiers de notes/credentials — ne JAMAIS commiter
+commande.txt
+connexion.txt
+idamarketplace/settingsback.py
+
+# IDE
+.idea/
+.vscode/
+!.vscode/settings.json
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Migrations : ignorer uniquement les caches, garder les .py
+**/migrations/__pycache__/
+**/migrations/*.pyc
+
+# Docker
+docker-compose.override.yml
+
+# Videos hero (telecharges depuis Pexels, lourds, cf. static/videos/README.md)
+static/videos/*.mp4
+static/videos/*.webm
+
+# Dumps de donnees (prod ou autre) - JAMAIS commiter (contiennent hashes
+# de mots de passe, emails, etc.)
+backup_prod*.json
+backup_*.json
+dump_*.json
+*.sql
+*.sql.gz

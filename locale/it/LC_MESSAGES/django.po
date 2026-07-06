@@ -1,0 +1,2160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-06 14:13+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/forms.py:12
+msgid "Je suis une entreprise"
+msgstr "Sono un'azienda"
+
+#: accounts/forms.py:74 accounts/forms.py:78 accounts/forms.py:83
+#: accounts/models.py:136
+msgid "Ce champ est obligatoire pour les individus"
+msgstr "Questo campo è obbligatorio per gli individui"
+
+#: accounts/forms.py:105 accounts/models.py:178
+msgid "Nom de la société"
+msgstr "Nome dell'azienda"
+
+#: accounts/forms.py:118
+#: templates/accounts/register.html:109
+#: accounts/models.py:183
+msgid "Précisez le type "
+msgstr "Specifica il tipo "
+
+#: accounts/forms.py:125
+msgid "Code du commercial référent"
+msgstr "Codice del referente commerciale"
+
+#: accounts/forms.py:149 accounts/models.py:210
+msgid "Veuillez préciser le type d'entreprise"
+msgstr "Si prega di specificare il tipo di azienda"
+
+#: accounts/forms.py:157
+#:evenements/forms.py:20
+#:evenements/models.py:167
+#: templates/accounts/register.html:166
+#: evenements/templates/evenements/export_excel.html:26
+msgid "Email"
+msgstr "Email"
+
+#: accounts/forms.py:169
+msgid "Entrez votre e-mail "
+msgstr "Inserisci la tua email "
+
+#: accounts/forms.py:207
+msgid "Enter your e-mail address"
+msgstr "Inserisci il tuo indirizzo email"
+
+#: accounts/forms.py:211
+msgid "Choose a user name"
+msgstr "Scegli un nome utente"
+
+#: accounts/forms.py:218
+msgid "Enter your picture"
+msgstr "Inserisci la tua immagine"
+
+#: accounts/models.py:73
+msgid "Individu"
+msgstr "Individuo"
+
+#: accounts/models.py:74
+msgid "Entreprise"
+msgstr "Azienda"
+
+#: accounts/models.py:77
+msgid "email address"
+msgstr "indirizzo email"
+
+#: accounts/models.py:78
+#: evenements/forms.py:25
+#: evenements/models.py:168
+#: templates/accounts/register.html:195
+msgid "Téléphone"
+msgstr "Telefono"
+
+#: accounts/models.py:79 marketplace/models.py:152
+msgid "Pays"
+msgstr "Paese"
+
+#: accounts/models.py:80
+#: templates/accounts/register.html:213
+msgid "Ville"
+msgstr "Città"
+
+#: accounts/models.py:82
+msgid "Code Postal"
+msgstr "CAP"
+
+#: accounts/models.py:84
+#: templates/accounts/register.html:227
+msgid "Adresse"
+msgstr "Indirizzo"
+
+#: accounts/models.py:86
+msgid "Image de profil"
+msgstr "Immagine del profilo"
+
+#: accounts/models.py:90
+msgid "Type d'utilisateur"
+msgstr "Tipo di utente"
+
+#: accounts/models.py:97
+#: templates/accounts/register.html:30
+msgid "Prénom"
+msgstr "Nome"
+
+#: accounts/models.py:98
+#: marketplace/models.py:33
+#: marketplace/models.py:45
+#: templates/accounts/register.html:30
+msgid "Nom"
+msgstr "Cognome"
+
+#: accounts/models.py:101
+msgid "Agriculteur"
+msgstr "Agricoltore"
+
+#: accounts/models.py:102
+msgid "Investisseur"
+msgstr "Investitore"
+
+#: accounts/models.py:103
+msgid "Chercheur d'opportunités"
+msgstr "Cercatore di opportunità"
+
+#: accounts/models.py:104
+msgid "Fournisseur de services"
+msgstr "Fornitore di servizi"
+
+#: accounts/models.py:107
+msgid "Catégorie d'individu"
+msgstr "Categoria di individuo"
+
+#: accounts/models.py:118
+#: marketplace/models.py:111
+#: evenements/templates/evenements/export_excel.html:23
+#: accounts/models.py:119
+msgid "Utilisateur"
+msgstr "Utente"
+
+
+
+#: accounts/models.py:147
+msgid "Ce champ ne doit pas être renseigné pour les entreprises"
+msgstr "Questo campo non deve essere compilato per le aziende"
+
+#: accounts/models.py:170
+msgid "Producteur"
+msgstr "Produttore"
+
+#: accounts/models.py:171
+msgid "Distributeur"
+msgstr "Distributore"
+
+#: accounts/models.py:172
+msgid "Revendeur"
+msgstr "Rivenditore"
+
+#: accounts/models.py:173 marketplace/models.py:65
+#: marketplace/models.py:65
+msgid "Autre"
+msgstr "Altro"
+
+#: accounts/models.py:180
+#: templates/accounts/register.html:95
+msgid "Type d'entreprise"
+msgstr "Tipo di azienda"
+
+
+
+#: accounts/models.py:186
+msgid "Code du commercial"
+msgstr "Codice commerciale"
+
+#: accounts/models.py:192
+#: templates/accounts/register.html:132
+msgid "Produits vendus"
+msgstr "Prodotti venduti"
+
+#: accounts/models.py:198
+#: templates/accounts/register.html:147
+msgid "Produits recherchés"
+msgstr "Prodotti ricercati"
+
+#: accounts/models.py:203
+msgid "Société"
+msgstr "Azienda"
+
+#: accounts/models.py:204
+msgid "Sociétés"
+msgstr "Aziende"
+
+#: blog/models.py:8 evenements/models.py:87 marketplace/forms.py:158
+#: marketplace/models.py:97 templates/marketplace/validator_dashboard.html:19
+msgid "Titre"
+msgstr "Titolo"
+
+#: blog/models.py:9 evenements/models.py:46 evenements/models.py:88
+#: marketplace/forms.py:160 marketplace/models.py:98
+#: templates/marketplace/announcement_detail.html:93
+#: evenements/templates/evenements/detail.html:128
+msgid "Description"
+msgstr "Descrizione"
+
+#: blog/models.py:11
+msgid "picture"
+msgstr "immagine"
+
+#: blog/models.py:13
+msgid "archive "
+msgstr "archivio "
+
+
+
+#: blog/models.py:19
+msgid "À Propos de nous"
+msgstr "Chi siamo"
+
+#: evenements/admin.py:28
+msgid "Nombre de questions"
+msgstr "Numero di domande"
+
+#: evenements/admin.py:45
+msgid "Options (aperçu)"
+msgstr "Opzioni (anteprima)"
+
+#: evenements/admin.py:65 evenements/models.py:89 marketplace/models.py:100
+msgid "Image"
+msgstr "Immagine"
+
+#: evenements/admin.py:71
+msgid "Nombre de sections"
+msgstr "Numero di sezioni"
+
+#: evenements/forms.py:14 evenements/models.py:166
+msgid "Nom complet"
+msgstr "Nome completo"
+
+#: evenements/forms.py:31 evenements/models.py:169
+msgid "Je souhaite participer"
+msgstr "Desidero partecipare"
+
+#: evenements/forms.py:37
+msgid "J'accepte de recevoir des newsletters"
+msgstr "Accetto di ricevere newsletter"
+
+#: evenements/models.py:8
+msgid "Réponse courte"
+msgstr "Risposta breve"
+
+#: evenements/models.py:9
+msgid "Paragraphe"
+msgstr "Paragrafo"
+
+#: evenements/models.py:10
+msgid "Choix unique"
+msgstr "Scelta singola"
+
+#: evenements/models.py:11
+msgid "Choix multiples"
+msgstr "Scelte multiple"
+
+#: evenements/models.py:12
+msgid "Liste déroulante"
+msgstr "Elenco a discesa"
+
+#: evenements/models.py:13 templates/marketplace/validator_dashboard.html:22
+#: evenements/templates/evenements/email_confirmation.html:14
+msgid "Date"
+msgstr "Data"
+
+#: evenements/models.py:14
+msgid "Fichier"
+msgstr "File"
+
+#: evenements/models.py:15
+msgid "Oui/Non"
+msgstr "Sì/No"
+
+#: evenements/models.py:19
+msgid "Libellé de la question"
+msgstr "Etichetta della domanda"
+
+#: evenements/models.py:21
+msgid "Type de question"
+msgstr "Tipo di domanda"
+
+#: evenements/models.py:24
+msgid "Options pour les choix"
+msgstr "Opzioni per le scelte"
+
+#: evenements/models.py:26
+msgid "Séparer les options par des points-virgules (;)"
+msgstr "Separare le opzioni con punti e virgola (;)"
+
+#: evenements/models.py:28
+msgid "Obligatoire"
+msgstr "Obbligatorio"
+
+#: evenements/models.py:29 evenements/models.py:47
+msgid "Ordre d'affichage"
+msgstr "Ordine di visualizzazione"
+
+#: evenements/models.py:30
+msgid "Texte d'aide"
+msgstr "Testo di aiuto"
+
+#: evenements/models.py:45
+msgid "Nom de la section"
+msgstr "Nome della sezione"
+
+#: evenements/models.py:52
+msgid "Section du questionnaire"
+msgstr "Sezione del questionario"
+
+#: evenements/models.py:53
+msgid "Sections du questionnaire"
+msgstr "Sezioni del questionario"
+
+#: evenements/models.py:62
+msgid "Ordre dans la section"
+msgstr "Ordine nella sezione"
+
+#: evenements/models.py:70
+msgid "Nom du questionnaire"
+msgstr "Nome del questionario"
+
+#: evenements/models.py:72 evenements/models.py:92
+msgid "Actif"
+msgstr "Attivo"
+
+#: evenements/models.py:73 templates/marketplace/validate_announcement.html:21
+msgid "Date de création"
+msgstr "Data di creazione"
+
+#: evenements/models.py:75
+msgid "Image d'en-tête"
+msgstr "Immagine di intestazione"
+
+#: evenements/models.py:79
+msgid "Image optionnelle à afficher dans le formulaire"
+msgstr "Immagine opzionale da visualizzare nel modulo"
+
+#: evenements/models.py:90
+msgid "Date de début"
+msgstr "Data di inizio"
+
+#: evenements/models.py:91
+msgid "Date de fin"
+msgstr "Data di fine"
+
+#: evenements/models.py:99
+msgid "Questionnaire d'inscription"
+msgstr "Questionario di registrazione"
+
+#: evenements/models.py:133
+msgid "À venir"
+msgstr "Prossimamente"
+
+#: evenements/models.py:135
+msgid "En cours"
+msgstr "In corso"
+
+#: evenements/models.py:137
+msgid "Terminé"
+msgstr "Completato"
+
+#: evenements/models.py:145
+msgid "Réponse"
+msgstr "Risposta"
+
+#: evenements/models.py:147
+msgid "Fichier uploadé"
+msgstr "File caricato"
+
+#: evenements/models.py:151
+msgid "Réponse à une question"
+msgstr "Risposta a una domanda"
+
+#: evenements/models.py:152
+msgid "Réponses aux questions"
+msgstr "Risposte alle domande"
+
+#: evenements/models.py:171
+msgid "J'accepte de recevoir des informations sur les futurs événements"
+msgstr "Accetto di ricevere informazioni sui futuri eventi"
+
+#: evenements/models.py:178
+msgid "Inscription à l'événement"
+msgstr "Registrazione all'evento"
+
+#: evenements/models.py:179
+msgid "Inscriptions aux événements"
+msgstr "Registrazioni agli eventi"
+
+#: evenements/templates/evenements/interet.html:24
+msgid "Inscription à"
+msgstr "Iscrizione a"
+
+#: evenements/templates/evenements/interet.html:29
+msgid "Vous êtes déjà inscrit. Vous pouvez modifier vos informations."
+msgstr "Sei già registrato. Puoi modificare le tue informazioni."
+
+
+
+#: evenements/templates/evenements/interet.html:44
+msgid "Profil Participant"
+msgstr "Profilo Partecipante"
+
+#: evenements/templates/evenements/interet.html:171
+msgid "Glissez-déposez votre fichier ici"
+msgstr "Trascina e rilascia il tuo file qui"
+
+#: evenements/templates/evenements/interet.html:172
+msgid "ou cliquez pour sélectionner"
+msgstr "o clicca per selezionare"
+
+#: evenements/templates/evenements/interet.html:182
+#: templates/marketplace/create_announcement.html:217
+#: templates/marketplace/user_announcements.html:73
+#: templates/marketplace/user_announcements.html:420
+#: templates/blog/modal.html:20
+msgid "Supprimer"
+msgstr "Elimina"
+
+#: evenements/templates/evenements/interet.html:234
+msgid "Mettre à jour"
+msgstr "Aggiorna"
+
+#: evenements/templates/evenements/interet.html:237
+#: evenements/templates/evenements/liste.html:58
+#: templates/includes/header.html:67
+msgid "S'inscrire"
+msgstr "Registrati"
+
+#: templates/includes/header.html:68
+msgid "Déconnexion"
+msgstr "Disconnessione"
+
+#: templates/includes/header.html:72
+#: templates/accounts/login.html:62
+msgid "Connexion"
+msgstr "Accesso"
+
+
+#: templates/includes/header.html:87
+msgid "Recherchez à partir du N° de l'annonce"
+msgstr "Cerca a partire dal numero dell'annuncio"
+
+
+
+
+
+#: evenements/templates/evenements/interet.html:241
+msgid "Les champs marqués d'un * sont obligatoires"
+msgstr "I campi contrassegnati con un * sono obbligatori"
+
+#: evenements/views.py:31
+msgid "Confirmation d'inscription à l'événement {}"
+msgstr "Conferma di registrazione all'evento {}"
+
+#: evenements/views.py:34
+#, python-brace-format
+msgid ""
+"\n"
+"    Bonjour {nom},\n"
+"\n"
+"    Merci pour votre inscription à l'événement \"{evenement}\".\n"
+"\n"
+"    Détails :\n"
+"    - Date : {date_debut} au {date_fin}\n"
+"    - Lieu : Voir les détails sur notre plateforme {detail_url}\n"
+"\n"
+"    Cordialement,\n"
+"    L'équipe organisatrice\n"
+"    "
+msgstr ""
+"\n"
+"    Salve {nom},\n"
+"\n"
+"    Grazie per la tua registrazione all'evento \"{evenement}\".\n"
+"\n"
+"    Dettagli:\n"
+"    - Data: dal {date_debut} al {date_fin}\n"
+"    - Luogo: Vedi i dettagli sulla nostra piattaforma {detail_url}\n"
+"\n"
+"    Cordiali saluti,\n"
+"    Il team organizzativo\n"
+"    "
+
+#: evenements/views.py:118
+msgid ""
+"Votre inscription a bien été enregistrée. Un email de confirmation vous a "
+"été envoyé."
+msgstr ""
+"La tua registrazione è stata completata con successo. Ti è stata inviata "
+"un'email di conferma."
+
+#: evenements/views.py:124
+msgid "Une erreur est survenue lors de l'inscription"
+msgstr "Si è verificato un errore durante la registrazione"
+
+#: idamarketplace/settings.py:229
+msgid "Français"
+msgstr "Francese"
+
+#: idamarketplace/settings.py:230
+msgid "English"
+msgstr "Inglese"
+
+#: idamarketplace/settings.py:231
+msgid "Italiano"
+msgstr "Italiano"
+
+#: marketplace/admin.py:15
+msgid "Nb annonces"
+msgstr "Numero annunci"
+
+#: marketplace/admin.py:28
+msgid "Nb sous-catégories"
+msgstr "Numero sottocategorie"
+
+#: marketplace/admin.py:85
+msgid "Contenu"
+msgstr "Contenuto"
+
+#: marketplace/admin.py:98 templates/marketplace/announcement_detail.html:53
+#: evenements/templates/evenements/email_confirmation.html:16
+msgid "Détails"
+msgstr "Dettagli"
+
+#: marketplace/admin.py:110
+msgid "Localisation & Logistique"
+msgstr "Localizzazione e Logistica"
+
+#: marketplace/admin.py:122 marketplace/models.py:138
+#: templates/marketplace/announcement_detail.html:72
+msgid "Quantité"
+msgstr "Quantità"
+
+#: marketplace/admin.py:128
+msgid "Aperçu image"
+msgstr "Anteprima immagine"
+
+#: marketplace/admin.py:134
+msgid "Aucune image"
+msgstr "Nessuna immagine"
+
+#: marketplace/admin.py:136
+msgid "Marquer comme approuvé"
+msgstr "Segna come approvato"
+
+#: marketplace/admin.py:140
+msgid "Marquer comme rejeté"
+msgstr "Segna come rifiutato"
+
+#: marketplace/admin.py:144
+msgid "Archiver les annonces sélectionnées"
+msgstr "Archivia gli annunci selezionati"
+
+#: marketplace/admin.py:148
+msgid "Désarchiver les annonces sélectionnées"
+msgstr "Disarchivia gli annunci selezionati"
+
+#: marketplace/forms.py:19
+msgid "Description détaillée"
+msgstr "Descrizione dettagliata"
+
+#: marketplace/forms.py:58
+msgid "Image illustrative (max 500KB, 800x600px)"
+msgstr "Immagine illustrativa (max 500KB, 800x600px)"
+
+#: marketplace/forms.py:106
+msgid "ex: agricole, bio, local"
+msgstr "es: agricolo, bio, locale"
+
+#: marketplace/forms.py:120 marketplace/forms.py:124 marketplace/forms.py:127
+msgid "Ce champ est requis pour ce type d'annonce"
+msgstr "Questo campo è obbligatorio per questo tipo di annuncio"
+
+#: marketplace/forms.py:135
+msgid "L'image ne doit pas dépasser 500KB"
+msgstr "L'immagine non deve superare i 500KB"
+
+#: marketplace/forms.py:138
+msgid "Seuls les formats JPG/PNG sont acceptés"
+msgstr "Sono accettati solo i formati JPG/PNG"
+
+#: marketplace/forms.py:159 marketplace/models.py:84
+#: templates/marketplace/validate_announcement.html:17
+#: templates/marketplace/validator_dashboard.html:18
+#: templates/includes/header.html:366
+msgid "Référence"
+msgstr "Riferimento"
+
+#: marketplace/forms.py:172
+
+msgid "Rechercher..."
+msgstr "Cerca..."
+
+#: marketplace/forms.py:189
+msgid "Tous les pays"
+msgstr "Tutti i paesi"
+
+#: marketplace/forms.py:196
+msgid "Tous types"
+msgstr "Tutti i tipi"
+
+#: marketplace/forms.py:216
+msgid "Référence, titre ou description..."
+msgstr "Riferimento, titolo o descrizione..."
+
+#: marketplace/models.py:36 marketplace/models.py:124
+msgid "Sous-catégorie"
+msgstr "Sottocategoria"
+
+#: marketplace/models.py:37 marketplace/models.py:47
+msgid "Sous-catégories"
+msgstr "Sottocategorie"
+
+#: marketplace/models.py:51 marketplace/models.py:118
+#: templates/marketplace/validate_announcement.html:18
+#: templates/marketplace/validator_dashboard.html:20
+msgid "Catégorie"
+msgstr "Categoria"
+
+#: marketplace/models.py:52
+#: templates/includes/navigation.html:15
+msgid "Catégories"
+msgstr "Categorie"
+
+#: marketplace/models.py:60
+msgid "Vente de produit"
+msgstr "Vendita di prodotto"
+
+#: marketplace/models.py:61
+msgid "Achat de produit"
+msgstr "Acquisto di prodotto"
+
+#: marketplace/models.py:62
+msgid "Service agricole"
+msgstr "Servizio agricolo"
+
+#: marketplace/models.py:63
+msgid "Matériel agricole"
+msgstr "Attrezzatura agricola"
+
+#: marketplace/models.py:64
+msgid "Offre d'emploi"
+msgstr "Offerta di lavoro"
+
+
+
+
+#: marketplace/models.py:74
+msgid "Brouillon"
+msgstr "Bozza"
+
+#: marketplace/models.py:75
+msgid "En attente première validation"
+msgstr "In attesa di prima validazione"
+
+#: marketplace/models.py:76
+msgid "En attente seconde validation"
+msgstr "In attesa di seconda validazione"
+
+#: marketplace/models.py:77
+msgid "Approuvé"
+msgstr "Approvato"
+
+#: marketplace/models.py:78
+msgid "Rejeté"
+msgstr "Rifiutato"
+
+#: marketplace/models.py:79
+msgid "Expiré"
+msgstr "Scaduto"
+
+#: marketplace/models.py:91 templates/marketplace/announcement_detail.html:57
+msgid "Nom du produit"
+msgstr "Nome del prodotto"
+
+#: marketplace/models.py:95
+msgid "Nom complet du produit (requis pour vente/achat)"
+msgstr "Nome completo del prodotto (richiesto per vendita/acquisto)"
+
+#: marketplace/models.py:104
+msgid "Image illustrative (optionnelle)"
+msgstr "Immagine illustrativa (opzionale)"
+
+#: marketplace/models.py:132
+msgid "Type d'annonce"
+msgstr "Tipo di annuncio"
+
+#: marketplace/models.py:135 templates/marketplace/announcement_detail.html:62
+msgid "Marque"
+msgstr "Marca"
+
+#: marketplace/models.py:136 templates/marketplace/announcement_detail.html:67
+msgid "Variété"
+msgstr "Varietà"
+
+#: marketplace/models.py:141
+msgid "Quantité disponible ou requise"
+msgstr "Quantità disponibile o richiesta"
+
+#: marketplace/models.py:144
+msgid "Unité de mesure"
+msgstr "Unità di misura"
+
+#: marketplace/models.py:147
+msgid "kg, litre, pièce, etc."
+msgstr "kg, litro, pezzo, ecc."
+
+#: marketplace/models.py:149
+msgid "Agriculture biologique"
+msgstr "Agricoltura biologica"
+
+#: marketplace/models.py:152
+msgid "Pays concerné par l'annonce"
+msgstr "Paese interessato dall'annuncio"
+
+#: marketplace/models.py:156
+msgid "Conditions d'expédition"
+msgstr "Condizioni di spedizione"
+
+#: marketplace/models.py:160
+msgid "Détails de transaction"
+msgstr "Dettagli della transazione"
+
+#: marketplace/models.py:163
+msgid "Restrictions"
+msgstr "Restrizioni"
+
+#: marketplace/models.py:166 templates/marketplace/announcement_detail.html:102
+msgid "Mots-clés"
+msgstr "Parole chiave"
+
+#: marketplace/models.py:166
+msgid "Mots-clés séparés par des virgules"
+msgstr "Parole chiave separate da virgole"
+
+#: marketplace/models.py:170
+msgid "Date de publication"
+msgstr "Data di pubblicazione"
+
+#: marketplace/models.py:174
+msgid "Statut"
+msgstr "Stato"
+
+#: marketplace/models.py:183
+msgid "Premier validateur"
+msgstr "Primo validatore"
+
+#: marketplace/models.py:186
+msgid "Date de première validation"
+msgstr "Data di prima validazione"
+
+#: marketplace/models.py:194
+msgid "Second validateur"
+msgstr "Secondo validatore"
+
+#: marketplace/models.py:197
+msgid "Date de seconde validation"
+msgstr "Data di seconda validazione"
+
+#: marketplace/models.py:199
+msgid "Raison du rejet"
+msgstr "Motivo del rifiuto"
+
+#: marketplace/models.py:202
+#: templates/blog/trash.html:20
+#: templates/blog/emails/new_message_notification.txt:9
+msgid "Annonce"
+msgstr "Annuncio"
+
+#: marketplace/models.py:203 templates/includes/navigation.html:28
+msgid "Annonces"
+msgstr "Annunci"
+
+#: marketplace/models.py:227
+msgid "Le nom du produit est requis pour ce type d'annonce"
+msgstr "Il nome del prodotto è obbligatorio per questo tipo di annuncio"
+
+#: marketplace/models.py:233
+msgid "La quantité est requise pour ce type d'annonce"
+msgstr "La quantità è obbligatoria per questo tipo di annuncio"
+
+#: marketplace/models.py:237
+msgid "L'unité de mesure est requise pour ce type d'annonce"
+msgstr "L'unità di misura è obbligatoria per questo tipo di annuncio"
+
+#: marketplace/models.py:243
+msgid "La quantité doit être positive si renseignée"
+msgstr "La quantità deve essere positiva se specificata"
+
+#: marketplace/models.py:308
+msgid "Votre annonce a été approuvée"
+msgstr "Il tuo annuncio è stato approvato"
+
+#: marketplace/models.py:321
+msgid "Votre annonce a été rejetée"
+msgstr "Il tuo annuncio è stato rifiutato"
+
+#: marketplace/models.py:332
+#, python-brace-format
+msgid "Annonce en attente de {stage}ème validation"
+msgstr "Annuncio in attesa della {stage}a validazione"
+
+#: marketplace/models.py:350
+msgid "Statut de votre annonce"
+msgstr "Stato del tuo annuncio"
+
+#: marketplace/models.py:383
+msgid "Vue d'annonce"
+msgstr "Visualizzazione annuncio"
+
+#: marketplace/models.py:384
+msgid "Vues d'annonces"
+msgstr "Visualizzazioni annunci"
+
+#: marketplace/views.py:280
+msgid "Votre annonce a été soumise pour validation. Référence: {}"
+msgstr "Il tuo annuncio è stato inviato per la validazione. Riferimento: {}"
+
+#: marketplace/views.py:287
+msgid "Une erreur est survenue : {}"
+msgstr "Si è verificato un errore: {}"
+
+#: marketplace/views.py:440
+msgid "Validation effectuée avec succès."
+msgstr "Validazione effettuata con successo."
+
+#: marketplace/views.py:458
+msgid "Annonce rejetée avec succès."
+msgstr "Annuncio rifiutato con successo."
+
+#: marketplace/views.py:539
+msgid "Seules les annonces en brouillon peuvent être soumises"
+msgstr "Solo gli annunci in bozza possono essere inviati"
+
+#: marketplace/views.py:547
+msgid "Annonce soumise avec succès pour validation"
+msgstr "Annuncio inviato con successo per la validazione"
+
+#: marketplace/views.py:550
+msgid "Erreur lors de la soumission: {}"
+msgstr "Errore durante l'invio: {}"
+
+#: marketplace/views.py:562
+msgid "Seules les annonces rejetées peuvent être resoumises"
+msgstr "Solo gli annunci rifiutati possono essere nuovamente inviati"
+
+#: marketplace/views.py:572
+msgid "Annonce resoumise avec succès pour validation"
+msgstr "Annuncio nuovamente inviato con successo per la validazione"
+
+#: marketplace/views.py:576
+msgid "Erreur lors de la resoumission: {}"
+msgstr "Errore durante il nuovo invio: {}"
+
+#: templates/includes/form_errors.html:3
+msgid "Erreurs dans le formulaire:"
+msgstr "Errori nel modulo:"
+
+#: templates/includes/header.html:22
+msgid "L'agriculture africaine à portée de main"
+msgstr "L'agricoltura africana a portata di mano"
+
+#: templates/includes/header.html:330
+#: templates/includes/header.html:332
+msgid "A"
+msgstr "A"
+
+
+
+
+
+#: templates/slide.html:70
+msgid "Top Categories"
+msgstr "Categorie principali"
+
+#: templates/slide.html:145
+msgid "Le numéro 1 de la connexion à l'agriculture africaine de qualité supérieure à 360° La connexion de référence à l'agriculture africaine"
+msgstr "Il n. 1 per la connessione all’agricoltura africana di alta qualità a 360° Il punto di riferimento per l’agricoltura africana"
+
+#: templates/slide.html:124
+msgid "B2B Turin 2026 de la fourche à la fourchette"
+msgstr "B2B Torino 2026 dalla fattoria alla tavola"
+
+#: templates/marketplace/index.html:263
+#: templates/marketplace/index.html:135
+#: templates/slide.html:129
+#: templates/marketplace/search_results.html:77
+#: templates/marketplace/all_announcements.html:116
+#: evenements/templates/evenements/liste.html:55
+#: templates/marketplace/user_announcements.html:160
+#: templates/marketplace/user_announcements.html:254
+#: templates/marketplace/validate_announcement.html:48
+#: templates/marketplace/validator_dashboard.html:37
+msgid "En savoir plus"
+msgstr "Scopri di più"
+
+#: templates/marketplace/index.html:139
+msgid "S'inscrire à l'événement"
+msgstr "Iscriviti all'evento"
+
+#: templates/marketplace/index.html:120
+msgid "De la fourchette à la fourchette"
+msgstr "Dalla fattoria alla forchetta"
+
+#: templates/marketplace/index.html:64
+msgid "Événement (s) à venir"
+msgstr "Eventi in arrivo"
+
+
+#: templates/marketplace/index.html:244
+msgid "Mot clé"
+msgstr "Parola chiave"
+
+#: templates/marketplace/index.html:221
+msgid "Il y a"
+msgstr "Fa"
+
+#: templates/marketplace/index.html:147
+#: templates/marketplace/index.html:269
+msgid "Aucun Événement dans la base de données"
+msgstr "Nessun evento nel database"
+
+
+#: templates/slide.html:108
+msgid "Bienvenue à Agri Market Africa la connexion au meilleur de l'agriculture africaine."
+msgstr "Benvenuti su Agri Market Africa la connessione al meglio dell’agricoltura africana."
+
+#: templates/slide.html:160
+msgid "Recherchez-vous des produits agricoles d’origine africaine de qualité supérieure ? Vous êtes au bon endroit !"
+msgstr "State cercando prodotti agricoli di origine africana di alta qualità? Siete nel posto giusto!"
+
+
+
+#: templates/includes/header.html:330
+#, fuzzy
+#| msgid "Agri"
+msgid "gri"
+msgstr "gricolo"
+
+#: templates/includes/header.html:331
+msgid "M"
+msgstr "M"
+
+#: templates/includes/header.html:331
+#, fuzzy
+#| msgid "Market"
+msgid "arket"
+msgstr "ercato"
+
+#: templates/includes/header.html:332
+#, fuzzy
+#| msgid "Africa"
+msgid "frica"
+msgstr "frica"
+
+#: templates/includes/navigation.html:9
+#: templates/marketplace/search_results.html:15
+msgid "Acceuil"
+msgstr "Pagina Iniziale"
+
+#: templates/includes/navigation.html:15
+msgid "Mon compte"
+msgstr "Il Mio Account"
+
+
+#: templates/includes/navigation.html:32
+msgid "Mes annonces"
+msgstr "Listings"
+
+#: templates/includes/navigation.html:45
+msgid "Messages"
+msgstr "Messaggi"
+
+#: templates/includes/navigation.html:47
+msgid "Receptions"
+msgstr "Posta in arrivo"
+
+#: templates/includes/navigation.html:48
+msgid "Envoiyé"
+msgstr "Inviati"
+
+
+
+#: templates/includes/navigation.html:49
+#: templates/blog/trash.html:11
+msgid "Corbeille"
+msgstr "Cestino"
+
+#: templates/includes/navigation.html:54
+msgid "Validation d'annonces"
+msgstr "Convalida degli annunci"
+
+#: templates/includes/navigation.html:62
+msgid "Validation"
+msgstr "Listing Validation"
+
+#: templates/includes/navigation.html:83
+#: templates/includes/navigation.html:85
+#: templates/includes/menumobile.html:261
+#: templates/includes/menumobile.html:286
+#: templates/includes/menumobile.html:90
+#: templates/includes/menumobile.html:81
+msgid "À propos"
+msgstr "Chi siamo"
+
+#: templates/marketplace/announcement_detail.html:13
+#: templates/marketplace/create_announcement.html:13
+#: templates/includes/footer.html:112
+#: templates/blog/sent.html:10
+#: templates/blog/inbox.html:10
+#: templates/blog/trash.html:10
+#: templates/marketplace/createannouncement.html:14
+msgid "Accueil"
+msgstr "Pagina Iniziale"
+
+#: templates/marketplace/announcement_detail.html:38
+msgid "vues"
+msgstr "visualizzazioni"
+
+
+#: templates/marketplace/announcement_detail.html:77
+msgid "Biologique"
+msgstr "Biologico"
+
+#: templates/marketplace/announcement_detail.html:82
+msgid "Localisation"
+msgstr "Localizzazione"
+
+#: templates/marketplace/announcement_detail.html:137
+#: templates/marketplace/user_announcements.html:258
+msgid "Contacter le client"
+msgstr "Contattare il cliente"
+
+#: templates/marketplace/announcement_detail.html:141
+#: templates/marketplace/user_announcements.html:69
+#: templates/marketplace/user_announcements.html:352
+msgid "Modifier"
+msgstr "Modifica"
+
+#: templates/marketplace/announcement_detail.html:153
+msgid "Annonces similaires"
+msgstr "Annunci simili"
+
+#: templates/marketplace/announcement_detail.html:188
+msgid "Retour à la liste"
+msgstr "Torna all'elenco"
+
+#: templates/marketplace/create_announcement.html:5
+#: templates/marketplace/create_announcement.html:11
+#: templates/includes/footer.html:116
+#: templates/marketplace/createannouncement.html:5
+#: templates/marketplace/createannouncement.html:12
+#: templates/includes/navigation.html:29
+msgid "Créer une annonce"
+msgstr "Crea un annuncio"
+
+#: templates/marketplace/create_announcement.html:20
+#: templates/marketplace/all_announcements.html:141
+msgid "Créer annonce"
+msgstr "Crea annuncio"
+
+#: templates/marketplace/create_announcement.html:108
+#: templates/marketplace/createannouncement.html:103
+msgid "Image illustrative"
+msgstr "Immagine illustrativa"
+
+#: templates/marketplace/create_announcement.html:108
+#: templates/marketplace/createannouncement.html:103
+msgid "optionnelle, max 500KB"
+msgstr "opzionale, max 500KB"
+
+#: templates/marketplace/create_announcement.html:119
+#: templates/marketplace/createannouncement.html:113
+msgid "Formats acceptés : JPG, PNG - Taille max : 500KB"
+msgstr "Formati accettati: JPG, PNG - Dimensione massima: 500KB"
+
+#: templates/marketplace/create_announcement.html:129
+#: templates/marketplace/createannouncement.html:121
+msgid "Détails supplémentaires"
+msgstr "Dettagli aggiuntivi"
+
+#: templates/marketplace/create_announcement.html:143
+#: templates/marketplace/createannouncement.html:135
+msgid "Publier l'annonce"
+msgstr "Pubblica l'annuncio"
+
+#: templates/marketplace/create_announcement.html:146
+#: templates/marketplace/create_product.html:77
+#: templates/marketplace/user_announcements.html:417
+#: templates/blog/modal_restore.html:18
+#: templates/blog/modal.html:18
+#: templates/marketplace/createannouncement.html:138
+msgid "Annuler"
+msgstr "Annulla"
+
+#: templates/marketplace/create_product.html:4
+msgid "Créer un produit"
+msgstr "Crea un prodotto"
+
+#: templates/marketplace/create_product.html:12
+msgid "Créer un nouveau produit"
+msgstr "Crea un nuovo prodotto"
+
+#: templates/marketplace/create_product.html:31
+msgid "Informations de base"
+msgstr "Informazioni di base"
+
+#: templates/marketplace/create_product.html:51
+msgid "Image principale"
+msgstr "Immagine principale"
+
+#: templates/marketplace/create_product.html:63
+msgid "L'image principale sera utilisée comme vignette pour votre produit"
+msgstr "L'immagine principale sarà usata come miniatura per il tuo prodotto"
+
+#: templates/marketplace/create_product.html:70
+msgid "Définir comme image principale"
+msgstr "Imposta come immagine principale"
+
+#: templates/marketplace/create_product.html:80
+msgid "Enregistrer"
+msgstr "Salva"
+
+#: templates/marketplace/emails/announcement_status_notification.txt:2
+#, python-format
+msgid "Bonjour %(user)s,"
+msgstr "Salve %(user)s,"
+
+#: templates/marketplace/emails/announcement_status_notification.txt:6
+msgid "Détails de votre annonce:"
+msgstr "Dettagli del tuo annuncio:"
+
+
+
+#: templates/marketplace/emails/announcement_status_notification.txt:8
+msgid "Titre:"
+msgstr "Titolo:"
+
+#: templates/marketplace/emails/announcement_status_notification.txt:9
+msgid "Statut:"
+msgstr "Stato:"
+
+#: templates/marketplace/emails/announcement_status_notification.txt:12
+msgid "Raison du rejet:"
+msgstr "Motivo del rifiuto:"
+
+#: templates/marketplace/emails/announcement_status_notification.txt:15
+msgid "Vous pouvez consulter votre annonce en cliquant sur le lien suivant:"
+msgstr "Puoi consultare il tuo annuncio cliccando sul seguente link:"
+
+#: templates/marketplace/emails/announcement_status_notification.txt:18
+#: templates/marketplace/emails/validation_notification.txt:15
+#: templates/blog/emails/new_message_notification.txt:14
+#: evenements/templates/evenements/email_confirmation.html:18
+msgid "Cordialement,"
+msgstr "Cordiali saluti,"
+
+#: templates/marketplace/emails/announcement_status_notification.txt:19
+#: templates/marketplace/emails/validation_notification.txt:16
+#: templates/blog/emails/new_message_notification.txt:15
+msgid "L'équipe de la plateforme"
+msgstr "Il team della piattaforma"
+
+#: templates/marketplace/emails/validation_notification.txt:2
+#, python-format
+msgid "Bonjour %(validator)s,"
+msgstr "Salve %(validator)s,"
+
+#: templates/marketplace/emails/validation_notification.txt:4
+#, python-format
+msgid ""
+"Une nouvelle annonce nécessite votre validation :\n"
+"\n"
+"Référence: %(reference)s\n"
+"Titre: %(title)s\n"
+"Catégorie: %(announcement.category.name)s > "
+"%(announcement.subcategory.name)s\n"
+"Type: %(announcement.get_type_display)s\n"
+msgstr ""
+"Un nuovo annuncio richiede la tua validazione:\n"
+"\n"
+"Riferimento: %(reference)s\n"
+"Titolo: %(title)s\n"
+"Categoria: %(announcement.category.name)s > "
+"%(announcement.subcategory.name)s\n"
+"Tipo: %(announcement.get_type_display)s\n"
+
+#: templates/marketplace/emails/validation_notification.txt:12
+msgid ""
+"Vous pouvez valider ou rejeter cette annonce en cliquant sur le lien suivant:"
+msgstr ""
+"Puoi validare o rifiutare questo annuncio cliccando sul seguente link:"
+
+#: templates/marketplace/user_announcements.html:8
+msgid "Mes Annonces"
+msgstr "I miei annunci"
+
+#: templates/marketplace/user_announcements.html:10
+msgid "Publier une nouvelle annonce"
+msgstr "Pubblica un nuovo annuncio"
+
+#: templates/marketplace/user_announcements.html:20
+msgid "Brouillons"
+msgstr "Bozze"
+
+#: templates/marketplace/user_announcements.html:23
+msgid "En attente"
+msgstr "In attesa"
+
+#: templates/marketplace/user_announcements.html:26
+msgid "Approuvées"
+msgstr "Approvati"
+
+#: templates/marketplace/user_announcements.html:29
+msgid "Rejetées"
+msgstr "Rifiutati"
+
+#: templates/marketplace/user_announcements.html:118
+msgid "Aucune annonce en brouillon."
+msgstr "Nessun annuncio in bozza."
+
+#: templates/marketplace/user_announcements.html:136
+msgid "1ère validation"
+msgstr "1a validazione"
+
+#: templates/marketplace/user_announcements.html:138
+msgid "2ème validation"
+msgstr "2a validazione"
+
+
+
+#: templates/marketplace/user_announcements.html:205
+msgid "Aucune annonce en attente."
+msgstr "Nessun annuncio in attesa."
+
+#: templates/marketplace/user_announcements.html:220
+msgid "Bio"
+msgstr "Bio"
+
+#: templates/marketplace/user_announcements.html:229
+msgid "Approuvée"
+msgstr "Approvato"
+
+#: templates/marketplace/user_announcements.html:304
+msgid "Aucune annonce approuvée."
+msgstr "Nessun annuncio approvato."
+
+#: templates/marketplace/user_announcements.html:320
+msgid "Rejetée"
+msgstr "Rifiutato"
+
+#: templates/marketplace/user_announcements.html:331
+msgid "Motif du rejet:"
+msgstr "Motivo del rifiuto:"
+
+#: templates/marketplace/user_announcements.html:348
+msgid "Resoumettre"
+msgstr "Reinvia"
+
+#: templates/marketplace/user_announcements.html:397
+msgid "Aucune annonce rejetée."
+msgstr "Nessun annuncio rifiutato."
+
+#: templates/marketplace/user_announcements.html:410
+msgid "Confirmer la suppression"
+msgstr "Conferma eliminazione"
+
+#: templates/marketplace/user_announcements.html:414
+msgid "Êtes-vous sûr de vouloir supprimer l'annonce"
+msgstr "Sei sicuro di voler eliminare l'annuncio"
+
+#: templates/marketplace/validate_announcement.html:9
+msgid "Première validation d'annonce"
+msgstr "Prima validazione dell'annuncio"
+
+#: templates/marketplace/validate_announcement.html:11
+msgid "Seconde validation d'annonce"
+msgstr "Seconda validazione dell'annuncio"
+
+#: templates/marketplace/validate_announcement.html:19
+#: templates/marketplace/validator_dashboard.html:21
+#: templates/marketplace/all_announcements.html:23
+msgid "Type"
+msgstr "Tipo"
+
+#: templates/marketplace/validate_announcement.html:20
+msgid "Créée par"
+msgstr "Creato da"
+
+#: templates/marketplace/validate_announcement.html:42
+#: templates/marketplace/validator_dashboard.html:42
+msgid "Approuver"
+msgstr "Approva"
+
+#: templates/marketplace/validate_announcement.html:53
+#: templates/marketplace/validate_announcement.html:58
+#: templates/marketplace/validator_dashboard.html:47
+msgid "Rejeter"
+msgstr "Rifiuta"
+
+#: templates/marketplace/validate_announcement.html:63
+msgid "Retour"
+msgstr "Indietro"
+
+#: templates/marketplace/validator_dashboard.html:6
+msgid "Tableau de bord des validateurs"
+msgstr "Cruscotto dei validatori"
+
+#: templates/marketplace/validator_dashboard.html:10
+msgid "Annonces en attente de validation"
+msgstr "Annunci in attesa di validazione"
+
+#: templates/marketplace/validator_dashboard.html:23
+#: templates/blog/trash.html:21
+#: templates/blog/sent.html:26
+#: templates/blog/inbox.html:27
+msgid "Actions"
+msgstr "Azioni"
+
+#: templates/marketplace/validator_dashboard.html:58
+msgid "Aucune annonce en attente de validation pour le moment."
+msgstr ""
+
+
+#: templates/includes/footer.html:109
+msgid "Nos Services"
+msgstr "I nostri Servizi"
+
+
+
+#: templates/includes/footer.html:113
+msgid "Inscription"
+msgstr "Iscrizione"
+
+#: templates/includes/footer.html:114
+#: templates/includes/navigation.html:22
+msgid "Se déconnecter"
+msgstr "Disconnettersi"
+
+#: templates/includes/footer.html:115
+msgid "Mon espace AmA"
+msgstr "Il mio spazio AmA"
+
+
+
+#: templates/includes/footer.html:117
+msgid "Annuaire des entreprises"
+msgstr "Elenco delle aziende"
+
+#: templates/includes/footer.html:118
+#: templates/marketplace/announcement_detail.html:77
+msgid "Certification"
+msgstr "Certificazione"
+
+#: templates/includes/footer.html:137
+
+msgid "Tous droits réservés"
+msgstr "Tutti i diritti riservati"
+
+#: templates/accounts/login.html:13
+msgid "Bienvenue !"
+msgstr "Benvenuto!"
+
+#: templates/accounts/login.html:14
+msgid "Utilisez vos informations d'identification pour accéder"
+msgstr "Usa le tue credenziali per accedere."
+
+
+#: templates/accounts/login.html:69
+msgid "Vous n'avez pas de compte ?"
+msgstr "Non hai un account?"
+
+#: templates/accounts/login.html:70
+msgid "Créer votre compte ici"
+msgstr "Crea il tuo account qui"
+
+
+#: templates/accounts/login.html:59
+msgid "Souviens-toi de moi"
+msgstr "Ricordami"
+
+
+
+
+#: templates/accounts/register.html:9
+msgid "Rejoignez notre plateforme en quelques clics"
+msgstr "Unisciti alla nostra piattaforma in pochi clic"
+
+#: templates/accounts/register.html:27
+msgid "Informations personnelles"
+msgstr "Informazioni personali"
+
+#: templates/accounts/register.html:73
+msgid "Informations de l'entreprise"
+msgstr "Informazioni sull'azienda"
+
+#: templates/accounts/register.html:152
+msgid "Coordonnées"
+msgstr "Dati di contatto"
+
+#: templates/accounts/register.html:300
+msgid "J'accepte les"
+msgstr "Accetto i"
+
+#: templates/accounts/register.html:300
+msgid "Créer un compte"
+msgstr "Crea un account"
+
+
+
+#: templates/accounts/register.html:301
+msgid "conditions d'utilisation"
+msgstr "termini di utilizzo"
+
+#: templates/accounts/register.html:307
+msgid "Créer mon compte"
+msgstr "Crea il mio account"
+
+#: templates/accounts/register.html:312
+msgid "Déjà inscrit ?"
+msgstr "Sei già registrato?"
+
+#: templates/accounts/register.html:313
+msgid "Connectez-vous"
+msgstr "Accedi"
+
+#: templates/accounts/register.html:238
+msgid "Sécurité du compte"
+msgstr "Sicurezza dell'account"
+
+
+
+
+
+
+
+
+#: evenements/templates/marketplace/index.html:64
+msgid "Événement (s) à vénir"
+msgstr "Eventi in arrivo"
+
+#: evenements/templates/marketplace/index.html:103
+msgid "Nos annonces"
+msgstr "I nostri annunci"
+
+#: evenements/templates/marketplace/index.html:88
+msgid "Voir tous les événements"
+msgstr "Vedi tutti gli eventi"
+
+
+#: evenements/templates/marketplace/index.html:167
+#: templates/marketplace/search_results.html:77
+msgid "Voir plus"
+msgstr "Vedi di più"
+
+#: evenements/templates/marketplace/index.html:179
+msgid "Voir toutes les annonces"
+msgstr "Vedi tutti gli annunci"
+
+
+#: templates/marketplace/search_results.html:7
+#: templates/marketplace/search_results.html:13
+#: templates/marketplace/search_results.html:16
+msgid "Résultats de recherche"
+msgstr "Risultati della ricerca"
+
+
+
+#: templates/marketplace/search_results.html:25
+msgid "Filtre par categories"
+msgstr "Filtra per categorie"
+
+#: templates/marketplace/search_results.html:28
+#: templates/includes/header.html:386
+msgid "Recherche"
+msgstr "Ricerca"
+
+#: templates/marketplace/search_results.html:86
+msgid "Aucune annonce trouvée."
+msgstr "Nessun annuncio trovato."
+
+#: templates/includes/header.html:372
+msgid "Rechercher par pays"
+msgstr "Cerca per paese"
+
+#: templates/includes/header.html:374
+msgid "Riz du Bénin"
+msgstr "Riso del Benin"
+
+
+#: templates/includes/header.html:84
+msgid "Rechercher à partir du numéro de l'annonce"
+msgstr "Cerca per numero dell’annuncio"
+
+#: templates/includes/header.html:91
+msgid "Toutes les sous-catégories"
+msgstr "Tutte le sottocategorie"
+
+#: templates/includes/header.html:380
+msgid "Céréales"
+msgstr "Cereali"
+
+
+
+
+
+#: templates/blog/sent.html:11:17
+msgid "Messages envoyés"
+msgstr "Messaggi inviati"
+
+#: templates/blog/sent.html:24
+msgid "Destinataire"
+msgstr "Destinatario"
+
+#: templates/blog/sent.html:25
+#: templates/blog/inbox.html:25
+msgid "Annonce concernée"
+msgstr "Annuncio correlato"
+
+
+
+#: templates/blog/sent.html:36
+msgid "Continuer"
+msgstr "Continua"
+
+#: templates/blog/sent.html:45
+msgid "Aucun message envoyé."
+msgstr "Nessun messaggio inviato."
+
+
+
+#: templates/blog/inbox.html:8
+#: templates/blog/sent.html:8
+msgid "Conversation sur Agri Market Africa"
+msgstr "Conversazione su Agri Market Africa"
+
+#: templates/blog/inbox.html:11
+msgid "Messages reçus"
+msgstr "Messaggi ricevuti"
+
+#: templates/blog/inbox.html:17
+msgid "Boîte de réception"
+msgstr "Posta in arrivo"
+
+#: templates/blog/inbox.html:24
+#: templates/blog/trash.html:19
+msgid "Expéditeur"
+msgstr "Mittente"
+
+
+
+#: templates/blog/inbox.html:26
+msgid "Non lus"
+msgstr "Non letti"
+
+
+
+#: templates/blog/inbox.html:44
+msgid "Répondre"
+msgstr "Rispondi"
+
+#: templates/blog/inbox.html:
+msgid "Aucune conversation reçue."
+msgstr "Nessuna conversazione ricevuta."
+
+
+#: templates/blog/trash.html:8
+msgid "Corbeille Conversation"
+msgstr "Cestino Conversazioni"
+
+#: templates/blog/trash.html:38
+#: templates/blog/modal_restore.html:20
+msgid "Restaurer"
+msgstr "Ripristina"
+
+
+#: templates/blog/modal.html:10
+msgid "Confirmation de suppression"
+msgstr "Conferma eliminazione"
+
+#: templates/blog/modal.html:12
+#: templates/blog/modal_restore.html:12
+#: evenements/templates/evenements/interet.html:30
+msgid "Fermer"
+msgstr "Chiudi"
+
+#: templates/blog/modal.html:15
+msgid "Êtes-vous sûr de vouloir supprimer cette conversation ?"
+msgstr "Sei sicuro di voler eliminare questa conversazione?"
+
+#: templates/blog/modal_restore.html:10
+msgid "Restaurer la conversation"
+msgstr "Ripristina conversazione"
+
+#: templates/blog/modal_restore.html:15
+msgid "Souhaitez-vous restaurer cette conversation depuis la corbeille ?"
+msgstr "Vuoi ripristinare questa conversazione dal cestino?"
+
+
+
+#: templates/marketplace/all_announcements.html:12
+msgid "Toutes nos annonces"
+msgstr "Tutti i nostri annunci"
+
+#: templates/marketplace/all_announcements.html:13
+msgid "annonces disponibles"
+msgstr "annunci disponibili"
+
+
+
+#: templates/marketplace/all_announcements.html:29
+msgid "Vente"
+msgstr "Vendita"
+
+#: templates/marketplace/all_announcements.html:30
+msgid "Achat"
+msgstr "Acquisto"
+
+#: templates/marketplace/all_announcements.html:32
+msgid "Service"
+msgstr "Servizio"
+
+#: templates/marketplace/all_announcements.html:32
+msgid "Matériel"
+msgstr "Attrezzatura"
+
+#: templates/marketplace/all_announcements.html:33
+msgid "Emploi"
+msgstr "Lavoro"
+
+#: templates/marketplace/all_announcements.html:40
+msgid "Trier par"
+msgstr "Ordina per"
+
+#: templates/marketplace/all_announcements.html:43
+msgid "Plus récent"
+msgstr "Più recente"
+
+#: templates/marketplace/all_announcements.html:44
+msgid "Titre (A-Z)"
+msgstr "Titolo (A-Z)"
+
+#: templates/marketplace/all_announcements.html:109
+msgid "Voir"
+msgstr "Visualizza"
+
+#: templates/marketplace/all_announcements.html:22
+msgid "Tous"
+msgstr "Tutto"
+
+#: templates/marketplace/all_announcements.html:92
+#: templates/marketplace/index.html:234
+msgid "Pays non spécifié"
+msgstr "Paese non specificato"
+
+#: templates/marketplace/all_announcements.html:12
+msgid "Aucun résultat pour"
+msgstr "Nessun risultato"
+
+#: templates/marketplace/all_announcements.html:128
+msgid "Aucune annonce disponible"
+msgstr "Nessun annuncio disponibile"
+
+
+#: templates/marketplace/all_announcements.html:133
+msgid "Essayez de modifier vos critères de recherche"
+msgstr "Prova a modificare i criteri di ricerca"
+
+#: templates/marketplace/all_announcements.html:135
+msgid "Soyez le premier à publier une annonce"
+msgstr "Sii il primo a pubblicare un annuncio"
+
+
+
+
+#: evenements/templates/evenements/detail.html:33
+msgid "Événements"
+msgstr "Eventi"
+
+
+#: evenements/templates/evenements/detail.html:47
+#: evenements/templates/evenements/liste.html:45
+#: templates/marketplace/index.html:53
+msgid "Du 14 au 16 Avril 2026"
+msgstr "Dal 14 al 16 Aprile 2026"
+
+#: evenements/templates/evenements/detail.html:58
+#: evenements/templates/evenements/detail.html:181
+msgid "participants"
+msgstr "partecipanti"
+
+
+#: evenements/templates/evenements/detail.html:65
+msgid "Dans"
+msgstr "Tra"
+
+#: evenements/templates/evenements/detail.html:79
+msgid "Détails de l'événement"
+msgstr "Dettagli dell'evento"
+
+#: evenements/templates/evenements/detail.html:85
+msgid "Quoi ?"
+msgstr "Che cosa?"
+
+#: evenements/templates/evenements/detail.html:86
+msgid "Rencontre B2B Italie-Afrique"
+msgstr "Incontro B2B Italia-Africa"
+
+#: evenements/templates/evenements/detail.html:90
+msgid "Quand ?"
+msgstr "Quando?"
+
+#: evenements/templates/evenements/detail.html:91
+msgid "14 Au 16 Avril 2026"
+msgstr "Dal 14 al 16 Aprile 2026"
+
+#: evenements/templates/evenements/detail.html:96
+msgid "Où ?"
+msgstr "Dove?"
+
+#: evenements/templates/evenements/detail.html:97
+msgid "Turin, Italie"
+msgstr "Torino, Italia"
+
+#: evenements/templates/evenements/detail.html:103
+msgid "Horaire "
+msgstr "Orario"
+
+#: evenements/templates/evenements/detail.html:111
+msgid "Lieu"
+msgstr "Luogo"
+
+#: evenements/templates/evenements/detail.html:118
+msgid "Tarif"
+msgstr "Prezzo"
+
+
+
+#: evenements/templates/evenements/detail.html:146
+msgid "Programme"
+msgstr "Programma"
+
+#: evenements/templates/evenements/detail.html:156
+msgid "Retour aux événements"
+msgstr "Torna agli eventi"
+
+#: evenements/templates/evenements/detail.html:160
+msgid "Partager"
+msgstr "Condividi"
+
+#: evenements/templates/evenements/detail.html:164
+msgid "Modifier mon inscription"
+msgstr "Modifica la mia iscrizione"
+
+#: evenements/templates/evenements/detail.html:168
+msgid "S'inscrire maintenant"
+msgstr "Iscriviti ora"
+
+
+
+
+
+#: templates/blog/presentation.html:210
+msgid "Suivez-nous"
+msgstr "Seguici"
+
+#: templates/blog/presentation.html:159
+#: templates/blog/presentation.html:85
+#: templates/includes/menumobile.html:95
+msgid "Présentation IDA"
+msgstr "Presentazione IDA"
+
+#: templates/marketplace/index.html:27
+msgid "Événement(s) à vénir"
+msgstr "Evento/i in arrivo"
+
+
+#: templates/includes/footer.html:109
+msgid "Nos services"
+msgstr "I nostri servizi"
+
+
+#: templates/sildes.html:109
+msgid "Bienvenue à Agri Market Africa <br> La connexion au meilleur de l'agriculture africaine."
+msgstr "Benvenuti ad Agri Market Africa <br> Il collegamento al meglio dell’agricoltura africana."
+
+#: templates/sildes.html:124
+msgid "B2B Turin 2026 <br> De la fourche à la fourchette"
+msgstr "B2B Torino 2026 <br> Dal campo alla tavola"
+
+#: templates/sildes.html:124
+msgid "La connexion de référence à l'agriculture africaine"
+msgstr "Il collegamento di riferimento all’agricoltura africana"
+
+#: templates/sildes.html:161
+msgid "Recherchez-vous des produits agricoles d’origine africaine de qualité supérieure ? <br> Vous êtes au bon endroit !"
+msgstr "State cercando prodotti agricoli africani di alta qualità? <br> Siete nel posto giusto!"
+
+
+
+
+#: templates/accounts/activate.html:7
+msgid "Activation de votre compte"
+msgstr "Attivazione del tuo account"
+
+#: templates/accounts/activate.html:50
+msgid "Bienvenue"
+msgstr "Benvenuto"
+
+#: templates/accounts/activate.html:53
+msgid "Merci de rejoindre la communauté"
+msgstr "Grazie per esserti unito alla comunità"
+
+#: templates/accounts/activate.html:54
+msgid "Pour finaliser votre inscription et accéder à toutes nos fonctionnalités, veuillez cliquer sur le bouton ci-dessous :"
+msgstr "Per completare la registrazione e accedere a tutte le nostre funzionalità, clicca sul pulsante qui sotto:"
+
+#: templates/accounts/activate.html:59
+msgid "Activer mon compte"
+msgstr "Attiva il mio account"
+
+#: templates/accounts/activate.html:64
+msgid "Si le bouton ne fonctionne pas, copiez et collez le lien suivant dans votre navigateur :"
+msgstr "Se il pulsante non funziona, copia e incolla il seguente link nel tuo browser:"
+
+#: templates/accounts/activate.html:72
+msgid "Si vous n'avez pas demandé cette inscription, vous pouvez ignorer cet email."
+msgstr "Se non hai richiesto questa registrazione, puoi ignorare questa email."
+
+#: templates/accounts/activate.html:76
+msgid "Tous droits réservés."
+msgstr "Tutti i diritti riservati."
+
+
+
+#: templates/accounts/emails.html:11
+msgid "Email de confirmation envoyé"
+msgstr "Email di conferma inviata"
+
+#: templates/accounts/emails.html:15
+msgid "Un email d'activation a été envoyé à l'adresse que vous avez fournie."
+msgstr "Un'email di attivazione è stata inviata all'indirizzo che hai fornito."
+
+#: templates/accounts/emails.html:19
+msgid "Veuillez vérifier votre boîte de réception et cliquer sur le lien d'activation pour compléter votre inscription."
+msgstr "Controlla la tua casella di posta e clicca sul link di attivazione per completare la registrazione."
+
+#: templates/accounts/emails.html:24
+msgid "Si vous ne recevez pas l'email dans quelques minutes :"
+msgstr "Se non ricevi l'email entro pochi minuti:"
+
+#: templates/accounts/emails.html:26
+msgid "Vérifiez votre dossier spam/courrier indésirable"
+msgstr "Controlla la cartella spam/posta indesiderata"
+
+#: templates/accounts/emails.html:27
+msgid "Vérifiez que l'adresse email est correcte"
+msgstr "Verifica che l'indirizzo email sia corretto"
+
+#: templates/accounts/emails.html:28
+msgid "Essayer de vous réinscrire"
+msgstr "Prova a registrarti di nuovo"
+
+#: templates/accounts/emails.html:34
+msgid "Aller à la page de connexion"
+msgstr "Vai alla pagina di accesso"
+
+
+
+#: templates/accounts/activation_invalid.html:11
+msgid "Échec de l'activation du compte"
+msgstr "Attivazione dell'account non riuscita"
+
+#: templates/accounts/activation_invalid.html:15
+msgid "Le lien d'activation est invalide ou a expiré."
+msgstr "Il link di attivazione non è valido o è scaduto."
+
+#: templates/accounts/activation_invalid.html:19
+msgid "Ceci peut arriver si :"
+msgstr "Questo può accadere se:"
+
+#: templates/accounts/activation_invalid.html:23
+msgid "Le lien a déjà été utilisé"
+msgstr "Il link è già stato utilizzato"
+
+#: templates/accounts/activation_invalid.html:24
+msgid "Plus de 48 heures se sont écoulées depuis votre inscription"
+msgstr "Sono trascorse più di 48 ore dalla tua registrazione"
+
+#: templates/accounts/activation_invalid.html:25
+msgid "Le lien a été modifié"
+msgstr "Il link è stato modificato"
+
+#: templates/accounts/activation_invalid.html:30
+msgid "Créer un nouveau compte"
+msgstr "Crea un nuovo account"
+
+#: templates/accounts/activation_invalid.html:33
+msgid "Page de connexion"
+msgstr "Pagina di accesso"
+
+#: templates/accounts/activation_invalid.html:39
+msgid "Si vous pensez qu'il s'agit d'une erreur, veuillez"
+msgstr "Se pensi che si tratti di un errore, per favore"
+
+#: templates/accounts/activation_invalid.html:40
+msgid "contacter notre support"
+msgstr "contatta il nostro supporto"
+
+
+#: evenements/templates/evenements/email_confirmation.html:10
+#: templates/blog/emails/new_message_notification.txt:3
+#: templates/marketplace/emails/announcement_status_notification.txt:2
+msgid "Bonjour"
+msgstr "Ciao"
+
+#: evenements/templates/evenements/email_confirmation.html:11
+msgid "Merci pour votre inscription à l'événement"
+msgstr "Grazie per esserti iscritto all'evento"
+
+
+#: evenements/templates/evenements/email_confirmation.html:14
+msgid "du 14 to 16 April 2026"
+msgstr "dal 14 al 16 Aprile 2026"
+
+
+
+
+
+#: evenements/templates/evenements/email_confirmation.html:18
+msgid "L'équipe Agri Market Africa"
+msgstr "Il team di Agri Market Africa"
+
+
+
+
+
+
+#: templates/accounts/register.html:45
+msgid "Profil"
+msgstr "Profilo"
+
+#: templates/accounts/register.html:81
+msgid "Nom de l'entreprise"
+msgstr "Nome dell'azienda"
+
+
+
+
+
+#: templates/accounts/register.html:123
+msgid "Code commercial"
+msgstr "Codice commerciale"
+
+
+#: templates/accounts/register.html:
+#: templates/accounts/register.html:156
+msgid "Sélectionnez un ou plusieurs produits"
+msgstr "Seleziona uno o più prodotti"
+
+
+
+
+
+
+#: templates/accounts/register.html:180
+msgid "Nom d'utilisateur"
+msgstr "Nome utente"
+
+
+
+#: templates/accounts/register.html:200
+msgid "saisir le numéro de téléphone avec l'indicatif Ex: +22890909090"
+msgstr "inserisci il numero di telefono con il prefisso es: +22890909090"
+
+
+
+#: templates/accounts/register.html:220
+msgid "Code postal"
+msgstr "Codice postale"
+
+
+
+#: templates/accounts/register.html:239
+msgid "Mot de passe"
+msgstr "Password"
+
+#: templates/accounts/register.html:263
+msgid "Confirmation"
+msgstr "Conferma"
+
+#: templates/accounts/register.html:283
+msgid "Photo de profil"
+msgstr "Foto profilo"
+
+#: templates/accounts/register.html:289
+msgid "Glissez-déposez votre fichier"
+msgstr "Trascina e rilascia il tuo file"
+
+#: templates/accounts/register.html:289
+msgid "parcourir"
+msgstr "sfoglia"
+
+#: templates/accounts/register.html:293
+msgid "Aperçu de l'image"
+msgstr "Anteprima dell'immagine"
+
+
+#: evenements/templates/evenements/export_excel.html:19
+#: evenements/templates/evenements/export_excel.html:37
+#: templates/includes/navigation.html:66
+#: templates/includes/menumobile.html:210
+msgid "Exporter en excel"
+msgstr "Esporta in Excel"
+
+
+
+#: evenements/templates/evenements/export_excel.html:24
+msgid "Evenement"
+msgstr "Evento"
+
+#: evenements/templates/evenements/export_excel.html:25
+msgid "Nom et prenom"
+msgstr "Nome e cognome"
+
+
+
+#: evenements/templates/evenements/export_excel.html:27
+msgid "Telephone"
+msgstr "Telefono"
+
+#: evenements/templates/evenements/export_excel.html:28
+msgid "Interesse"
+msgstr "Interessato"
+
+#: evenements/templates/evenements/export_excel.html:44
+msgid "Aucun fichier disponible pour le moment."
+msgstr "Nessun file disponibile al momento."
+
+#: evenements/templates/evenements/export_excel.html:61
+msgid "Charger plus de fichiers"
+msgstr "Carica più file"
+
+
+#: evenements/templates/evenements/liste.html:7
+msgid "Liste des Événements"
+msgstr "Elenco degli Eventi"
+
+#: evenements/templates/evenements/liste.html:15
+msgid "Nos événements"
+msgstr "I Nostri Eventi"
+
+#: evenements/templates/evenements/liste.html:16
+msgid "Découvrez tous nos événements à venir"
+msgstr "Scopri tutti i nostri eventi in arrivo"
+
+#: evenements/templates/evenements/liste.html:38
+msgid "intéressés"
+msgstr "interessati"
+
+
+
+
+
+#: evenements/templates/evenements/liste.html:66
+msgid "Aucun événement à venir pour le moment."
+msgstr "Nessun evento in programma al momento."
+
+
+#: templates/includes/footer.html:49
+msgid "Agri Market Africa est une plateforme née d'une vision : Promouvoir et valoriser l'agriculture africaine de qualité supérieure."
+msgstr "Agri Market Africa è una piattaforma nata da una visione: promuovere e valorizzare l'agricoltura africana di alta qualità."
+
+
+#: templates/includes/footer.html:38
+msgid "NourDign – Tous droits réservés."
+msgstr "NourDign – Tutti i diritti riservati."
+
+#: templates/includes/partenaires.html:14
+msgid "Ils nous font confiance"
+msgstr "Si fidano di noi"
+
+
+#: templates/includes/partenaires.html:40
+msgid "Nos sponsors"
+msgstr "I nostri sponsor"
+
+
+#: templates/blog/abouts.html:301
+msgid "Nos Valeurs"
+msgstr "I nostri valori"
+
+
+
+
+#: templates/blog/emails/new_message_notification.txt:5
+msgid "Vous avez reçu un nouveau message de"
+msgstr "Hai ricevuto un nuovo messaggio da"
+
+
+
+#: templates/blog/emails/new_message_notification.txt:11
+msgid "Accédez à la conversation :"
+msgstr "Accedi alla conversazione:"
+
+
+#: templates/blog/emails/admin_new_message_notification.txt:2
+msgid "Nouveau message échangé sur la plateforme"
+msgstr "Nuovo messaggio scambiato sulla piattaforma"
+
+#: templates/blog/emails/admin_new_message_notification.txt:4
+msgid "Expéditeur :"
+msgstr "Mittente:"
+
+#: templates/blog/emails/admin_new_message_notification.txt:5
+msgid "Destinataire :"
+msgstr "Destinatario:"
+
+#: templates/blog/emails/admin_new_message_notification.txt:7
+msgid "Annonce : "
+msgstr "Annuncio: "
+
+#: templates/blog/emails/admin_new_message_notification.txt:9
+msgid "Message :"
+msgstr "Messaggio:"
+
+#: templates/blog/emails/admin_new_message_notification.txt:12
+msgid "Lien :"
+msgstr "Link:"
+
+
+
+
+
+
+#: templates/marketplace/emails/announcement_status_notification.txt:7
+msgid "Référence:"
+msgstr "Riferimento:"

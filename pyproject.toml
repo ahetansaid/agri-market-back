@@ -1,0 +1,10 @@
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+exclude = ["migrations"]
+
+[tool.flake8]
+max-line-length = 88

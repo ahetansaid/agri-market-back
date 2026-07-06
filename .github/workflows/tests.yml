@@ -1,0 +1,72 @@
+name: Django Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: test_db
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+          cache: 'pip'
+
+      - name: Clear pre-commit cache
+        run: rm -rf ~/.cache/pre-commit
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install pre-commit
+        run: |
+          source venv/bin/activate
+          pip install pre-commit
+
+      - name: Run pre-commit checks
+        run: |
+          source venv/bin/activate
+          pre-commit run --all-files
+
+      - name: Run Django migrations and tests
+        env:
+          DJANGO_SETTINGS_MODULE: idamarketplace.settings.development
+          DB_ENGINE: django.db.backends.postgresql
+          DB_NAME: test_db
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          DB_HOST: localhost
+          DB_PORT: 5432
+        run: |
+          source venv/bin/activate
+
+          until pg_isready -h $DB_HOST -p $DB_PORT -U $DB_USER; do
+            echo "Waiting for database..."
+            sleep 2
+          done
+
+          python manage.py migrate
+          python manage.py update_translation_fields
+          python manage.py test

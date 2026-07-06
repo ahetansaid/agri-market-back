@@ -1,0 +1,402 @@
+/* ============================================================
+   ADMIN LOGIN — Page de connexion back-office
+   Branding sombre, sobre, distinct du site public agricole.
+   ============================================================ */
+
+:root {
+    --al-bg-deep: #0b1220;
+    --al-bg: #111a2d;
+    --al-card: #16223a;
+    --al-border: rgba(255, 255, 255, 0.08);
+    --al-text: #e8eef7;
+    --al-text-muted: #8ea0bd;
+    --al-accent: #E85D1F;
+    --al-accent-hover: #ff7233;
+    --al-danger: #f87171;
+    --al-warning: #fbbf24;
+    --al-success: #4ade80;
+}
+
+/* Reset Django admin default body */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--al-bg-deep);
+    color: var(--al-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Hide Django's default header/breadcrumbs on login page */
+#header, .breadcrumbs, #user-tools, #branding {
+    display: none !important;
+}
+
+#container {
+    min-height: 100vh;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+#content {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ----------------- Layout split ----------------- */
+.al-shell {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    background: var(--al-bg-deep);
+}
+
+@media (max-width: 960px) {
+    .al-shell {
+        grid-template-columns: 1fr;
+    }
+    .al-side { display: none; }
+}
+
+/* ----------------- Brand side (left) ----------------- */
+.al-side {
+    background:
+        radial-gradient(circle at 30% 20%, rgba(232, 93, 31, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(232, 93, 31, 0.08) 0%, transparent 50%),
+        linear-gradient(135deg, #0b1220 0%, #1a2747 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 48px;
+    color: var(--al-text);
+}
+
+.al-side::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+.al-side-top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.al-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid var(--al-border);
+    display: grid;
+    place-items: center;
+    padding: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(232, 93, 31, 0.2);
+}
+
+.al-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.al-brand-name {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.al-brand-tag {
+    font-size: 12px;
+    color: var(--al-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 2px;
+}
+
+.al-side-mid {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 480px;
+}
+
+.al-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(232, 93, 31, 0.15);
+    color: var(--al-accent);
+    border: 1px solid rgba(232, 93, 31, 0.3);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 18px;
+}
+
+.al-side h1 {
+    font-size: 38px;
+    line-height: 1.15;
+    font-weight: 700;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+}
+
+.al-side h1 .accent {
+    color: var(--al-accent);
+}
+
+.al-side-lead {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--al-text-muted);
+    margin: 0 0 32px;
+}
+
+.al-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.al-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--al-text);
+}
+
+.al-bullet-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(232, 93, 31, 0.15);
+    color: var(--al-accent);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: 16px;
+}
+
+.al-side-bottom {
+    position: relative;
+    z-index: 2;
+    font-size: 12px;
+    color: var(--al-text-muted);
+}
+
+/* ----------------- Form side (right) ----------------- */
+.al-main {
+    display: grid;
+    place-items: center;
+    padding: 48px 32px;
+    background: var(--al-bg);
+}
+
+.al-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--al-card);
+    border: 1px solid var(--al-border);
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.al-card-head {
+    margin-bottom: 28px;
+}
+
+.al-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    color: var(--al-text);
+    letter-spacing: -0.01em;
+}
+
+.al-card-subtitle {
+    font-size: 14px;
+    color: var(--al-text-muted);
+    margin: 0;
+}
+
+/* Alert / warnings */
+.al-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 20px;
+}
+
+.al-alert-warn {
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    color: #fde68a;
+}
+
+.al-alert-danger {
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: #fecaca;
+}
+
+.al-alert i {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* Form errors (Django default .errornote) */
+.errornote {
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: #fecaca;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.errorlist {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0;
+    color: var(--al-danger);
+    font-size: 12px;
+}
+
+/* Form fields */
+.form-row {
+    display: block;
+    margin-bottom: 18px;
+}
+
+.form-row label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--al-text);
+    margin-bottom: 6px;
+    text-transform: none;
+}
+
+.form-row input[type="text"],
+.form-row input[type="password"],
+.form-row input[type="email"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    background: rgba(11, 18, 32, 0.6);
+    border: 1px solid var(--al-border);
+    border-radius: 10px;
+    color: var(--al-text);
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+
+.form-row input[type="text"]:focus,
+.form-row input[type="password"]:focus,
+.form-row input[type="email"]:focus {
+    outline: none;
+    border-color: var(--al-accent);
+    background: rgba(11, 18, 32, 0.9);
+    box-shadow: 0 0 0 3px rgba(232, 93, 31, 0.15);
+}
+
+.form-row input::placeholder {
+    color: rgba(142, 160, 189, 0.5);
+}
+
+/* Submit row */
+.submit-row {
+    margin-top: 24px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    text-align: left;
+}
+
+.submit-row input[type="submit"],
+.al-submit {
+    width: 100%;
+    padding: 13px 20px;
+    background: var(--al-accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.05s;
+    font-family: inherit;
+    letter-spacing: 0.01em;
+}
+
+.submit-row input[type="submit"]:hover,
+.al-submit:hover {
+    background: var(--al-accent-hover);
+}
+
+.submit-row input[type="submit"]:active,
+.al-submit:active {
+    transform: translateY(1px);
+}
+
+/* Footer / disclaimers */
+.al-card-foot {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--al-border);
+    font-size: 12px;
+    color: var(--al-text-muted);
+    text-align: center;
+    line-height: 1.6;
+}
+
+.al-card-foot a {
+    color: var(--al-text-muted);
+    text-decoration: underline;
+    text-decoration-color: rgba(142, 160, 189, 0.3);
+}
+
+.al-card-foot a:hover {
+    color: var(--al-accent);
+}
+
+.al-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+/* Hide Django admin password reset link (admin should not self-reset) */
+.password-reset-link {
+    display: none !important;
+}

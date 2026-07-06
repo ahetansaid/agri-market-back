@@ -1,0 +1,372 @@
+[
+  {
+    "model": "marketplace.subcategory",
+    "pk": 1,
+    "fields": {
+      "name": "Céréales et grains",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 2,
+    "fields": {
+      "name": "Légumineuses",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 3,
+    "fields": {
+      "name": "Fruits Tropicaux & Locaux",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 4,
+    "fields": {
+      "name": "Légumes frais",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 5,
+    "fields": {
+      "name": "Tubercules & Racines",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 6,
+    "fields": {
+      "name": "Plantes aromatiques & médicinales",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 7,
+    "fields": {
+      "name": "Noix et graines oléagineuses",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 8,
+    "fields": {
+      "name": "Plantes industrielles",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 9,
+    "fields": {
+      "name": "Élevage Bovin",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 10,
+    "fields": {
+      "name": "Élevage Ovin & Caprin",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 11,
+    "fields": {
+      "name": "Volaille",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 12,
+    "fields": {
+      "name": "Produits de la Pêche & Aquaculture",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 13,
+    "fields": {
+      "name": "Produits Apicoles",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 14,
+    "fields": {
+      "name": "Produits Laitiers",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 15,
+    "fields": {
+      "name": "Sous-produits Animaux",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 16,
+    "fields": {
+      "name": "Matériel de préparation du sol",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 17,
+    "fields": {
+      "name": "Semis et Plantation",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 18,
+    "fields": {
+      "name": "Irrigation",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 19,
+    "fields": {
+      "name": "Récolte & Post-récolte",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 20,
+    "fields": {
+      "name": "Transformation Locale",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 21,
+    "fields": {
+      "name": "Transport Agricole",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 22,
+    "fields": {
+      "name": "Semences améliorées & locales",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 23,
+    "fields": {
+      "name": "Plants fruitiers & maraîchers",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 24,
+    "fields": {
+      "name": "Plants forestiers & ornementaux",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 25,
+    "fields": {
+      "name": "Champignons comestibles",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 26,
+    "fields": {
+      "name": "Engrais Organiques",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 27,
+    "fields": {
+      "name": "Engrais Minéraux",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 28,
+    "fields": {
+      "name": "Amendements de sol",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 29,
+    "fields": {
+      "name": "Biostimulants & activateurs naturels",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 30,
+    "fields": {
+      "name": "Insecticides",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 31,
+    "fields": {
+      "name": "Herbicides",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 32,
+    "fields": {
+      "name": "Fongicides",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 33,
+    "fields": {
+      "name": "Produits biologiques de protection",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 34,
+    "fields": {
+      "name": "Conseil agronomique & vétérinaire",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 35,
+    "fields": {
+      "name": "Services de mécanisation partagée",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 36,
+    "fields": {
+      "name": "Solutions numériques agricoles",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  },
+  {
+    "model": "marketplace.subcategory",
+    "pk": 37,
+    "fields": {
+      "name": "Formation & e-learning agricole",
+      "created_at": "2025-05-15T00:00:00Z",
+      "updated_at": "2025-05-15T00:00:00Z",
+      "is_archived": false
+    }
+  }
+]

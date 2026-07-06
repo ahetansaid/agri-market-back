@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% include 'includes/menumobile.html' %}
+<style>
+    .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+.table-scroll table {
+    min-width: 700px; /* permet de scroller horizontalement sur mobile */
+}
+
+</style>
+{% block content %}
+
+<section class="single-banner inner-section" style="background: #FCEABB;">
+    <div class="container">
+        <h2>{% trans 'Exporter en excel' %} </h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'marketplace:index'%}">{%trans "Acceuil"%}</a></li>
+
+            {% comment %} <li class="breadcrumb-item active" aria-current="page">{%trans "À propos"%}</li> {% endcomment %}
+        </ol>
+    </div>
+</section>
+
+<section class="inner-section compare-part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- Bouton placé à gauche avec marge en bas -->
+                <div class="mb-3 text-end">
+                    <a class="download btn btn-success btn-sm"
+                        href="{% url 'evenements:export_evenement' evenements.id %}">
+                        <i class="fas fa-download"></i> {% trans "Exporter en excel" %}
+                    </a>
+                </div>
+
+                <div class="table-scroll">
+                    <table class="table-list">
+                        <thead>
+                            <tr>
+                                <th scope="col">{% trans "Utilisateur" %}</th>
+                                <th scope="col">{% trans "Evenement" %}</th>
+                                <th scope="col">{% trans "Nom et prenom" %}</th>
+                                <th scope="col">{% trans "Email" %}</th>
+                                <th scope="col">{% trans "Telephone" %}</th>
+                                <th scope="col">{% trans "Interesse" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for inscription in inscriptions %}
+                            <tr>
+                                <td><h6>{{ inscription.utilisateur }}</h6></td>
+                                <td><h6>{{ inscription.evenement }}</h6></td>
+                                <td><h6>{{ inscription.nom_complet }}</h6></td>
+                                <td><h6>{{ inscription.email }}</h6></td>
+                                <td><h6>{{ inscription.telephone }}</h6></td>
+                                <td><h6>{{ inscription.interesse }}</h6></td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="6" class="text-center">
+                                    {% trans "Aucun fichier disponible pour le moment." %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        {% if evenements.has_other_pages %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center mt-5">
+                    {% if evenements.has_next %}
+                    <a href="?page={{ evenements.next_page_number }}" class="btn btn-outline">
+                        {% trans "Charger plus de fichiers" %}
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

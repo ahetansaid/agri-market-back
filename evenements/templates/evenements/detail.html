@@ -1,0 +1,342 @@
+{% extends 'base.html' %}
+{% load static %}{% load i18n %}
+{% load humanize %}
+
+{% block title %}{{ evenement.titre }}{% endblock %}
+
+{% block content %}
+<section class="section event-detail-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <!-- Section Messages - Ajoutée -->
+                {% if messages %}
+                <div class="alert-container mb-4">
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                        <div class="d-flex align-items-center">
+                            {% if message.tags == 'success' %}
+                            <i class="fas fa-check-circle me-3 fs-4"></i>
+                            {% elif message.tags == 'error' %}
+                            <i class="fas fa-exclamation-circle me-3 fs-4"></i>
+                            {% endif %}
+                            <div>{{ message }}</div>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'evenements:liste' %}">{% trans 'Événements' %} </a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ evenement.titre }}</li>
+                    </ol>
+                </nav>
+
+                <article class="event-detail card border-0 shadow-sm">
+                    <div class="card-body">
+                        <header class="mb-4">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h1 class="event-title gradient-text" >{{ evenement.titre }}</h1>
+                                    <div class="event-meta mb-3">
+                                        <span class="badge bg-primary me-2">
+                                            <i class="fas fa-calendar-alt"></i>
+                                           {% trans 'Du 14 au 16 Avril 2026' %}
+
+                                        </span>
+                                        {% if evenement.lieu %}
+                                        <span class="badge bg-info me-2">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            {{ evenement.lieu }}
+                                        </span>
+                                        {% endif %}
+                                        <span class="badge bg-success">
+                                            <i class="fas fa-users"></i>
+                                            {{ evenement.interetevenement_set.count }} {% trans 'participants' %}
+                                        </span>
+                                    </div>
+                                </div>
+                                {% if evenement.date_debut > now %}
+                                <span class="badge bg-warning text-dark">
+                                    <i class="fas fa-clock"></i>
+                                     {% trans 'Dans' %}  {{ evenement.date_debut|timeuntil }}
+                                </span>
+                                {% endif %}
+                            </div>
+                        </header>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="event-image ratio ratio-16x9">
+                                    {% if LANGUAGE_CODE == 'fr' %}
+                                    <img src="{{ evenement.image_fr.url }}" alt="{{ evenement.titre }}" class="rounded">
+                                     {% elif LANGUAGE_CODE == 'en' %}
+                                     <img src="{{ evenement.image_en.url }}" alt="{{ evenement.titre }}" class="rounded">
+
+                                     {% else %}
+                                     <img src="{{ evenement.image_it.url }}" alt="{{ evenement.titre }}" class="rounded">
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="event-highlights">
+                                    <h3 class="h5 mb-3"> {% trans "Détails de l'événement" %} </h3>
+                                    <ul class="list-group list-group-flush mb-4">
+
+
+                                        <li class="list-group-item">
+                                            <i class="fas fa-info-circle me-2"></i>
+                                            <strong>{% trans 'Quoi ?' %}   : </strong>
+                                            {% trans 'Rencontre B2B Italie-Afrique' %}
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="far fa-calendar me-2"></i>
+                                            <strong>{% trans 'Quand ?' %}  : </strong>
+                                            {% trans '14 Au 16 Avril 2026' %}
+                                        </li>
+
+                                        <li class="list-group-item">
+                                            <i class="fas fa-map-marker-alt me-2"></i>
+                                            <strong>{% trans 'Où ?' %}  : </strong>
+                                            {% trans 'Turin, Italie' %}
+                                        </li>
+
+                                        {% if evenement.heure_debut %}
+                                        <li class="list-group-item">
+                                            <i class="far fa-clock me-2"></i>
+                                            <strong>{% trans 'Horaire ' %} :</strong>
+                                            {{ evenement.heure_debut|time:"H:i" }}
+                                            {% if evenement.heure_fin %} - {{ evenement.heure_fin|time:"H:i" }}{% endif %}
+                                        </li>
+                                        {% endif %}
+                                        {% if evenement.lieu %}
+                                        <li class="list-group-item">
+                                            <i class="fas fa-map-marker-alt me-2"></i>
+                                            <strong>{% trans 'Lieu' %}  :</strong>
+                                            {{ evenement.lieu }}
+                                        </li>
+                                        {% endif %}
+                                        {% if evenement.prix %}
+                                        <li class="list-group-item">
+                                            <i class="fas fa-tag me-2"></i>
+                                            <strong>{% trans 'Tarif' %}  :</strong>
+                                            {{ evenement.prix }} €
+                                        </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="event-content mb-5">
+                            <h3 class="h4 mb-3">{% trans 'Description' %} </h3>
+                            {% if LANGUAGE_CODE == 'fr' %}
+                            <div class="rich-text-content">
+                                {{ evenement.description_fr|safe }}
+                            </div>
+                            {% elif LANGUAGE_CODE == 'en' %}
+                            <div class="rich-text-content">
+                                {{ evenement.description_en|safe }}
+                            </div>
+                            {% else %}
+                            <div class="rich-text-content">
+                                {{ evenement.description_it|safe }}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        {% if evenement.programme %}
+                        <div class="event-program mb-5">
+                            <h3 class="h4 mb-3"> {% trans 'Programme' %} </h3>
+                            <div class="rich-text-content">
+                                {{ evenement.programme|linebreaks }}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <footer class="event-actions">
+                            <div class="d-grid gap-3 d-md-flex justify-content-md-between">
+                                <a href="{% url 'evenements:liste' %}" class="btn btn-outline-secondary">
+                                    <i class="fas fa-arrow-left me-2"></i> {% trans 'Retour aux événements' %}
+                                </a>
+
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-share-alt me-2"></i>{% trans 'Partager' %}
+                                </a>
+                                {% if existing_registration %}
+                                <a href="{% url 'evenements:interet' evenement.slug %}" class="btn btn-success btn-sm">
+                                    <i class="fas fa-user-edit me-2"></i>{% trans 'Modifier mon inscription' %}
+                                </a>
+                                {% else %}
+                                <a href="{% url 'evenements:interet' evenement.slug %}" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-user-plus me-2"></i>{% trans "S'inscrire maintenant" %}
+                                </a>
+                                {% endif %}
+
+
+                            </div>
+                        </footer>
+                    </div>
+                </article>
+
+                <div class="mt-5">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h4 mb-4">  {% trans 'participants' %}  ({{ evenement.interetevenement_set.count }})</h3>
+                            {% comment %} {% if existing_registration %}
+                            <div class="alert alert-success">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-check-circle me-3 fs-4"></i>
+                                    <div>
+                                        <strong>Vous êtes inscrit à cet événement !</strong>
+                                        <div class="small">Consultez votre email pour la confirmation</div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                L'inscription à cet événement est ouverte à tous. Rejoignez-nous !
+                            </div>
+                            {% endif %}
+
+                            <a href="{% url 'evenements:interet' evenement.slug %}"
+                               class="btn {% if existing_registration %}btn-success{% else %}btn-primary{% endif %}">
+                                <i class="fas fa-user-{% if existing_registration %}edit{% else %}plus{% endif %} me-2"></i>
+                                {% if existing_registration %}Modifier mon inscription{% else %}Je m'inscris{% endif %}
+                            </a> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'includes/partenaires.html' %}
+{% endblock %}
+
+{% block extra_css %}
+<style>
+
+    .btn-xs {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        border-radius: 0.2rem;
+    }
+
+    .event-detail-section {
+        padding: 3rem 0;
+    }
+    .event-title {
+        font-size: 25px;
+        margin-bottom: 1rem;
+        color: #333;
+        font-weight: 600;
+    }
+    .event-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .event-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #444;
+    }
+    .event-meta .badge {
+        font-size: 0.9rem;
+        padding: 0.6em 0.9em;
+        margin-bottom: 0.5rem;
+    }
+    .list-group-item {
+        padding: 0.75rem 1.25rem;
+        border-left: 0;
+        border-right: 0;
+    }
+    .rich-text-content {
+        line-height: 1.8;
+    }
+    .rich-text-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 1rem 0;
+    }
+    /* Styles ajoutés pour les messages */
+    .alert-container {
+        position: sticky;
+        top: 20px;
+        z-index: 1000;
+    }
+    .alert {
+        border-left: 4px solid;
+    }
+    .alert-success {
+        border-left-color: var(--bs-success);
+    }
+    .alert-error {
+        border-left-color: var(--bs-danger);
+    }
+    .alert i {
+        font-size: 1.5rem;
+    }
+
+    .gradient-text {
+    display: inline-block;
+    background: linear-gradient(90deg, #F6572D, #2D8A4A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.gradient-text:hover {
+    opacity: 0.85;
+    text-decoration: underline;
+}
+
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Script pour le partage sur les réseaux sociaux
+    const shareBtn = document.querySelector('.btn-outline-primary');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (navigator.share) {
+                navigator.share({
+                    title: '{{ evenement.titre }}',
+                    text: 'Découvrez cet événement: {{ evenement.titre }}',
+                    url: window.location.href
+                }).catch(err => {
+                    console.log('Erreur de partage:', err);
+                });
+            } else {
+                window.open(
+                    'https://twitter.com/intent/tweet?text=' + encodeURIComponent('Je participe à "{{ evenement.titre }}"') + '&url=' + encodeURIComponent(window.location.href),
+                    '_blank'
+                );
+            }
+        });
+    }
+
+    // Fermeture automatique des messages après 5 secondes
+    setTimeout(() => {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(alert => {
+            const bsAlert = new bootstrap.Alert(alert);
+            bsAlert.close();
+        });
+    }, 5000);
+});
+</script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+
+  <div class="container">
+   <strong> <h2> {% trans "Bonjour" %}  {{ nom }},</h2></strong>
+    <p> {% trans "Merci pour votre inscription à l'événement" %}
+       <strong>  {{ evenement.titre }}</strong>.</p>
+    <p>
+      <strong> {% trans "Date" %} : </strong> {% trans "du 14 to 16 April 2026" %} <br>
+
+      <strong> {% trans "Détails" %} :</strong> <a href="{{ detail_url }}">{{ detail_url }}</a>
+    </p>
+    <strong><p> {% trans "Cordialement" %},<br> {% trans "L'équipe Agri Market Africa" %}</p></strong>
+  </div>
