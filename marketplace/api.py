@@ -6,7 +6,12 @@ Endpoints : /api/announcements/, /api/categories/, /api/countries/counts/
 from django.conf import settings
 from django.db.models import Avg, Count, Q
 from rest_framework import filters, permissions, serializers, viewsets
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import (
+    api_view,
+    parser_classes,
+    permission_classes,
+)
+from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from rest_framework.response import Response
 
 from .models import Announcement, Category, SubCategory
@@ -411,6 +416,71 @@ def countries_activity(request):
             "counts": counts,
             "countries": countries,
         }
+    )
+
+
+# ============================================================
+# CREATION D'ANNONCE (utilisateur connecte)
+# ============================================================
+
+
+class AnnouncementCreateSerializer(serializers.ModelSerializer):
+    """Serializer d'ecriture pour publier une annonce."""
+
+    class Meta:
+        model = Announcement
+        fields = [
+            "id",
+            "title",
+            "type",
+            "category",
+            "subcategory",
+            "product_name",
+            "variety",
+            "brand",
+            "quantity",
+            "unit",
+            "is_organic",
+            "country",
+            "description",
+            "caracteristiques",
+            "shipping_conditions",
+            "transaction_details",
+            "image",
+        ]
+
+    def validate(self, attrs):
+        t = attrs.get("type")
+        if t in ("vente", "achat"):
+            for field in ("product_name", "quantity", "unit"):
+                if not attrs.get(field):
+                    raise serializers.ValidationError(
+                        {field: "Requis pour une annonce de vente/achat."}
+                    )
+        return attrs
+
+
+@api_view(["POST"])
+@permission_classes([permissions.IsAuthenticated])
+@parser_classes([MultiPartParser, FormParser, JSONParser])
+def create_announcement(request):
+    """
+    POST /api/me/announcements/create/
+    Publie une annonce (utilisateur connecte). L'annonce entre dans le
+    circuit de validation (statut 'pending_first').
+    """
+    serializer = AnnouncementCreateSerializer(data=request.data)
+    if not serializer.is_valid():
+        return Response({"errors": serializer.errors}, status=400)
+    ann = serializer.save(user=request.user, status="pending_first")
+    return Response(
+        {
+            "id": ann.id,
+            "reference": ann.reference,
+            "status": ann.status,
+            "title": ann.title,
+        },
+        status=201,
     )
 
 

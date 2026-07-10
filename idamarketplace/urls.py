@@ -39,6 +39,7 @@ from marketplace.api import (
     AnnouncementViewSet,
     CategoryViewSet,
     countries_activity,
+    create_announcement,
     producer_of_month,
     spotlight_category,
     stats_summary,
@@ -96,6 +97,11 @@ urlpatterns = [
     # User endpoints
     path("api/me/", me, name="api-me"),
     path("api/me/announcements/", my_announcements, name="api-me-announcements"),
+    path(
+        "api/me/announcements/create/",
+        create_announcement,
+        name="api-create-announcement",
+    ),
     path("api/me/ratings/", my_ratings, name="api-me-ratings"),
     # Meta endpoints (stats & geo)
     path("api/stats/summary/", stats_summary, name="api-stats-summary"),
