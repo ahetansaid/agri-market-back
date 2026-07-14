@@ -7,9 +7,14 @@ Endpoints :
   GET  /api/me/ratings/    — mes avis recus
 """
 
+from django.conf import settings
 from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth.tokens import default_token_generator
 from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
 from django.db.models import Q
+from django.utils.encoding import force_bytes, force_str
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from rest_framework import permissions, serializers, status
 from rest_framework.decorators import (
     api_view,
@@ -198,7 +203,8 @@ class RatingSerializer(serializers.ModelSerializer):
 def register(request):
     """
     POST /api/auth/register/
-    Inscription + retourne tokens JWT tout de suite (auto-login).
+    Inscription : cree un compte INACTIF et envoie un email de verification.
+    L'utilisateur doit activer son compte avant de pouvoir se connecter.
     """
     serializer = RegisterSerializer(data=request.data)
     if not serializer.is_valid():
@@ -206,17 +212,67 @@ def register(request):
             {"errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST
         )
     user = serializer.save()
+    user.is_active = False
+    user.save(update_fields=["is_active"])
 
-    # Genere tokens JWT immediat
-    refresh = RefreshToken.for_user(user)
+    _send_activation_email(user)
 
     return Response(
         {
-            "user": MeSerializer(user, context={"request": request}).data,
-            "access": str(refresh.access_token),
-            "refresh": str(refresh),
+            "detail": (
+                "Compte créé. Un email de vérification vient de vous être envoyé "
+                "— cliquez sur le lien pour activer votre compte, puis connectez-vous."
+            ),
+            "email": user.email,
         },
         status=status.HTTP_201_CREATED,
+    )
+
+
+def _send_activation_email(user):
+    """Envoie l'email d'activation avec un lien vers le frontend."""
+    uid = urlsafe_base64_encode(force_bytes(user.pk))
+    token = default_token_generator.make_token(user)
+    front = getattr(settings, "FRONTEND_URL", "http://localhost:3000").rstrip("/")
+    link = f"{front}/activate/{uid}/{token}"
+    send_mail(
+        subject="Activez votre compte — Agri Market Africa",
+        message=(
+            f"Bonjour {user.username},\n\n"
+            f"Merci de votre inscription sur Agri Market Africa.\n"
+            f"Activez votre compte en cliquant sur ce lien :\n\n{link}\n\n"
+            f"Si vous n'êtes pas à l'origine de cette demande, ignorez ce message.\n\n"
+            f"L'équipe Agri Market Africa"
+        ),
+        from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
+        recipient_list=[user.email],
+        fail_silently=True,
+    )
+
+
+@api_view(["POST"])
+@permission_classes([permissions.AllowAny])
+def activate_account(request):
+    """
+    POST /api/auth/activate/  { "uid": "...", "token": "..." }
+    Active le compte si le lien de vérification est valide.
+    """
+    uidb64 = request.data.get("uid")
+    token = request.data.get("token")
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = Utilisateur.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, Utilisateur.DoesNotExist):
+        user = None
+
+    if user is not None and default_token_generator.check_token(user, token):
+        if not user.is_active:
+            user.is_active = True
+            user.save(update_fields=["is_active"])
+        return Response({"detail": "Compte activé. Vous pouvez vous connecter."})
+    return Response(
+        {"detail": "Lien d'activation invalide ou expiré."},
+        status=status.HTTP_400_BAD_REQUEST,
     )
 
 

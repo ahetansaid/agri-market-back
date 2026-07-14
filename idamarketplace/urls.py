@@ -33,7 +33,13 @@ from rest_framework_simplejwt.views import (
 from two_factor.admin import AdminSiteOTPRequired
 from two_factor.urls import urlpatterns as tf_urls
 
-from accounts.api import me, my_announcements, my_ratings, register
+from accounts.api import (
+    activate_account,
+    me,
+    my_announcements,
+    my_ratings,
+    register,
+)
 from evenements.api import EvenementViewSet
 from marketplace.api import (
     AnnouncementViewSet,
@@ -94,6 +100,7 @@ urlpatterns = [
         name="token_refresh",
     ),
     path("api/auth/register/", register, name="api-register"),
+    path("api/auth/activate/", activate_account, name="api-activate"),
     # User endpoints
     path("api/me/", me, name="api-me"),
     path("api/me/announcements/", my_announcements, name="api-me-announcements"),

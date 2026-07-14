@@ -26,6 +26,9 @@ AUTO_APPROVE_ANNOUNCEMENTS = (
     os.getenv("AUTO_APPROVE_ANNOUNCEMENTS", "False").lower() == "true"
 )
 
+# URL du frontend Next.js (pour les liens dans les emails, ex. activation).
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
+
 SITE_ID = 1
 
 INSTALLED_APPS = [
