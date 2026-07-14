@@ -433,3 +433,32 @@ Utilisateur.ratings_count = property(_ratings_count)
 Utilisateur.transactions_count = property(_transactions_count)
 Utilisateur.years_active = property(_years_active)
 Utilisateur.trust_badges = property(_trust_badges)
+
+
+# ============================================================
+# MESSAGERIE SERVICE CLIENT (fil par utilisateur)
+# ============================================================
+
+
+class SupportMessage(models.Model):
+    """Un message dans le fil de messagerie service client d'un utilisateur."""
+
+    user = models.ForeignKey(
+        Utilisateur,
+        on_delete=models.CASCADE,
+        related_name="support_messages",
+        verbose_name=_("Utilisateur"),
+    )
+    body = models.TextField(_("Message"))
+    from_staff = models.BooleanField(_("Réponse du service client"), default=False)
+    is_read = models.BooleanField(_("Lu par le destinataire"), default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = _("Message support")
+        verbose_name_plural = _("Messages support")
+        ordering = ["created_at"]
+
+    def __str__(self):
+        who = "Service client" if self.from_staff else str(self.user)
+        return f"{who} — {self.created_at:%d/%m %H:%M}"

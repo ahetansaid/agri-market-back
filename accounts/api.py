@@ -25,7 +25,7 @@ from rest_framework.response import Response
 from rest_framework.throttling import AnonRateThrottle
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .models import SellerRating, Utilisateur
+from .models import SellerRating, SupportMessage, Utilisateur
 
 
 class RegisterRateThrottle(AnonRateThrottle):
@@ -368,5 +368,48 @@ def my_ratings(request):
                 "count": request.user.ratings_count,
             },
             "results": RatingSerializer(ratings, many=True).data,
+        }
+    )
+
+
+# ============================================================
+# MESSAGERIE SERVICE CLIENT
+# ============================================================
+
+
+@api_view(["GET", "POST"])
+@permission_classes([permissions.IsAuthenticated])
+def support_messages(request):
+    """
+    GET  /api/support/messages/  -> fil de messagerie service client
+    POST /api/support/messages/  { "body": "..." } -> envoyer un message
+    """
+    if request.method == "POST":
+        body = (request.data.get("body") or "").strip()
+        if not body:
+            return Response(
+                {"detail": "Message vide."}, status=status.HTTP_400_BAD_REQUEST
+            )
+        SupportMessage.objects.create(
+            user=request.user, body=body[:4000], from_staff=False
+        )
+
+    # Les réponses du service client sont marquées comme lues à la consultation.
+    SupportMessage.objects.filter(
+        user=request.user, from_staff=True, is_read=False
+    ).update(is_read=True)
+
+    msgs = SupportMessage.objects.filter(user=request.user)
+    return Response(
+        {
+            "messages": [
+                {
+                    "id": m.id,
+                    "body": m.body,
+                    "from_staff": m.from_staff,
+                    "created_at": m.created_at.isoformat(),
+                }
+                for m in msgs
+            ]
         }
     )

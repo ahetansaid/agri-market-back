@@ -39,6 +39,7 @@ from accounts.api import (
     my_announcements,
     my_ratings,
     register,
+    support_messages,
 )
 from evenements.api import EvenementViewSet
 from marketplace.api import (
@@ -110,6 +111,7 @@ urlpatterns = [
         name="api-create-announcement",
     ),
     path("api/me/ratings/", my_ratings, name="api-me-ratings"),
+    path("api/support/messages/", support_messages, name="api-support-messages"),
     # Meta endpoints (stats & geo)
     path("api/stats/summary/", stats_summary, name="api-stats-summary"),
     path("api/countries/activity/", countries_activity, name="api-countries-activity"),
