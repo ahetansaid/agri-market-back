@@ -472,7 +472,13 @@ def create_announcement(request):
     serializer = AnnouncementCreateSerializer(data=request.data)
     if not serializer.is_valid():
         return Response({"errors": serializer.errors}, status=400)
-    ann = serializer.save(user=request.user, status="pending_first")
+    # AUTO_APPROVE_ANNOUNCEMENTS=True (staging) -> annonce visible tout de suite.
+    # Sinon -> circuit de validation humaine ('pending_first').
+    auto = getattr(settings, "AUTO_APPROVE_ANNOUNCEMENTS", False)
+    ann = serializer.save(
+        user=request.user,
+        status="approved" if auto else "pending_first",
+    )
     return Response(
         {
             "id": ann.id,

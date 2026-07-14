@@ -20,6 +20,12 @@ if not SECRET_KEY:
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
 
+# Staging : approuver les annonces automatiquement a la publication (les rend
+# visibles tout de suite, sans validation humaine). Defaut : False.
+AUTO_APPROVE_ANNOUNCEMENTS = (
+    os.getenv("AUTO_APPROVE_ANNOUNCEMENTS", "False").lower() == "true"
+)
+
 SITE_ID = 1
 
 INSTALLED_APPS = [
