@@ -40,13 +40,17 @@ from accounts.api import (
     my_ratings,
     register,
     support_messages,
+    support_unread,
 )
 from evenements.api import EvenementViewSet
 from marketplace.api import (
     AnnouncementViewSet,
     CategoryViewSet,
+    announcement_conversation,
+    conversation_detail,
     countries_activity,
     create_announcement,
+    my_conversations,
     producer_of_month,
     spotlight_category,
     stats_summary,
@@ -111,7 +115,20 @@ urlpatterns = [
         name="api-create-announcement",
     ),
     path("api/me/ratings/", my_ratings, name="api-me-ratings"),
+    path("api/me/conversations/", my_conversations, name="api-me-conversations"),
     path("api/support/messages/", support_messages, name="api-support-messages"),
+    path("api/support/unread/", support_unread, name="api-support-unread"),
+    # Messagerie acheteur <-> vendeur
+    path(
+        "api/announcements/<int:pk>/messages/",
+        announcement_conversation,
+        name="api-announcement-conversation",
+    ),
+    path(
+        "api/conversations/<int:pk>/",
+        conversation_detail,
+        name="api-conversation-detail",
+    ),
     # Meta endpoints (stats & geo)
     path("api/stats/summary/", stats_summary, name="api-stats-summary"),
     path("api/countries/activity/", countries_activity, name="api-countries-activity"),

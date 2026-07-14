@@ -5,6 +5,7 @@ Endpoints : /api/announcements/, /api/categories/, /api/countries/counts/
 
 from django.conf import settings
 from django.db.models import Avg, Count, Q
+from django.shortcuts import get_object_or_404
 from rest_framework import filters, permissions, serializers, viewsets
 from rest_framework.decorators import (
     api_view,
@@ -488,5 +489,123 @@ def create_announcement(request):
         },
         status=201,
     )
+
+
+# ============================================================
+# MESSAGERIE ACHETEUR <-> VENDEUR (par annonce)
+# ============================================================
+
+
+def _other_party(convo, me):
+    other = convo.seller if convo.buyer_id == me.id else convo.buyer
+    full = f"{other.first_name or ''} {other.last_name or ''}".strip()
+    return {"id": other.id, "name": full or other.username}
+
+
+def _convo_payload(convo, me):
+    from blog.models import Message
+
+    msgs = convo.messages.filter(deleted=False).select_related("sender")
+    return {
+        "conversation_id": convo.id,
+        "with": _other_party(convo, me),
+        "announcement": {
+            "id": convo.announcement_id,
+            "title": convo.announcement.title,
+        },
+        "messages": [
+            {
+                "id": m.id,
+                "body": m.content or "",
+                "mine": m.sender_id == me.id,
+                "created_at": m.sent_at.isoformat(),
+            }
+            for m in msgs
+        ],
+    }
+
+
+@api_view(["GET", "POST"])
+@permission_classes([permissions.IsAuthenticated])
+def announcement_conversation(request, pk):
+    """
+    GET/POST /api/announcements/<pk>/messages/
+    Ouvre (ou crée) la conversation acheteur<->vendeur pour l'annonce.
+    """
+    from blog.models import Conversation, Message
+
+    ann = get_object_or_404(Announcement, pk=pk)
+    me = request.user
+    if ann.user_id == me.id:
+        return Response(
+            {"detail": "Vous êtes le vendeur de cette annonce."}, status=400
+        )
+    convo, _created = Conversation.objects.get_or_create(
+        announcement=ann, buyer=me, seller=ann.user
+    )
+    if request.method == "POST":
+        body = (request.data.get("body") or "").strip()
+        if not body:
+            return Response({"detail": "Message vide."}, status=400)
+        Message.objects.create(conversation=convo, sender=me, content=body[:4000])
+    Message.objects.filter(conversation=convo, is_read=False).exclude(
+        sender=me
+    ).update(is_read=True)
+    return Response(_convo_payload(convo, me))
+
+
+@api_view(["GET", "POST"])
+@permission_classes([permissions.IsAuthenticated])
+def conversation_detail(request, pk):
+    """GET/POST /api/conversations/<pk>/ — fil d'une conversation (participant)."""
+    from blog.models import Conversation, Message
+
+    convo = get_object_or_404(
+        Conversation.objects.select_related("announcement", "buyer", "seller"),
+        pk=pk,
+    )
+    me = request.user
+    if me.id not in (convo.buyer_id, convo.seller_id):
+        return Response({"detail": "Accès refusé."}, status=403)
+    if request.method == "POST":
+        body = (request.data.get("body") or "").strip()
+        if not body:
+            return Response({"detail": "Message vide."}, status=400)
+        Message.objects.create(conversation=convo, sender=me, content=body[:4000])
+    Message.objects.filter(conversation=convo, is_read=False).exclude(
+        sender=me
+    ).update(is_read=True)
+    return Response(_convo_payload(convo, me))
+
+
+@api_view(["GET"])
+@permission_classes([permissions.IsAuthenticated])
+def my_conversations(request):
+    """GET /api/me/conversations/ — boîte de réception (acheteur + vendeur)."""
+    from blog.models import Conversation
+
+    me = request.user
+    convos = (
+        Conversation.objects.filter(Q(buyer=me) | Q(seller=me), archive=False)
+        .select_related("announcement", "buyer", "seller")
+        .order_by("-started_at")
+    )
+    out = []
+    for c in convos:
+        last = c.messages.filter(deleted=False).order_by("-sent_at").first()
+        unread = c.messages.filter(is_read=False).exclude(sender=me).count()
+        out.append(
+            {
+                "id": c.id,
+                "with": _other_party(c, me),
+                "announcement": {
+                    "id": c.announcement_id,
+                    "title": c.announcement.title,
+                },
+                "last": (last.content[:80] if last and last.content else ""),
+                "unread": unread,
+            }
+        )
+    return Response({"conversations": out})
 
 

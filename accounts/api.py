@@ -413,3 +413,13 @@ def support_messages(request):
             ]
         }
     )
+
+
+@api_view(["GET"])
+@permission_classes([permissions.IsAuthenticated])
+def support_unread(request):
+    """GET /api/support/unread/ -> nombre de réponses non lues (badge)."""
+    n = SupportMessage.objects.filter(
+        user=request.user, from_staff=True, is_read=False
+    ).count()
+    return Response({"unread": n})
