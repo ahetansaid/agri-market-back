@@ -297,12 +297,18 @@ SPECTACULAR_SETTINGS = {
 # DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
 
 
-# Defaut sur (console) si non defini : evite un EMAIL_BACKEND=None qui fait
-# planter send_mail (l'import du backend echoue AVANT fail_silently).
-EMAIL_BACKEND = (
-    os.getenv("EMAIL_BACKEND")
-    or "django.core.mail.backends.console.EmailBackend"
-)
+# --- Backend d'envoi ---
+# Des qu'une cle Resend est definie, on envoie via l'API HTTP Resend (port 443) :
+# indispensable sur Render, dont le SMTP sortant est bloque. Sinon on respecte
+# EMAIL_BACKEND explicite, a defaut la console (jamais None -> pas de crash).
+RESEND_API_KEY = os.getenv("RESEND_API_KEY", "")
+if RESEND_API_KEY:
+    EMAIL_BACKEND = "anymail.backends.resend.EmailBackend"
+else:
+    EMAIL_BACKEND = (
+        os.getenv("EMAIL_BACKEND")
+        or "django.core.mail.backends.console.EmailBackend"
+    )
 EMAIL_HOST = os.getenv("EMAIL_HOST")
 EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS") == "True"
 EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
@@ -310,14 +316,10 @@ EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
 
-# Envoi via API HTTP (Resend) — contourne le blocage du SMTP sortant sur
-# Render (free). Activer en prod avec :
-#   EMAIL_BACKEND=anymail.backends.resend.EmailBackend
-#   RESEND_API_KEY=re_xxx  (cle API Resend)
-# L'expediteur (DEFAULT_FROM_EMAIL) doit etre sur un domaine verifie chez Resend.
-ANYMAIL = {
-    "RESEND_API_KEY": os.getenv("RESEND_API_KEY", ""),
-}
+# Cle API Resend (utilisee par le backend anymail ci-dessus).
+# L'expediteur (DEFAULT_FROM_EMAIL) doit etre sur un domaine verifie chez Resend,
+# ou 'onboarding@resend.dev' pour un test vers l'adresse du compte Resend.
+ANYMAIL = {"RESEND_API_KEY": RESEND_API_KEY}
 
 SITE_DOMAIN = os.getenv("SITE_DOMAIN", "http://127.0.0.1:8033")
 
