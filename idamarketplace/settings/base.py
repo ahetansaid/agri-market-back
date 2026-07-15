@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     "django_otp.plugins.otp_totp",
     "two_factor",
     "corsheaders",
+    "anymail",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
 ]
@@ -308,6 +309,15 @@ EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
+
+# Envoi via API HTTP (Resend) — contourne le blocage du SMTP sortant sur
+# Render (free). Activer en prod avec :
+#   EMAIL_BACKEND=anymail.backends.resend.EmailBackend
+#   RESEND_API_KEY=re_xxx  (cle API Resend)
+# L'expediteur (DEFAULT_FROM_EMAIL) doit etre sur un domaine verifie chez Resend.
+ANYMAIL = {
+    "RESEND_API_KEY": os.getenv("RESEND_API_KEY", ""),
+}
 
 SITE_DOMAIN = os.getenv("SITE_DOMAIN", "http://127.0.0.1:8033")
 

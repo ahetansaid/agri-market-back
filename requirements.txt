@@ -35,6 +35,7 @@ django-stubs==5.2.0
 django-stubs-ext==5.2.0
 django-taggit==6.1.0
 django-tinymce==3.6.1
+django-anymail==12.0
 djangorestframework==3.15.1
 djangorestframework-stubs==3.16.0
 djangorestframework_simplejwt==5.5.0
