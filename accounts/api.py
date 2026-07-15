@@ -7,6 +7,8 @@ Endpoints :
   GET  /api/me/ratings/    — mes avis recus
 """
 
+import logging
+
 from django.conf import settings
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.tokens import default_token_generator
@@ -26,6 +28,8 @@ from rest_framework.throttling import AnonRateThrottle
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from .models import SellerRating, SupportMessage, Utilisateur
+
+logger = logging.getLogger(__name__)
 
 
 class RegisterRateThrottle(AnonRateThrottle):
@@ -206,6 +210,16 @@ def register(request):
     Inscription : cree un compte INACTIF et envoie un email de verification.
     L'utilisateur doit activer son compte avant de pouvoir se connecter.
     """
+    # Un compte NON verifie (is_active=False) qui traine avec le meme email /
+    # username ne doit pas bloquer une nouvelle tentative d'inscription
+    # (ex : envoi d'email precedemment echoue). On le purge.
+    email = (request.data.get("email") or "").strip()
+    uname = (request.data.get("username") or "").strip()
+    if email or uname:
+        Utilisateur.objects.filter(is_active=False).filter(
+            Q(email__iexact=email) | Q(username=uname)
+        ).delete()
+
     serializer = RegisterSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(
@@ -215,7 +229,12 @@ def register(request):
     user.is_active = False
     user.save(update_fields=["is_active"])
 
-    _send_activation_email(user)
+    # L'envoi d'email est best-effort : une panne SMTP ne doit JAMAIS
+    # renvoyer un 500 alors que le compte a bien ete cree.
+    try:
+        _send_activation_email(user)
+    except Exception:
+        logger.exception("Echec de l'envoi de l'email d'activation (%s)", user.email)
 
     return Response(
         {
@@ -262,7 +281,8 @@ def activate_account(request):
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
         user = Utilisateur.objects.get(pk=uid)
-    except (TypeError, ValueError, OverflowError, Utilisateur.DoesNotExist):
+    except Exception:
+        # uid manquant/malforme (AttributeError, binascii.Error, ...) -> lien invalide
         user = None
 
     if user is not None and default_token_generator.check_token(user, token):

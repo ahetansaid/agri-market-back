@@ -296,7 +296,12 @@ SPECTACULAR_SETTINGS = {
 # DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
 
 
-EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
+# Defaut sur (console) si non defini : evite un EMAIL_BACKEND=None qui fait
+# planter send_mail (l'import du backend echoue AVANT fail_silently).
+EMAIL_BACKEND = (
+    os.getenv("EMAIL_BACKEND")
+    or "django.core.mail.backends.console.EmailBackend"
+)
 EMAIL_HOST = os.getenv("EMAIL_HOST")
 EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS") == "True"
 EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
