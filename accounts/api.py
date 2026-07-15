@@ -296,6 +296,93 @@ def activate_account(request):
     )
 
 
+def _send_password_reset_email(user):
+    """Envoie l'email de réinitialisation avec un lien vers le frontend."""
+    uid = urlsafe_base64_encode(force_bytes(user.pk))
+    token = default_token_generator.make_token(user)
+    front = getattr(settings, "FRONTEND_URL", "http://localhost:3000").rstrip("/")
+    link = f"{front}/password-reset/{uid}/{token}"
+    send_mail(
+        subject="Réinitialisation de votre mot de passe — Agri Market Africa",
+        message=(
+            f"Bonjour {user.username},\n\n"
+            f"Vous avez demandé à réinitialiser votre mot de passe.\n"
+            f"Cliquez sur ce lien pour en choisir un nouveau :\n\n{link}\n\n"
+            f"Si vous n'êtes pas à l'origine de cette demande, ignorez ce message.\n\n"
+            f"L'équipe Agri Market Africa"
+        ),
+        from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
+        recipient_list=[user.email],
+        fail_silently=False,
+    )
+
+
+@api_view(["POST"])
+@permission_classes([permissions.AllowAny])
+@throttle_classes([RegisterRateThrottle])
+def password_reset_request(request):
+    """
+    POST /api/auth/password-reset/  { "email": "..." }
+    Envoie un lien de réinitialisation si un compte actif existe.
+    Réponse volontairement identique que le compte existe ou non.
+    """
+    email = (request.data.get("email") or "").strip()
+    if email:
+        user = Utilisateur.objects.filter(
+            email__iexact=email, is_active=True
+        ).first()
+        if user:
+            try:
+                _send_password_reset_email(user)
+            except Exception:
+                logger.exception(
+                    "Echec de l'envoi de l'email de reinitialisation (%s)", email
+                )
+    return Response(
+        {
+            "detail": (
+                "Si un compte existe pour cet email, un lien de "
+                "réinitialisation vient d'être envoyé."
+            )
+        }
+    )
+
+
+@api_view(["POST"])
+@permission_classes([permissions.AllowAny])
+def password_reset_confirm(request):
+    """
+    POST /api/auth/password-reset/confirm/  { "uid", "token", "password" }
+    Définit un nouveau mot de passe si le lien est valide.
+    """
+    uidb64 = request.data.get("uid")
+    token = request.data.get("token")
+    password = request.data.get("password") or ""
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = Utilisateur.objects.get(pk=uid)
+    except Exception:
+        user = None
+
+    if user is None or not default_token_generator.check_token(user, token):
+        return Response(
+            {"detail": "Lien de réinitialisation invalide ou expiré."},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+    try:
+        validate_password(password, user)
+    except ValidationError as e:
+        return Response(
+            {"errors": {"password": list(e.messages)}},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+    user.set_password(password)
+    user.save(update_fields=["password"])
+    return Response(
+        {"detail": "Mot de passe réinitialisé. Vous pouvez vous connecter."}
+    )
+
+
 @api_view(["GET", "PATCH"])
 @permission_classes([permissions.IsAuthenticated])
 def me(request):

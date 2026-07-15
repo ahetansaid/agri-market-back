@@ -38,6 +38,8 @@ from accounts.api import (
     me,
     my_announcements,
     my_ratings,
+    password_reset_confirm,
+    password_reset_request,
     register,
     support_messages,
     support_unread,
@@ -106,6 +108,16 @@ urlpatterns = [
     ),
     path("api/auth/register/", register, name="api-register"),
     path("api/auth/activate/", activate_account, name="api-activate"),
+    path(
+        "api/auth/password-reset/",
+        password_reset_request,
+        name="api-password-reset",
+    ),
+    path(
+        "api/auth/password-reset/confirm/",
+        password_reset_confirm,
+        name="api-password-reset-confirm",
+    ),
     # User endpoints
     path("api/me/", me, name="api-me"),
     path("api/me/announcements/", my_announcements, name="api-me-announcements"),
