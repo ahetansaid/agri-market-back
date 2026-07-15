@@ -301,12 +301,14 @@ SPECTACULAR_SETTINGS = {
 # Des qu'une cle Resend est definie, on envoie via l'API HTTP Resend (port 443) :
 # indispensable sur Render, dont le SMTP sortant est bloque. Sinon on respecte
 # EMAIL_BACKEND explicite, a defaut la console (jamais None -> pas de crash).
-RESEND_API_KEY = os.getenv("RESEND_API_KEY", "")
+RESEND_API_KEY = os.getenv("RESEND_API_KEY", "").strip()
 if RESEND_API_KEY:
     EMAIL_BACKEND = "anymail.backends.resend.EmailBackend"
 else:
+    # .strip() : une variable d'env avec un espace ou un \n parasite (copier-
+    # coller) rendrait l'import du backend impossible -> 500 a l'envoi.
     EMAIL_BACKEND = (
-        os.getenv("EMAIL_BACKEND")
+        os.getenv("EMAIL_BACKEND", "").strip()
         or "django.core.mail.backends.console.EmailBackend"
     )
 EMAIL_HOST = os.getenv("EMAIL_HOST")
