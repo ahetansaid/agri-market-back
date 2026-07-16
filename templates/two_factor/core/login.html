@@ -15,7 +15,7 @@
 <main class="auth-page">
 
     <aside class="auth-visual" data-bg="field">
-        <a href="{% url 'marketplace:index' %}" class="auth-brand">
+        <a href="/admin/" class="auth-brand">
             <img src="{% static 'images/logo/logo.png' %}" alt="">
             <span>Agri <span class="accent">Market</span> Africa</span>
         </a>
@@ -207,7 +207,7 @@
             {% endif %}
 
             <div class="auth-foot">
-                <a href="{% url 'marketplace:index' %}">
+                <a href="/admin/">
                     <i class="ti ti-arrow-left" style="vertical-align: middle; font-size: 14px;"></i>
                     {% trans "Retour au site" %}
                 </a>

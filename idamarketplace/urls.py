@@ -76,7 +76,14 @@ class ThrottledTokenRefreshView(TokenRefreshView):
 
 # Force la 2FA pour l'admin en production. En DEV (DEBUG=True), la 2FA
 # reste optionnelle pour faciliter les tests locaux.
-if not settings.DEBUG:
+# 2FA obligatoire pour l'admin en prod, desactivable via ADMIN_REQUIRE_2FA=False
+# (utile le temps d'enroler son application TOTP).
+import os as _os  # noqa: E402
+
+if (
+    not settings.DEBUG
+    and _os.getenv("ADMIN_REQUIRE_2FA", "True").strip().lower() != "false"
+):
     admin.site.__class__ = AdminSiteOTPRequired
 
 
@@ -92,7 +99,12 @@ urlpatterns = [
     # ADMIN Django (+ 2FA endpoints pour setup/verify)
     # ==========================================================
     path("admin/", admin.site.urls),
-    path("account/", include(tf_urls)),
+    # two_factor.urls contient DEJA le prefixe "account/" : l'inclure sous
+    # "account/" donnait /account/account/login/ (et LOGIN_URL pointait vers
+    # un 404) -> l'admin etait inaccessible en prod.
+    path("", include(tf_urls)),
+    # Upload de fichiers des champs texte riche (admin blog/evenements).
+    path("ckeditor5/", include("django_ckeditor_5.urls")),
     # ==========================================================
     # API REST — consommee par Next.js frontend
     # ==========================================================

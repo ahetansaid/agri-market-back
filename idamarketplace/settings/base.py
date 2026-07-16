@@ -206,7 +206,9 @@ AXES_ENABLE_ADMIN = True
 # django-two-factor-auth : 2FA TOTP pour l'admin
 # Le ModelBackend est requis pour que two_factor authentifie correctement
 # (axes.AxesStandaloneBackend ne lit que la requete, pas le user).
-LOGIN_URL = "/accounts/login/"  # users normaux gardent leur page
+# Nom d'URL du login two_factor (résout vers /account/login/). L'ancienne
+# valeur "/accounts/login/" pointait vers une route inexistante -> admin K.O.
+LOGIN_URL = "two_factor:login"
 LOGIN_REDIRECT_URL = "/"
 TWO_FACTOR_LOGIN_TIMEOUT = 30 * 60  # 30 min entre 2 verifications
 TWO_FACTOR_REMEMBER_COOKIE_AGE = 7 * 24 * 60 * 60  # 7 jours "se souvenir"
