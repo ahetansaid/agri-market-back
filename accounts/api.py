@@ -122,6 +122,7 @@ class MeSerializer(serializers.ModelSerializer):
             "telephone",
             "ville",
             "user_type",
+            "is_staff",
             "date_joined",
             "country_code",
             "country_name",
