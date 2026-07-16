@@ -609,3 +609,23 @@ def my_conversations(request):
     return Response({"conversations": out})
 
 
+@api_view(["GET"])
+@permission_classes([permissions.IsAuthenticated])
+def conversations_unread(request):
+    """GET /api/me/conversations/unread/ — total de messages non lus (badge)."""
+    from blog.models import Message
+
+    me = request.user
+    n = (
+        Message.objects.filter(
+            Q(conversation__buyer=me) | Q(conversation__seller=me),
+            conversation__archive=False,
+            is_read=False,
+            deleted=False,
+        )
+        .exclude(sender=me)
+        .count()
+    )
+    return Response({"unread": n})
+
+

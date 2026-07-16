@@ -50,6 +50,7 @@ from marketplace.api import (
     CategoryViewSet,
     announcement_conversation,
     conversation_detail,
+    conversations_unread,
     countries_activity,
     create_announcement,
     my_conversations,
@@ -128,6 +129,11 @@ urlpatterns = [
     ),
     path("api/me/ratings/", my_ratings, name="api-me-ratings"),
     path("api/me/conversations/", my_conversations, name="api-me-conversations"),
+    path(
+        "api/me/conversations/unread/",
+        conversations_unread,
+        name="api-me-conversations-unread",
+    ),
     path("api/support/messages/", support_messages, name="api-support-messages"),
     path("api/support/unread/", support_unread, name="api-support-unread"),
     # Messagerie acheteur <-> vendeur

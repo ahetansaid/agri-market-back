@@ -400,18 +400,22 @@ def me(request):
             "ville",
             "pays",
         }
-        for field, value in request.data.items():
-            if field in allowed_fields:
-                setattr(user, field, value)
+        touched = [f for f in request.data if f in allowed_fields]
+        for field in touched:
+            # "" -> None : les champs optionnels sont null=True en base.
+            setattr(user, field, request.data[field] or None)
+        # Valider UNIQUEMENT les champs modifies. full_clean() appellerait
+        # Model.clean() et ses regles metier (ex. individual_category
+        # obligatoire) qui bloquaient TOUTE mise a jour du profil via l'API.
+        exclude = [f.name for f in user._meta.fields if f.name not in touched]
         try:
-            user.full_clean(
-                exclude=["password", "date_joined", "last_login"]
-            )
+            user.clean_fields(exclude=exclude)
         except ValidationError as e:
             return Response(
                 {"errors": e.message_dict}, status=status.HTTP_400_BAD_REQUEST
             )
-        user.save()
+        if touched:
+            user.save(update_fields=touched)
 
     return Response(MeSerializer(user, context={"request": request}).data)
 
