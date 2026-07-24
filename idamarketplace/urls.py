@@ -41,6 +41,7 @@ from accounts.api import (
     password_reset_confirm,
     password_reset_request,
     register,
+    support_ai,
     support_messages,
     support_unread,
 )
@@ -148,6 +149,7 @@ urlpatterns = [
     ),
     path("api/support/messages/", support_messages, name="api-support-messages"),
     path("api/support/unread/", support_unread, name="api-support-unread"),
+    path("api/support/ai/", support_ai, name="api-support-ai"),
     # Messagerie acheteur <-> vendeur
     path(
         "api/announcements/<int:pk>/messages/",
