@@ -473,19 +473,70 @@ def create_announcement(request):
     serializer = AnnouncementCreateSerializer(data=request.data)
     if not serializer.is_valid():
         return Response({"errors": serializer.errors}, status=400)
+
+    # --- Garde-fous : coordonnees personnelles dans le contenu libre ---
+    from .validators import detect_contact_info, format_violation_message
+
+    scanned = " \n".join(
+        str(request.data.get(f) or "")
+        for f in (
+            "title",
+            "description",
+            "caracteristiques",
+            "shipping_conditions",
+            "transaction_details",
+            "product_name",
+            "variety",
+            "brand",
+        )
+    )
+    violations = detect_contact_info(scanned)
+
     # AUTO_APPROVE_ANNOUNCEMENTS=True (staging) -> annonce visible tout de suite.
     # Sinon -> circuit de validation humaine ('pending_first').
+    # MAIS si des coordonnees sont detectees, on force la validation humaine
+    # meme en auto-approve : l'annonce reste en attente et un admin est alerte.
     auto = getattr(settings, "AUTO_APPROVE_ANNOUNCEMENTS", False)
-    ann = serializer.save(
-        user=request.user,
-        status="approved" if auto else "pending_first",
-    )
+    status_value = "approved" if (auto and not violations) else "pending_first"
+    ann = serializer.save(user=request.user, status=status_value)
+
+    from accounts.api import notify, notify_staff
+
+    if violations:
+        detail = format_violation_message(violations)
+        # L'auteur : son annonce est mise en attente de validation.
+        notify(
+            request.user,
+            title="Votre annonce est en attente de validation",
+            body=(
+                f"« {ann.title} » (réf. {ann.reference}) a été soumise mais "
+                f"nécessite une vérification avant publication.\n\n{detail}"
+            ),
+            kind="announcement",
+            link="/dashboard/producer/announcements",
+            email=True,
+        )
+        # Les admins : alerte pour validation manuelle.
+        notify_staff(
+            title="Annonce à valider (règles non respectées)",
+            body=(
+                f"L'annonce « {ann.title} » (réf. {ann.reference}) publiée par "
+                f"{request.user.username} a déclenché les garde-fous.\n\n{detail}\n\n"
+                f"Merci de la vérifier puis de l'approuver ou de la rejeter "
+                f"depuis l'administration."
+            ),
+            kind="announcement",
+            link=f"/admin/marketplace/announcement/{ann.id}/change/",
+            email=True,
+        )
+
     return Response(
         {
             "id": ann.id,
             "reference": ann.reference,
             "status": ann.status,
             "title": ann.title,
+            "needs_review": bool(violations),
         },
         status=201,
     )
@@ -494,6 +545,22 @@ def create_announcement(request):
 # ============================================================
 # MESSAGERIE ACHETEUR <-> VENDEUR (par annonce)
 # ============================================================
+
+
+def _notify_new_message(convo, sender, body):
+    """Notifie le destinataire d'un nouveau message (in-app + email)."""
+    from accounts.api import notify
+
+    recipient = convo.seller if convo.buyer_id == sender.id else convo.buyer
+    name = f"{sender.first_name or ''} {sender.last_name or ''}".strip() or sender.username
+    notify(
+        recipient,
+        title=f"Nouveau message de {name}",
+        body=f"« {body[:160]} »\n\nAnnonce : {convo.announcement.title}",
+        kind="message",
+        link=f"/messages/{convo.id}",
+        email=True,
+    )
 
 
 def _other_party(convo, me):
@@ -548,6 +615,7 @@ def announcement_conversation(request, pk):
         if not body:
             return Response({"detail": "Message vide."}, status=400)
         Message.objects.create(conversation=convo, sender=me, content=body[:4000])
+        _notify_new_message(convo, me, body)
     Message.objects.filter(conversation=convo, is_read=False).exclude(
         sender=me
     ).update(is_read=True)
@@ -572,6 +640,7 @@ def conversation_detail(request, pk):
         if not body:
             return Response({"detail": "Message vide."}, status=400)
         Message.objects.create(conversation=convo, sender=me, content=body[:4000])
+        _notify_new_message(convo, me, body)
     Message.objects.filter(conversation=convo, is_read=False).exclude(
         sender=me
     ).update(is_read=True)

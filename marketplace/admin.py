@@ -177,11 +177,42 @@ class AnnouncementAdmin(ImportExportModelAdmin):
 
     @admin.action(description=_("Marquer comme approuvé"))
     def mark_as_approved(self, request, queryset):
+        annonces = list(queryset.select_related("user"))
         queryset.update(status="approved")
+        self._notify_authors(
+            annonces,
+            "Votre annonce est en ligne",
+            "a été validée et est désormais visible sur la marketplace.",
+        )
 
     @admin.action(description=_("Marquer comme rejeté"))
     def mark_as_rejected(self, request, queryset):
+        annonces = list(queryset.select_related("user"))
         queryset.update(status="rejected")
+        self._notify_authors(
+            annonces,
+            "Votre annonce a été refusée",
+            (
+                "n'a pas été retenue. Vérifiez qu'elle ne contient aucune "
+                "coordonnée personnelle (téléphone, email, site web) et qu'elle "
+                "respecte les conditions d'utilisation, puis republiez-la."
+            ),
+        )
+
+    @staticmethod
+    def _notify_authors(annonces, title, sentence):
+        """Prévient les auteurs (notification + email). Best-effort."""
+        from accounts.api import notify
+
+        for ann in annonces:
+            notify(
+                ann.user,
+                title=title,
+                body=f"« {ann.title} » (réf. {ann.reference}) {sentence}",
+                kind="announcement",
+                link="/dashboard/producer/announcements",
+                email=True,
+            )
 
     @admin.action(description=_("Archiver les annonces sélectionnées"))
     def archive(self, request, queryset):

@@ -29,7 +29,7 @@ from rest_framework.response import Response
 from rest_framework.throttling import AnonRateThrottle
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .models import SellerRating, SupportMessage, Utilisateur
+from .models import Notification, SellerRating, SupportMessage, Utilisateur
 
 logger = logging.getLogger(__name__)
 
@@ -530,6 +530,103 @@ def support_messages(request):
 
 
 ADMIN_CONTACT_EMAIL = "agrimarketafrica@nourdignagrimarket.com"
+
+
+# ============================================================
+# NOTIFICATIONS
+# ============================================================
+
+
+def notify(user, title, body="", kind="system", link="", email=False):
+    """
+    Crée une notification pour `user`, et envoie un email si `email=True`.
+    Best-effort : ne lève jamais (une notif ne doit pas casser l'action métier).
+    """
+    if user is None:
+        return None
+    notif = None
+    try:
+        notif = Notification.objects.create(
+            user=user,
+            kind=kind,
+            title=title[:200],
+            body=body or "",
+            link=link or "",
+        )
+    except Exception:
+        logger.exception("Creation de notification impossible pour %s", user)
+
+    if email and getattr(user, "email", ""):
+        front = getattr(settings, "FRONTEND_URL", "").rstrip("/")
+        full_link = f"{front}{link}" if link else front
+        try:
+            send_mail(
+                subject=f"{title} — Agri Market Africa",
+                message=(
+                    f"Bonjour {user.username},\n\n"
+                    f"{body}\n\n"
+                    f"{full_link}\n\n"
+                    f"L'équipe Agri Market Africa"
+                ),
+                from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
+                recipient_list=[user.email],
+                fail_silently=True,
+            )
+        except Exception:
+            logger.exception("Envoi d'email de notification en echec (%s)", user.email)
+    return notif
+
+
+def notify_staff(title, body="", kind="system", link="", email=True):
+    """Notifie tous les membres du staff actifs (validation, alertes…)."""
+    for admin_user in Utilisateur.objects.filter(is_staff=True, is_active=True):
+        notify(admin_user, title, body=body, kind=kind, link=link, email=email)
+
+
+@api_view(["GET"])
+@permission_classes([permissions.IsAuthenticated])
+def my_notifications(request):
+    """GET /api/me/notifications/ — 50 dernières notifications + non-lues."""
+    qs = Notification.objects.filter(user=request.user)[:50]
+    return Response(
+        {
+            "unread": Notification.objects.filter(
+                user=request.user, is_read=False
+            ).count(),
+            "results": [
+                {
+                    "id": n.id,
+                    "kind": n.kind,
+                    "title": n.title,
+                    "body": n.body,
+                    "link": n.link,
+                    "is_read": n.is_read,
+                    "created_at": n.created_at.isoformat(),
+                }
+                for n in qs
+            ],
+        }
+    )
+
+
+@api_view(["POST"])
+@permission_classes([permissions.IsAuthenticated])
+def notifications_read(request):
+    """
+    POST /api/me/notifications/read/  { "ids": [1,2] }  (ou vide = tout marquer)
+    """
+    ids = request.data.get("ids")
+    qs = Notification.objects.filter(user=request.user, is_read=False)
+    if ids:
+        qs = qs.filter(id__in=ids)
+    qs.update(is_read=True)
+    return Response(
+        {
+            "unread": Notification.objects.filter(
+                user=request.user, is_read=False
+            ).count()
+        }
+    )
 
 ASSISTANT_SYSTEM_PROMPT = f"""Tu es l'assistant officiel d'Agri Market Africa, la marketplace agricole panafricaine (54 pays, 0% de commission, sans intermédiaire).
 
