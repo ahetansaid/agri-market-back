@@ -659,7 +659,10 @@ def _ask_openrouter(messages):
     api_key = os.getenv("OPENROUTER_API_KEY", "").strip()
     if not api_key:
         return None
-    model = os.getenv("OPENROUTER_MODEL", "openai/gpt-4o-mini").strip()
+    # Modele gratuit par defaut (aucun credit requis). Si le compte OpenRouter
+    # dispose de credits, definir OPENROUTER_MODEL=openai/gpt-4o-mini (meilleure
+    # qualite et fiabilite).
+    model = os.getenv("OPENROUTER_MODEL", "openai/gpt-oss-20b:free").strip()
     try:
         resp = requests.post(
             "https://openrouter.ai/api/v1/chat/completions",
