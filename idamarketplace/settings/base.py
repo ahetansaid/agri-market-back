@@ -156,10 +156,25 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+# --- Stockage (Django 5 STORAGES) ---
+# static : WhiteNoise (compressé). media : disque local par défaut — MAIS ce
+# disque est ÉPHÉMÈRE sur Render (offre gratuite) → les images uploadées
+# disparaissent à chaque redéploiement. Dès que CLOUDINARY_URL est défini, les
+# médias sont stockés sur Cloudinary (persistant, CDN, gratuit).
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
 
-
-# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+if os.getenv("CLOUDINARY_URL", "").strip():
+    INSTALLED_APPS += ["cloudinary", "cloudinary_storage"]  # noqa: F405
+    STORAGES["default"] = {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+    }
 
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
