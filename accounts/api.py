@@ -91,12 +91,10 @@ class RegisterSerializer(serializers.ModelSerializer):
             validate_password(attrs["password"])
         except ValidationError as e:
             raise serializers.ValidationError({"password": list(e.messages)})
-        # Email unique
-        email = attrs.get("email")
-        if email and Utilisateur.objects.filter(email__iexact=email).exists():
-            raise serializers.ValidationError(
-                {"email": "Un compte existe deja avec cet email."}
-            )
+        # NB : l'unicite de l'email n'est PLUS verifiee ici (elle revelait
+        # l'existence d'un compte = enumeration d'utilisateurs). Le cas
+        # "email deja enregistre" est traite silencieusement dans la vue
+        # register() (reponse identique + email d'information).
         return attrs
 
     def create(self, validated_data):
@@ -230,6 +228,33 @@ def register(request):
             Q(email__iexact=email) | Q(username=uname)
         ).delete()
 
+    # Anti-enumeration : si un compte ACTIF existe deja pour cet email, on ne
+    # le revele pas. On envoie un email d'information a l'adresse concernee et
+    # on renvoie la MEME reponse de succes qu'une inscription normale, pour
+    # qu'un attaquant ne puisse pas distinguer email connu / inconnu.
+    if email:
+        existing = Utilisateur.objects.filter(
+            email__iexact=email, is_active=True
+        ).first()
+        if existing:
+            try:
+                _send_already_registered_email(existing)
+            except Exception:
+                logger.exception(
+                    "Echec envoi email 'compte existant' (%s)", email
+                )
+            return Response(
+                {
+                    "detail": (
+                        "Compte créé. Un email de vérification vient de vous être "
+                        "envoyé — cliquez sur le lien pour activer votre compte, "
+                        "puis connectez-vous."
+                    ),
+                    "email": email,
+                },
+                status=status.HTTP_201_CREATED,
+            )
+
     serializer = RegisterSerializer(data=request.data)
     if not serializer.is_valid():
         return Response(
@@ -270,6 +295,27 @@ def _send_activation_email(user):
             f"Bonjour {user.username},\n\n"
             f"Merci de votre inscription sur Agri Market Africa.\n"
             f"Activez votre compte en cliquant sur ce lien :\n\n{link}\n\n"
+            f"Si vous n'êtes pas à l'origine de cette demande, ignorez ce message.\n\n"
+            f"L'équipe Agri Market Africa"
+        ),
+        from_email=getattr(settings, "DEFAULT_FROM_EMAIL", None),
+        recipient_list=[user.email],
+        fail_silently=True,
+    )
+
+
+def _send_already_registered_email(user):
+    """Email envoye lorsqu'on tente de s'inscrire avec un email deja
+    enregistre (flux anti-enumeration : la reponse HTTP reste identique)."""
+    front = getattr(settings, "FRONTEND_URL", "http://localhost:3000").rstrip("/")
+    send_mail(
+        subject="Votre compte Agri Market Africa",
+        message=(
+            f"Bonjour,\n\n"
+            f"Une inscription vient d'être tentée avec cette adresse email, "
+            f"mais un compte existe déjà.\n\n"
+            f"Si c'était vous : connectez-vous sur {front}/login\n"
+            f"Mot de passe oublié ? {front}/password-reset\n\n"
             f"Si vous n'êtes pas à l'origine de cette demande, ignorez ce message.\n\n"
             f"L'équipe Agri Market Africa"
         ),

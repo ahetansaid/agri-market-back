@@ -15,6 +15,8 @@ from rest_framework.decorators import (
 from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from rest_framework.response import Response
 
+from idamarketplace.security import validate_image_upload
+
 from .models import Announcement, Category, SubCategory
 
 
@@ -449,6 +451,13 @@ class AnnouncementCreateSerializer(serializers.ModelSerializer):
             "transaction_details",
             "image",
         ]
+
+    def validate_image(self, value):
+        # Taille + extension + blocklist (.exe/.php/.svg/.html/.js…) en plus
+        # du contrôle Pillow fait dans le modèle.
+        if value:
+            validate_image_upload(value)
+        return value
 
     def validate(self, attrs):
         t = attrs.get("type")

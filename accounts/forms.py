@@ -4,7 +4,18 @@ from django.contrib.auth.forms import SetPasswordForm, UserChangeForm, UserCreat
 from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 
+from idamarketplace.security import validate_image_upload
+
 from .models import Societe, Utilisateur
+
+
+def _clean_picture_field(picture):
+    """Validation commune des photos de profil (taille + extension + blocklist)."""
+    if picture and hasattr(picture, "content_type"):
+        # Uniquement les fichiers nouvellement uploades (pas les valeurs
+        # deja stockees, qui n'ont pas de content_type).
+        validate_image_upload(picture)
+    return picture
 
 
 class UtilisateurForm(UserCreationForm):
@@ -54,6 +65,9 @@ class UtilisateurForm(UserCreationForm):
         self.fields["pays"].widget.attrs.update(
             {"class": "form-select select2-country"}
         )
+
+    def clean_picture(self):
+        return _clean_picture_field(self.cleaned_data.get("picture"))
 
     def clean(self):
         cleaned_data = super().clean()
@@ -216,6 +230,9 @@ class UtilisateurChangeForm(UserChangeForm):
         self.fields["picture"].widget.attrs.update(
             {"placeholder": _("Enter your picture")}
         )
+
+    def clean_picture(self):
+        return _clean_picture_field(self.cleaned_data.get("picture"))
 
 
 class PasswordChangeForm(BasePasswordChangeView):
