@@ -26,7 +26,7 @@ from rest_framework.decorators import (
     throttle_classes,
 )
 from rest_framework.response import Response
-from rest_framework.throttling import AnonRateThrottle
+from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from .models import Notification, SellerRating, SupportMessage, Utilisateur
@@ -38,6 +38,13 @@ class RegisterRateThrottle(AnonRateThrottle):
     """Limite stricte anti-abus sur l'inscription (scope 'register')."""
 
     scope = "register"
+
+
+class AIRateThrottle(UserRateThrottle):
+    """Limite le proxy IA (OpenRouter) par utilisateur pour eviter l'abus de
+    cout : scope 'ai' (voir DEFAULT_THROTTLE_RATES)."""
+
+    scope = "ai"
 
 
 # ============================================================
@@ -691,6 +698,7 @@ def _ask_openrouter(messages):
 
 @api_view(["POST"])
 @permission_classes([permissions.IsAuthenticated])
+@throttle_classes([AIRateThrottle])
 def support_ai(request):
     """
     POST /api/support/ai/  { "body": "..." }

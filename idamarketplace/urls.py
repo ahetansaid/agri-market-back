@@ -176,14 +176,6 @@ urlpatterns = [
     path("api/spotlight-category/", spotlight_category, name="api-spotlight-category"),
     # ViewSets (annonces, categories, evenements)
     path("", include(router.urls)),
-    # Documentation OpenAPI
-    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
-    path(
-        "api/docs/",
-        SpectacularSwaggerView.as_view(url_name="schema"),
-        name="swagger-ui",
-    ),
-    path("api/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Sert /media/ meme en production (staging) : les images produits sont
@@ -195,3 +187,20 @@ urlpatterns += [
         {"document_root": settings.MEDIA_ROOT},
     ),
 ]
+
+# Documentation OpenAPI : exposee uniquement en dev (ou si EXPOSE_API_DOCS=1).
+# En prod, on n'offre pas de cartographie complete de l'API aux attaquants.
+if settings.DEBUG or _os.getenv("EXPOSE_API_DOCS") == "1":
+    urlpatterns += [
+        path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+        path(
+            "api/docs/",
+            SpectacularSwaggerView.as_view(url_name="schema"),
+            name="swagger-ui",
+        ),
+        path(
+            "api/redoc/",
+            SpectacularRedocView.as_view(url_name="schema"),
+            name="redoc",
+        ),
+    ]

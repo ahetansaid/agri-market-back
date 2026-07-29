@@ -252,6 +252,8 @@ REST_FRAMEWORK = {
         # enumeration / grinding de refresh token).
         "auth": "10/min",
         "register": "5/min",
+        # Proxy IA (OpenRouter) : bride l'abus de cout par utilisateur.
+        "ai": "12/min",
     },
 }
 

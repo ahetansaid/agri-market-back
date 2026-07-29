@@ -8,8 +8,14 @@ from drf_spectacular.utils import (
 )
 from rest_framework import serializers, status, viewsets
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import (
+    IsAdminUser,
+    IsAuthenticated,
+    IsAuthenticatedOrReadOnly,
+)
 from rest_framework.response import Response
+
+from idamarketplace.security import sanitize_html
 
 from .models import (
     Evenement,
@@ -141,6 +147,16 @@ class EvenementSerializer(serializers.ModelSerializer):
                 "help_text": "Uniquement les événements actifs sont visibles publiquement"
             },
         }
+
+    def to_representation(self, instance):
+        # Defense en profondeur : on assainit le HTML des descriptions a la
+        # sortie de l'API (couvre aussi le contenu legacy deja en base), en
+        # complement de la restriction d'ecriture aux admins.
+        data = super().to_representation(instance)
+        for field in ("description_fr", "description_en", "description_it"):
+            if data.get(field):
+                data[field] = sanitize_html(data[field])
+        return data
 
     def get_nb_interesses(self, obj):
         return obj.count_interesses()
@@ -454,6 +470,12 @@ class EvenementViewSet(viewsets.ModelViewSet):
         return context
 
     def get_permissions(self):
+        # SECURITE : la creation/modification/suppression d'un evenement est
+        # STRICTEMENT reservee aux administrateurs. Sans ce garde-fou, tout
+        # utilisateur authentifie pouvait creer/editer/SUPPRIMER n'importe quel
+        # evenement (ModelViewSet + IsAuthenticatedOrReadOnly).
+        if self.action in ["create", "update", "partial_update", "destroy"]:
+            return [IsAdminUser()]
         # Inscription / desinscription doivent etre authentifiees : sinon
         # n'importe qui peut spammer ou supprimer l'inscription d'autrui
         # par enumeration d'emails.
