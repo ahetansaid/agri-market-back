@@ -707,3 +707,149 @@ def conversations_unread(request):
     return Response({"unread": n})
 
 
+# ============================================================
+# ADMIN — Modération des annonces (staff-only, double validation)
+# ============================================================
+
+
+class ModerationSerializer(serializers.ModelSerializer):
+    type_display = serializers.CharField(source="get_type_display", read_only=True)
+    status_display = serializers.CharField(
+        source="get_status_display", read_only=True
+    )
+    author = serializers.SerializerMethodField()
+    image_url = serializers.SerializerMethodField()
+    submitted_at = serializers.SerializerMethodField()
+    can_validate = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Announcement
+        fields = [
+            "id",
+            "reference",
+            "title",
+            "type",
+            "type_display",
+            "status",
+            "status_display",
+            "author",
+            "image_url",
+            "description",
+            "submitted_at",
+            "can_validate",
+        ]
+
+    def get_author(self, obj):
+        try:
+            return obj.get_display_name()
+        except Exception:
+            return obj.user.username if obj.user_id else ""
+
+    def get_image_url(self, obj):
+        request = self.context.get("request")
+        try:
+            if obj.image and hasattr(obj.image, "url"):
+                url = obj.image.url
+                return request.build_absolute_uri(url) if request else url
+        except Exception:
+            pass
+        return None
+
+    def get_submitted_at(self, obj):
+        for f in ("created_at", "date_creation", "createdat", "created"):
+            v = getattr(obj, f, None)
+            if v:
+                return v
+        return None
+
+    def get_can_validate(self, obj):
+        request = self.context.get("request")
+        user = getattr(request, "user", None)
+        if not user:
+            return False
+        if obj.user_id == user.id:
+            return False  # jamais sa propre annonce
+        if obj.status == "pending_second" and obj.first_approver_id == user.id:
+            return False  # separation des taches : 2e validateur != 1er
+        return True
+
+
+@api_view(["GET"])
+@permission_classes([permissions.IsAdminUser])
+def admin_pending_announcements(request):
+    """GET /api/admin/announcements/pending/ — annonces en attente de validation."""
+    qs = (
+        Announcement.objects.filter(
+            status__in=["pending_first", "pending_second"]
+        )
+        .select_related("user")
+        .order_by("status", "-id")
+    )
+    data = ModerationSerializer(qs, many=True, context={"request": request}).data
+    return Response({"count": len(data), "results": data})
+
+
+@api_view(["POST"])
+@permission_classes([permissions.IsAdminUser])
+def admin_moderate_announcement(request, pk):
+    """POST /api/admin/announcements/<pk>/moderate/ — {action: approve|reject, reason?}.
+
+    Respecte la double validation et la séparation des tâches (on ne modère
+    jamais sa propre annonce ; le 2e validateur doit différer du 1er).
+    """
+    ann = get_object_or_404(Announcement, pk=pk)
+    user = request.user
+    action = (request.data.get("action") or "").strip()
+
+    if ann.user_id == user.id:
+        return Response(
+            {"detail": "Vous ne pouvez pas modérer votre propre annonce."},
+            status=403,
+        )
+
+    def _safe(fn, *args):
+        # Le changement de statut est persisté par la méthode avant la
+        # notification ; on ne laisse pas un échec de notif casser la modération.
+        try:
+            fn(*args)
+        except Exception:
+            pass
+
+    if action == "approve":
+        if ann.status == "pending_first":
+            _safe(ann.approve_first, user)
+        elif ann.status == "pending_second":
+            if ann.first_approver_id == user.id:
+                return Response(
+                    {
+                        "detail": (
+                            "Vous avez validé la 1re étape : un autre "
+                            "validateur doit effectuer la 2de (séparation des tâches)."
+                        )
+                    },
+                    status=403,
+                )
+            _safe(ann.approve_second, user)
+        else:
+            return Response(
+                {"detail": "Cette annonce n'est pas en attente de validation."},
+                status=400,
+            )
+    elif action == "reject":
+        reason = (request.data.get("reason") or "").strip()
+        if not reason:
+            return Response(
+                {"detail": "Un motif de rejet est requis."}, status=400
+            )
+        _safe(ann.reject, user, reason)
+    else:
+        return Response(
+            {"detail": "Action invalide (approve | reject)."}, status=400
+        )
+
+    ann.refresh_from_db()
+    return Response(
+        ModerationSerializer(ann, context={"request": request}).data
+    )
+
+

@@ -52,6 +52,8 @@ from evenements.api import EvenementViewSet
 from marketplace.api import (
     AnnouncementViewSet,
     CategoryViewSet,
+    admin_moderate_announcement,
+    admin_pending_announcements,
     announcement_conversation,
     conversation_detail,
     conversations_unread,
@@ -177,6 +179,16 @@ urlpatterns = [
     path("api/spotlight-category/", spotlight_category, name="api-spotlight-category"),
     path("api/about/", about_page, name="api-about"),
     path("api/admin/about/", admin_about, name="api-admin-about"),
+    path(
+        "api/admin/announcements/pending/",
+        admin_pending_announcements,
+        name="api-admin-pending",
+    ),
+    path(
+        "api/admin/announcements/<int:pk>/moderate/",
+        admin_moderate_announcement,
+        name="api-admin-moderate",
+    ),
     # ViewSets (annonces, categories, evenements)
     path("", include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
