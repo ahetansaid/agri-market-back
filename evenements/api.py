@@ -253,6 +253,15 @@ class EvenementViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     lookup_field = "slug"
 
+    def get_queryset(self):
+        # Le public ne voit que les événements actifs (à venir). Le staff voit
+        # TOUT (passés/inactifs inclus) pour pouvoir les gérer depuis l'admin.
+        qs = Evenement.objects.all().order_by("-date_debut")
+        user = self.request.user
+        if not (user.is_authenticated and user.is_staff):
+            qs = qs.filter(est_actif=True)
+        return qs
+
     @extend_schema(
         methods=["GET"],
         summary="Vérifier son inscription",
