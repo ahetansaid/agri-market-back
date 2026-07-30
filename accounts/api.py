@@ -17,6 +17,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from rest_framework import permissions, serializers, status
@@ -130,6 +131,7 @@ class MeSerializer(serializers.ModelSerializer):
             "ville",
             "user_type",
             "is_staff",
+            "is_superuser",
             "date_joined",
             "country_code",
             "country_name",
@@ -811,3 +813,90 @@ def support_unread(request):
         user=request.user, from_staff=True, is_read=False
     ).count()
     return Response({"unread": n})
+
+
+# ============================================================
+# ADMIN — Gestion des utilisateurs (staff-only)
+# ============================================================
+
+
+def _serialize_admin_user(u):
+    full = f"{u.first_name or ''} {u.last_name or ''}".strip()
+    return {
+        "id": u.id,
+        "username": u.username,
+        "email": u.email,
+        "display_name": full or u.username,
+        "is_active": u.is_active,
+        "is_staff": u.is_staff,
+        "is_superuser": u.is_superuser,
+        "user_type": getattr(u, "user_type", None),
+        "country_name": u.pays.name if getattr(u, "pays", None) else None,
+        "date_joined": u.date_joined,
+    }
+
+
+@api_view(["GET"])
+@permission_classes([permissions.IsAdminUser])
+def admin_users(request):
+    """GET /api/admin/users/?q= — liste des comptes (recherche nom/email)."""
+    q = (request.query_params.get("q") or "").strip()
+    qs = Utilisateur.objects.all().order_by("-date_joined")
+    if q:
+        qs = qs.filter(
+            Q(username__icontains=q)
+            | Q(email__icontains=q)
+            | Q(first_name__icontains=q)
+            | Q(last_name__icontains=q)
+        )
+    total = qs.count()
+    results = [_serialize_admin_user(u) for u in qs[:100]]
+    return Response({"count": total, "results": results})
+
+
+@api_view(["PATCH"])
+@permission_classes([permissions.IsAdminUser])
+def admin_user_update(request, pk):
+    """PATCH /api/admin/users/<pk>/ — {is_active?, is_staff?}.
+
+    Garde-fous :
+      - on ne modifie jamais son propre compte ici (anti-lockout) ;
+      - un super-admin est intouchable par un non super-admin ;
+      - accorder/retirer le rôle admin (is_staff) est réservé aux super-admins
+        (évite l'escalade de privilèges par un simple staff).
+    """
+    target = get_object_or_404(Utilisateur, pk=pk)
+    actor = request.user
+
+    if target.id == actor.id:
+        return Response(
+            {"detail": "Vous ne pouvez pas modifier votre propre compte ici."},
+            status=403,
+        )
+    if target.is_superuser and not actor.is_superuser:
+        return Response(
+            {"detail": "Seul un super-admin peut modifier un super-admin."},
+            status=403,
+        )
+
+    data = request.data
+    fields = []
+    if "is_active" in data:
+        target.is_active = bool(data["is_active"])
+        fields.append("is_active")
+    if "is_staff" in data:
+        if not actor.is_superuser:
+            return Response(
+                {
+                    "detail": (
+                        "Seul un super-admin peut accorder ou retirer le rôle admin."
+                    )
+                },
+                status=403,
+            )
+        target.is_staff = bool(data["is_staff"])
+        fields.append("is_staff")
+
+    if fields:
+        target.save(update_fields=fields)
+    return Response(_serialize_admin_user(target))

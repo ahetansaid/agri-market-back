@@ -35,6 +35,8 @@ from two_factor.urls import urlpatterns as tf_urls
 
 from accounts.api import (
     activate_account,
+    admin_user_update,
+    admin_users,
     me,
     my_announcements,
     my_notifications,
@@ -179,6 +181,8 @@ urlpatterns = [
     path("api/spotlight-category/", spotlight_category, name="api-spotlight-category"),
     path("api/about/", about_page, name="api-about"),
     path("api/admin/about/", admin_about, name="api-admin-about"),
+    path("api/admin/users/", admin_users, name="api-admin-users"),
+    path("api/admin/users/<int:pk>/", admin_user_update, name="api-admin-user-update"),
     path(
         "api/admin/announcements/pending/",
         admin_pending_announcements,
