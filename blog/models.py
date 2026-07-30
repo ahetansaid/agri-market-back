@@ -30,6 +30,63 @@ class About(models.Model):
         return f"{self.title}"
 
 
+class AboutPage(models.Model):
+    """Contenu structuré de la page « À propos » (piloté depuis l'admin).
+
+    Singleton logique : on n'affiche que la première ligne active côté API.
+    Les champs texte sont traduisibles (modeltranslation, fallback FR).
+    """
+
+    title = models.CharField(
+        "Titre", max_length=200, default="À propos de Agri Market Africa"
+    )
+    intro = models.TextField("Introduction")
+    vision_title = models.CharField("Titre — Vision", max_length=200, default="Notre vision")
+    vision = models.TextField("Notre vision")
+    perspectives_title = models.CharField(
+        "Titre — Perspectives", max_length=200, default="Nos perspectives d'avenir"
+    )
+    perspectives = models.TextField("Nos perspectives d'avenir")
+    values_title = models.CharField("Titre — Valeurs", max_length=200, default="Nos valeurs")
+    mission_title = models.CharField("Titre — Mission", max_length=200, default="Notre mission")
+    mission = models.TextField("Notre mission")
+    is_active = models.BooleanField("Actif", default=True)
+    createdat = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updateDate = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Page À propos"
+        verbose_name_plural = "Page À propos"
+
+    def __str__(self):
+        return self.title
+
+
+class AboutValue(models.Model):
+    """Une valeur (Excellence, Durabilité…) affichée en carte sur la page."""
+
+    page = models.ForeignKey(
+        AboutPage, related_name="values", on_delete=models.CASCADE
+    )
+    icon = models.CharField(
+        "Icône",
+        max_length=50,
+        default="Sparkles",
+        help_text="Nom d'icône lucide-react (ex: Award, Leaf, Users, Lightbulb, ShieldCheck).",
+    )
+    title = models.CharField("Titre", max_length=100)
+    description = models.TextField("Description")
+    order = models.PositiveIntegerField("Ordre", default=0)
+
+    class Meta:
+        verbose_name = "Valeur"
+        verbose_name_plural = "Valeurs"
+        ordering = ["order", "id"]
+
+    def __str__(self):
+        return self.title
+
+
 class Conversation(models.Model):
     announcement = models.ForeignKey(
         Announcement, on_delete=models.CASCADE, related_name="conversations", default=1

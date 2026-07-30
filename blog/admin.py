@@ -1,8 +1,11 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInline
 
 from blog.models import (
     About,
+    AboutPage,
+    AboutValue,
     Conversation,
     Message,
     Partenaire,
@@ -48,6 +51,18 @@ class AboutAdmin(ImportExportModelAdmin):
     search_fields = ("title",)
     list_filter = ("title", "createdat")
     ordering = ("-createdat",)
+
+
+class AboutValueInline(TranslationStackedInline):
+    model = AboutValue
+    extra = 1
+
+
+@admin.register(AboutPage)
+class AboutPageAdmin(TabbedTranslationAdmin):
+    list_display = ("title", "is_active", "updateDate")
+    list_editable = ("is_active",)
+    inlines = [AboutValueInline]
 
 
 @admin.register(Conversation)

@@ -32,6 +32,9 @@ FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
 SITE_ID = 1
 
 INSTALLED_APPS = [
+    # modeltranslation DOIT precéder django.contrib.admin pour que les
+    # TranslationAdmin (onglets de langue) s'enregistrent correctement.
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -43,7 +46,6 @@ INSTALLED_APPS = [
     "taggit",
     "crispy_forms",
     "crispy_bootstrap5",
-    "modeltranslation",
     "marketplace",
     "accounts",
     "evenements",
