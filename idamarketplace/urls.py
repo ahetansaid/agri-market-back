@@ -47,7 +47,7 @@ from accounts.api import (
     support_messages,
     support_unread,
 )
-from blog.api import about_page
+from blog.api import about_page, admin_about
 from evenements.api import EvenementViewSet
 from marketplace.api import (
     AnnouncementViewSet,
@@ -176,6 +176,7 @@ urlpatterns = [
     path("api/producer-of-month/", producer_of_month, name="api-producer-of-month"),
     path("api/spotlight-category/", spotlight_category, name="api-spotlight-category"),
     path("api/about/", about_page, name="api-about"),
+    path("api/admin/about/", admin_about, name="api-admin-about"),
     # ViewSets (annonces, categories, evenements)
     path("", include(router.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
