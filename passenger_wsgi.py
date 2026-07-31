@@ -1,9 +1,10 @@
-"""Point d'entrée Passenger (cPanel « Setup Python App ») — backend Django.
+"""Point d'entrée Passenger/LiteSpeed (cPanel n0c) — backend Django.
 
-Passenger utilise la variable `application` de ce fichier (placé à la racine
-de l'app, à côté de manage.py). Chemins auto-détectés → portable quel que soit
-le compte / dossier cPanel. WhiteNoise sert /static et /media (Passenger ne les
-sert pas), et on reconstruit PATH_INFO (quirk Passenger/cPanel).
+L'hébergeur cherche la variable `application` de ce fichier (à la racine de
+l'app). On FORCE le module de settings n0c : sur LiteSpeed, DJANGO_SETTINGS_MODULE
+peut être pré-défini sur `production` (config DB en SSL incompatible avec le
+Postgres local cPanel) → 500. WhiteNoise sert /static et /media, et on
+reconstruit PATH_INFO (quirk Passenger/LiteSpeed).
 """
 
 import os
@@ -14,7 +15,9 @@ APP_DIR = os.path.dirname(os.path.abspath(__file__))
 if APP_DIR not in sys.path:
     sys.path.insert(0, APP_DIR)
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "idamarketplace.settings.n0c")
+# NE PAS utiliser setdefault ici : il faut ÉCRASER une éventuelle valeur
+# pré-définie par l'hôte (ex. production) pour garantir la config n0c.
+os.environ["DJANGO_SETTINGS_MODULE"] = "idamarketplace.settings.n0c"
 
 from django.core.wsgi import get_wsgi_application  # noqa: E402
 from whitenoise import WhiteNoise  # noqa: E402
@@ -25,20 +28,22 @@ _application = WhiteNoise(
     root=os.path.join(APP_DIR, "staticfiles"),
     prefix="/static/",
 )
-_application.add_files(os.path.join(APP_DIR, "media"), prefix="/media/")
+# add_files seulement si le dossier existe (évite un plantage si media vide).
+if os.path.isdir(os.path.join(APP_DIR, "media")):
+    _application.add_files(os.path.join(APP_DIR, "media"), prefix="/media/")
 
 
 class PassengerPathInfoFix:
-    """Passenger ne fournit pas PATH_INFO — on le reconstruit depuis REQUEST_URI."""
+    """Reconstruit PATH_INFO depuis REQUEST_URI (non fourni par Passenger)."""
 
     def __init__(self, app):
         self.app = app
 
     def __call__(self, environ, start_response):
-        request_uri = unquote(environ.get("REQUEST_URI", ""))
-        script_name = unquote(environ.get("SCRIPT_NAME", ""))
-        offset = len(script_name) if request_uri.startswith(script_name) else 0
-        environ["PATH_INFO"] = request_uri[offset:].split("?", 1)[0]
+        uri = unquote(environ.get("REQUEST_URI", ""))
+        sn = unquote(environ.get("SCRIPT_NAME", ""))
+        off = len(sn) if uri.startswith(sn) else 0
+        environ["PATH_INFO"] = uri[off:].split("?", 1)[0]
         return self.app(environ, start_response)
 
 
