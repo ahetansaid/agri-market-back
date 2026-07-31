@@ -826,6 +826,9 @@ def _serialize_admin_user(u):
         "id": u.id,
         "username": u.username,
         "email": u.email,
+        "first_name": u.first_name or "",
+        "last_name": u.last_name or "",
+        "telephone": str(u.telephone) if getattr(u, "telephone", None) else "",
         "display_name": full or u.username,
         "is_active": u.is_active,
         "is_staff": u.is_staff,
@@ -854,16 +857,18 @@ def admin_users(request):
     return Response({"count": total, "results": results})
 
 
-@api_view(["PATCH"])
+@api_view(["PATCH", "DELETE"])
 @permission_classes([permissions.IsAdminUser])
 def admin_user_update(request, pk):
-    """PATCH /api/admin/users/<pk>/ — {is_active?, is_staff?}.
+    """PATCH /api/admin/users/<pk>/ — édite un compte ; DELETE — le supprime.
+
+    PATCH accepte : first_name, last_name, email, telephone (profil),
+    is_active, is_staff (rôles).
 
     Garde-fous :
-      - on ne modifie jamais son propre compte ici (anti-lockout) ;
+      - on ne modifie/supprime jamais son propre compte (anti-lockout) ;
       - un super-admin est intouchable par un non super-admin ;
-      - accorder/retirer le rôle admin (is_staff) est réservé aux super-admins
-        (évite l'escalade de privilèges par un simple staff).
+      - accorder/retirer le rôle admin (is_staff) est réservé aux super-admins.
     """
     target = get_object_or_404(Utilisateur, pk=pk)
     actor = request.user
@@ -879,8 +884,34 @@ def admin_user_update(request, pk):
             status=403,
         )
 
+    if request.method == "DELETE":
+        target.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
     data = request.data
     fields = []
+
+    # Profil
+    for f in ("first_name", "last_name", "telephone"):
+        if f in data:
+            setattr(target, f, data.get(f) or None)
+            fields.append(f)
+    if "email" in data:
+        new_email = (data.get("email") or "").strip()
+        if new_email and new_email.lower() != (target.email or "").lower():
+            if (
+                Utilisateur.objects.filter(email__iexact=new_email)
+                .exclude(id=target.id)
+                .exists()
+            ):
+                return Response(
+                    {"detail": "Cet email est déjà utilisé par un autre compte."},
+                    status=400,
+                )
+            target.email = new_email
+            fields.append("email")
+
+    # Rôles
     if "is_active" in data:
         target.is_active = bool(data["is_active"])
         fields.append("is_active")
@@ -900,3 +931,25 @@ def admin_user_update(request, pk):
     if fields:
         target.save(update_fields=fields)
     return Response(_serialize_admin_user(target))
+
+
+@api_view(["POST"])
+@permission_classes([permissions.IsAdminUser])
+def admin_user_reset_password(request, pk):
+    """POST /api/admin/users/<pk>/reset-password/ — envoie l'email de
+    réinitialisation à l'utilisateur (il choisit lui-même son nouveau mot de
+    passe via le lien reçu)."""
+    target = get_object_or_404(Utilisateur, pk=pk)
+    if not target.email:
+        return Response({"detail": "Ce compte n'a pas d'email."}, status=400)
+    try:
+        _send_password_reset_email(target)
+    except Exception:
+        logger.exception("Echec envoi reset password admin (%s)", target.email)
+        return Response(
+            {"detail": "L'email de réinitialisation n'a pas pu être envoyé."},
+            status=502,
+        )
+    return Response(
+        {"detail": f"Email de réinitialisation envoyé à {target.email}."}
+    )
