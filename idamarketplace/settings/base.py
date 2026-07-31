@@ -6,8 +6,12 @@ from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-# Chargement explicite du fichier .env
-load_dotenv()
+# Chargement du .env avec un CHEMIN EXPLICITE (BASE_DIR/.env). Indispensable
+# sous Passenger/cPanel : le répertoire courant n'est pas celui de l'app, donc
+# un load_dotenv() sans argument ne trouverait pas le .env (→ SECRET_KEY absent
+# → l'app refuse de démarrer). Sur Render, l'absence de ce fichier est sans
+# effet (les variables viennent de l'environnement).
+load_dotenv(BASE_DIR / ".env")
 
 
 SECRET_KEY = os.getenv("SECRET_KEY")
