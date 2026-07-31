@@ -1,46 +1,45 @@
+"""Point d'entrée Passenger (cPanel « Setup Python App ») — backend Django.
+
+Passenger utilise la variable `application` de ce fichier (placé à la racine
+de l'app, à côté de manage.py). Chemins auto-détectés → portable quel que soit
+le compte / dossier cPanel. WhiteNoise sert /static et /media (Passenger ne les
+sert pas), et on reconstruit PATH_INFO (quirk Passenger/cPanel).
+"""
+
 import os
 import sys
+from urllib.parse import unquote
 
-from django.core.wsgi import get_wsgi_application
-from whitenoise import WhiteNoise
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+if APP_DIR not in sys.path:
+    sys.path.insert(0, APP_DIR)
 
-# Set up paths and environment variables
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "idamarketplace.settings.n0c")
 
-sys.path.append("/home/kpfdvptmns/var/www/idainternational")
-os.environ["DJANGO_SETTINGS_MODULE"] = "idamarketplace.settings.production"
+from django.core.wsgi import get_wsgi_application  # noqa: E402
+from whitenoise import WhiteNoise  # noqa: E402
 
-# Set script name
-SCRIPT_NAME = os.getcwd()
+_application = get_wsgi_application()
+_application = WhiteNoise(
+    _application,
+    root=os.path.join(APP_DIR, "staticfiles"),
+    prefix="/static/",
+)
+_application.add_files(os.path.join(APP_DIR, "media"), prefix="/media/")
 
 
-class PassengerPathInfoFix(object):
-    """
-    Sets PATH_INFO from REQUEST_URI because Passenger doesn't provide it.
-    """
+class PassengerPathInfoFix:
+    """Passenger ne fournit pas PATH_INFO — on le reconstruit depuis REQUEST_URI."""
 
     def __init__(self, app):
         self.app = app
 
     def __call__(self, environ, start_response):
-        from urllib.parse import unquote
-
-        environ["SCRIPT_NAME"] = SCRIPT_NAME
-        request_uri = unquote(environ["REQUEST_URI"])
+        request_uri = unquote(environ.get("REQUEST_URI", ""))
         script_name = unquote(environ.get("SCRIPT_NAME", ""))
         offset = len(script_name) if request_uri.startswith(script_name) else 0
         environ["PATH_INFO"] = request_uri[offset:].split("?", 1)[0]
         return self.app(environ, start_response)
 
 
-# Set the application
-# Remplacez la fin du fichier par :
-application = get_wsgi_application()
-application = WhiteNoise(
-    application,
-    root="/home/kpfdvptmns/var/www/idainternational/staticfiles",
-    prefix="/static/",  # Ajout crucial
-)
-application.add_files(
-    "/home/kpfdvptmns/var/www/idainternational/media", prefix="/media/"
-)
-application = PassengerPathInfoFix(application)  # Gardez cette ligne en dernier
+application = PassengerPathInfoFix(_application)
